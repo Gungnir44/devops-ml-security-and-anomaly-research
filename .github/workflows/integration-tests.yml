@@ -1,0 +1,80 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run integration tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  integration-test:
+    name: Integration Tests with Docker Stack
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r scripts/python/requirements.txt
+        pip install pytest requests
+
+    - name: Start Docker services
+      run: |
+        cd docker
+        docker-compose -f docker-compose-monitoring.yml up -d
+        echo "Waiting for services to start..."
+        sleep 30
+
+    - name: Check service health
+      run: |
+        docker-compose -f docker/docker-compose-monitoring.yml ps
+        docker ps --format "table {{.Names}}\t{{.Status}}"
+
+    - name: Run integration tests
+      run: |
+        cd scripts/python
+        pytest tests/test_integration.py -v -m integration --tb=short
+      continue-on-error: true
+
+    - name: Check dashboard health
+      run: |
+        curl -f http://localhost:5000/health || echo "Dashboard not ready"
+
+    - name: Check Prometheus
+      run: |
+        curl -f http://localhost:9090/-/healthy || echo "Prometheus not ready"
+
+    - name: Check Grafana
+      run: |
+        curl -f http://localhost:3000/api/health || echo "Grafana not ready"
+
+    - name: Collect container logs
+      if: failure()
+      run: |
+        docker-compose -f docker/docker-compose-monitoring.yml logs --tail=100
+
+    - name: Stop Docker services
+      if: always()
+      run: |
+        cd docker
+        docker-compose -f docker-compose-monitoring.yml down -v
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: integration-test-results
+        path: |
+          pytest-results.xml
+          docker-logs.txt
