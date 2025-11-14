@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # System Health Checker Service
+  health-checker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: devops-health-checker
+    volumes:
+      - ./reports:/app/reports
+    restart: unless-stopped
+
+  # Placeholder for future services
+  # web-app:
+  #   image: nginx:alpine
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./web:/usr/share/nginx/html
+
+  # database:
+  #   image: postgres:15-alpine
+  #   environment:
+  #     POSTGRES_PASSWORD: example
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres-data:
