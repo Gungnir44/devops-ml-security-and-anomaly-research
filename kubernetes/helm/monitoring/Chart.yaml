@@ -1,0 +1,21 @@
+apiVersion: v2
+name: monitoring
+description: A Helm chart for deploying the DevOps monitoring stack on Kubernetes
+type: application
+version: 1.0.0
+appVersion: "1.0"
+
+keywords:
+  - monitoring
+  - prometheus
+  - grafana
+  - devops
+
+maintainers:
+  - name: Joshua
+    email: joshua.m.byrd3@gmail.com
+
+sources:
+  - https://github.com/Gungnir44/DevOps-Learning-Repo
+
+dependencies: []
