@@ -1,0 +1,157 @@
+version: '3.8'
+
+# DevOps Monitoring Stack
+# Author: Joshua
+# Description: Multi-container monitoring system with health checker and dashboard
+
+services:
+  # Health Checker Service
+  health-checker:
+    build:
+      context: ..
+      dockerfile: docker/health-checker.Dockerfile
+    container_name: devops-health-checker
+    hostname: health-checker-container
+    volumes:
+      - health-reports:/app/reports
+      - health-logs:/app/logs
+      - ../scripts/python/config.json:/app/config.json:ro
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Run health check every 5 minutes
+    command: >
+      sh -c "while true; do
+        python system_health_checker_v2.py --config /app/config.json;
+        sleep 300;
+      done"
+    healthcheck:
+      test: ["CMD", "python", "system_health_checker_v2.py", "--quiet"]
+      interval: 5m
+      timeout: 30s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.devops.service=health-checker"
+      - "com.devops.description=System health monitoring"
+
+  # Web Dashboard Service
+  dashboard:
+    build:
+      context: ..
+      dockerfile: docker/web-dashboard.Dockerfile
+    container_name: devops-dashboard
+    hostname: dashboard-container
+    ports:
+      - "5000:5000"
+    volumes:
+      - health-reports:/app/reports:ro
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+    depends_on:
+      - health-checker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.devops.service=dashboard"
+      - "com.devops.description=Web dashboard for health reports"
+
+  # PostgreSQL Database (Example Service for monitoring)
+  postgres-demo:
+    image: postgres:15-alpine
+    container_name: devops-postgres
+    hostname: postgres-demo
+    environment:
+      POSTGRES_USER: demouser
+      POSTGRES_PASSWORD: demopass
+      POSTGRES_DB: demodb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U demouser"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.devops.service=database"
+      - "com.devops.description=Demo PostgreSQL database"
+
+  # Redis Cache (Example Service for monitoring)
+  redis-demo:
+    image: redis:7-alpine
+    container_name: devops-redis
+    hostname: redis-demo
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.devops.service=cache"
+      - "com.devops.description=Demo Redis cache"
+
+  # Nginx Web Server (Example Service)
+  nginx-demo:
+    image: nginx:alpine
+    container_name: devops-nginx
+    hostname: nginx-demo
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx-content:/usr/share/nginx/html:ro
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      - "com.devops.service=webserver"
+      - "com.devops.description=Demo web server"
+
+# Networks
+networks:
+  monitoring-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+    labels:
+      - "com.devops.network=monitoring"
+
+# Volumes
+volumes:
+  health-reports:
+    driver: local
+    labels:
+      - "com.devops.volume=reports"
+  health-logs:
+    driver: local
+    labels:
+      - "com.devops.volume=logs"
+  postgres-data:
+    driver: local
+    labels:
+      - "com.devops.volume=postgres"
+  redis-data:
+    driver: local
+    labels:
+      - "com.devops.volume=redis"
