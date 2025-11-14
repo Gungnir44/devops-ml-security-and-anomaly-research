@@ -1,0 +1,51 @@
+{
+  "email": {
+    "enabled": false,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "your-email@gmail.com",
+    "sender_password": "your-app-password",
+    "recipient_emails": [
+      "admin@example.com"
+    ],
+    "alert_on": ["WARNING", "CRITICAL"]
+  },
+  "thresholds": {
+    "cpu_warning": 60,
+    "cpu_critical": 80,
+    "memory_warning": 60,
+    "memory_critical": 80,
+    "disk_warning": 60,
+    "disk_critical": 80
+  },
+  "databases": {
+    "check_enabled": false,
+    "connections": [
+      {
+        "name": "PostgreSQL Production",
+        "type": "postgresql",
+        "host": "localhost",
+        "port": 5432,
+        "database": "mydb",
+        "user": "dbuser",
+        "password": "dbpass",
+        "timeout": 5
+      },
+      {
+        "name": "MySQL Dev",
+        "type": "mysql",
+        "host": "localhost",
+        "port": 3306,
+        "database": "testdb",
+        "user": "root",
+        "password": "password",
+        "timeout": 5
+      }
+    ]
+  },
+  "monitoring": {
+    "report_path": "./reports",
+    "keep_history": true,
+    "history_days": 30
+  }
+}

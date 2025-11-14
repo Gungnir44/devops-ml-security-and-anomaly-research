@@ -4,56 +4,92 @@ Collection of Python scripts for DevOps automation tasks.
 
 ## Scripts
 
-### 1. System Health Checker (`system_health_checker.py`)
+### 1. System Health Checker V2 (`system_health_checker_v2.py`) ⭐ ENHANCED
 
-**Purpose**: Monitor system resources and generate comprehensive health reports
+**Purpose**: Production-ready system monitoring with email alerts and database checks
 
-**Features**:
+**New Features**:
+- ✅ Email alerting for WARNING/CRITICAL states
+- ✅ Database connectivity monitoring (PostgreSQL, MySQL, MongoDB, Redis)
+- ✅ Configurable thresholds via JSON config
+- ✅ Automated scheduling (cron/Task Scheduler)
+- ✅ Historical report archiving
+- ✅ Exit codes for CI/CD integration
+- ✅ Command-line options (--quiet, --no-email)
+
+**Core Monitoring**:
 - CPU usage monitoring (total and per-core)
 - Memory and swap usage tracking
 - Disk usage for all mounted partitions
 - Network I/O statistics
 - Top CPU-consuming processes
 - Overall health status (HEALTHY/WARNING/CRITICAL)
-- JSON export for integration with monitoring systems
 
-**Usage**:
+**Quick Start**:
 
 ```bash
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the health checker
-python system_health_checker.py
+# Create config file
+cp config.example.json config.json
+nano config.json  # Edit with your settings
 
-# Output: Console report + system_health_report.json
+# Run the enhanced health checker
+python system_health_checker_v2.py
+
+# Automated scheduling
+cd ../bash
+./schedule_health_check.sh       # Linux/macOS
+.\schedule_health_check.ps1      # Windows (PowerShell)
 ```
 
-**Docker Usage**:
+**Configuration Example**:
+
+```json
+{
+  "email": {
+    "enabled": true,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "sender_email": "alerts@example.com",
+    "recipient_emails": ["admin@example.com"]
+  },
+  "databases": {
+    "check_enabled": true,
+    "connections": [
+      {
+        "name": "Production DB",
+        "type": "postgresql",
+        "host": "localhost",
+        "port": 5432
+      }
+    ]
+  }
+}
+```
+
+**📖 Complete Guide**: See [docs/HEALTH_CHECKER_GUIDE.md](../../docs/HEALTH_CHECKER_GUIDE.md)
+
+---
+
+### 2. System Health Checker (Basic) (`system_health_checker.py`)
+
+**Purpose**: Simple system resource monitoring (beginner-friendly)
+
+**Features**:
+- CPU, memory, disk, and network monitoring
+- JSON export
+- No configuration required
+
+**Usage**:
 
 ```bash
-# Build the container
-docker build -t devops-health-checker -f ../../docker/Dockerfile .
-
-# Run the container
-docker run --rm devops-health-checker
+pip install psutil
+python system_health_checker.py
 ```
 
-**Health Status Thresholds**:
-- `HEALTHY`: Resource usage < 60%
-- `WARNING`: Resource usage 60-80%
-- `CRITICAL`: Resource usage > 80%
-
-**Output Format**:
-- Console: Formatted table with all metrics
-- JSON: Structured data for automation and monitoring
-
-**Use Cases**:
-- Automated system monitoring
-- Pre-deployment health checks
-- Incident response data collection
-- Resource capacity planning
-- Integration with alerting systems
+**Use this if**: You want a simple, no-configuration monitoring script
 
 ---
 

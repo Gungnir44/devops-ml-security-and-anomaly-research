@@ -1,1 +1,7 @@
 psutil==5.9.8
+
+# Optional database drivers (install as needed)
+# PostgreSQL: pip install psycopg2-binary
+# MySQL: pip install pymysql
+# MongoDB: pip install pymongo
+# Redis: pip install redis
