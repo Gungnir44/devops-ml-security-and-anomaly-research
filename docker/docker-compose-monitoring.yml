@@ -127,6 +127,28 @@ services:
       - "com.devops.service=webserver"
       - "com.devops.description=Demo web server"
 
+  # MongoDB Database (NoSQL Example)
+  mongodb-demo:
+    image: mongo:7-jammy
+    container_name: devops-mongodb
+    hostname: mongodb-demo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongouser
+      MONGO_INITDB_ROOT_PASSWORD: mongopass
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "com.devops.service=nosql-database"
+      - "com.devops.description=MongoDB NoSQL database"
+
 # Networks
 networks:
   monitoring-network:
@@ -155,3 +177,7 @@ volumes:
     driver: local
     labels:
       - "com.devops.volume=redis"
+  mongodb-data:
+    driver: local
+    labels:
+      - "com.devops.volume=mongodb"
