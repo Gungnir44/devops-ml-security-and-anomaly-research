@@ -59,6 +59,8 @@ jobs:
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
+          base: ''
+          head: ''
           extra_args: --only-verified
 
   # Dependency scanning
