@@ -153,7 +153,8 @@ jobs:
           wget -q https://github.com/goodwithtech/dockle/releases/download/v0.4.13/dockle_0.4.13_Linux-64bit.tar.gz
           tar zxf dockle_0.4.13_Linux-64bit.tar.gz
           docker images
-          ./dockle test-image:latest || echo "Dockle scan completed with findings"
+          docker save test-image:latest -o test-image.tar
+          ./dockle --input test-image.tar || echo "Dockle scan completed with findings"
         continue-on-error: true
 
   # Infrastructure as Code scanning
