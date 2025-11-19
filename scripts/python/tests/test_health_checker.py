@@ -18,12 +18,10 @@ class TestSystemHealthChecker:
             from system_health_checker_v2 import SystemHealthChecker
 
             checker = SystemHealthChecker()
-            checker.cpu_warning = 60
-            checker.cpu_critical = 80
 
-            result = checker.check_cpu()
+            result = checker.get_cpu_info()
             assert result["status"] == "HEALTHY"
-            assert result["usage"] == 50.0
+            assert result["cpu_percent_total"] == 50.0
 
     def test_cpu_check_warning(self):
         """Test CPU check returns warning when above warning threshold"""
@@ -31,12 +29,10 @@ class TestSystemHealthChecker:
             from system_health_checker_v2 import SystemHealthChecker
 
             checker = SystemHealthChecker()
-            checker.cpu_warning = 60
-            checker.cpu_critical = 80
 
-            result = checker.check_cpu()
+            result = checker.get_cpu_info()
             assert result["status"] == "WARNING"
-            assert result["usage"] == 70.0
+            assert result["cpu_percent_total"] == 70.0
 
     def test_cpu_check_critical(self):
         """Test CPU check returns critical when above critical threshold"""
@@ -44,12 +40,10 @@ class TestSystemHealthChecker:
             from system_health_checker_v2 import SystemHealthChecker
 
             checker = SystemHealthChecker()
-            checker.cpu_warning = 60
-            checker.cpu_critical = 80
 
-            result = checker.check_cpu()
+            result = checker.get_cpu_info()
             assert result["status"] == "CRITICAL"
-            assert result["usage"] == 90.0
+            assert result["cpu_percent_total"] == 90.0
 
     def test_memory_check_healthy(self):
         """Test memory check returns healthy status"""
@@ -59,22 +53,27 @@ class TestSystemHealthChecker:
         mock_memory.available = 4 * 1024**3
         mock_memory.used = 4 * 1024**3
 
+        mock_swap = MagicMock()
+        mock_swap.total = 2 * 1024**3
+        mock_swap.used = 1 * 1024**3
+        mock_swap.percent = 50.0
+
         with patch("psutil.virtual_memory", return_value=mock_memory):
-            from system_health_checker_v2 import SystemHealthChecker
+            with patch("psutil.swap_memory", return_value=mock_swap):
+                from system_health_checker_v2 import SystemHealthChecker
 
-            checker = SystemHealthChecker()
-            checker.memory_warning = 60
-            checker.memory_critical = 80
+                checker = SystemHealthChecker()
 
-            result = checker.check_memory()
-            assert result["status"] == "HEALTHY"
-            assert result["percent"] == 45.0
+                result = checker.get_memory_info()
+                assert result["status"] == "HEALTHY"
+                assert result["percent_used"] == 45.0
 
     def test_disk_check(self):
         """Test disk check returns proper status"""
         mock_partition = MagicMock()
         mock_partition.mountpoint = "/"
         mock_partition.device = "/dev/sda1"
+        mock_partition.fstype = "ext4"
 
         mock_usage = MagicMock()
         mock_usage.percent = 40.0
@@ -87,10 +86,8 @@ class TestSystemHealthChecker:
                 from system_health_checker_v2 import SystemHealthChecker
 
                 checker = SystemHealthChecker()
-                checker.disk_warning = 60
-                checker.disk_critical = 80
 
-                result = checker.check_disk()
+                result = checker.get_disk_info()
                 assert len(result) > 0
                 assert result[0]["status"] == "HEALTHY"
 
@@ -106,7 +103,7 @@ class TestSystemHealthChecker:
             "disk": [{"status": "HEALTHY"}],
         }
 
-        result = checker.determine_overall_health()
+        result = checker.get_overall_health()
         assert result == "HEALTHY"
 
     def test_overall_health_warning(self):
@@ -121,7 +118,7 @@ class TestSystemHealthChecker:
             "disk": [{"status": "HEALTHY"}],
         }
 
-        result = checker.determine_overall_health()
+        result = checker.get_overall_health()
         assert result == "WARNING"
 
     def test_overall_health_critical(self):
@@ -136,7 +133,7 @@ class TestSystemHealthChecker:
             "disk": [{"status": "HEALTHY"}],
         }
 
-        result = checker.determine_overall_health()
+        result = checker.get_overall_health()
         assert result == "CRITICAL"
 
 
@@ -145,11 +142,16 @@ class TestDatabaseChecker:
 
     def test_check_redis_success(self):
         """Test successful Redis connection"""
-        with patch("redis.Redis") as mock_redis:
-            mock_client = Mock()
-            mock_client.ping.return_value = True
-            mock_redis.return_value = mock_client
+        import sys
+        from unittest.mock import MagicMock
 
+        # Create a mock redis module
+        mock_redis_module = MagicMock()
+        mock_client = Mock()
+        mock_client.ping.return_value = True
+        mock_redis_module.Redis.return_value = mock_client
+
+        with patch.dict("sys.modules", {"redis": mock_redis_module}):
             from system_health_checker_v2 import DatabaseChecker
 
             checker = DatabaseChecker()
@@ -161,9 +163,14 @@ class TestDatabaseChecker:
 
     def test_check_redis_failure(self):
         """Test Redis connection failure"""
-        with patch("redis.Redis") as mock_redis:
-            mock_redis.side_effect = Exception("Connection refused")
+        import sys
+        from unittest.mock import MagicMock
 
+        # Create a mock redis module that raises an exception
+        mock_redis_module = MagicMock()
+        mock_redis_module.Redis.side_effect = Exception("Connection refused")
+
+        with patch.dict("sys.modules", {"redis": mock_redis_module}):
             from system_health_checker_v2 import DatabaseChecker
 
             checker = DatabaseChecker()
@@ -214,19 +221,21 @@ class TestReportGeneration:
             "cpu": {"status": "HEALTHY", "usage": 30.0},
         }
 
-        # Mock the report path
-        with patch.object(checker, "report_path", str(tmp_path)):
-            filename = checker.export_json_report()
-            assert filename is not None
+        # Update the report path in config and disable history
+        checker.config["monitoring"]["report_path"] = str(tmp_path)
+        checker.config["monitoring"]["keep_history"] = False
 
-            # Verify file was created
-            report_file = tmp_path / filename.split("/")[-1]
-            assert report_file.exists()
+        # Export the report
+        checker.export_to_json()
 
-            # Verify content
-            with open(report_file, "r") as f:
-                data = json.load(f)
-                assert data["overall_health"] == "HEALTHY"
+        # Verify file was created
+        report_file = tmp_path / "system_health_report.json"
+        assert report_file.exists()
+
+        # Verify content
+        with open(report_file, "r") as f:
+            data = json.load(f)
+            assert data["overall_health"] == "HEALTHY"
 
 
 class TestCommandLineArguments:
