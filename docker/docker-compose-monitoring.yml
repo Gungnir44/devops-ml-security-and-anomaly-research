@@ -264,20 +264,22 @@ services:
       - "com.devops.description=Grafana dashboards"
 
   # Node Exporter - System Metrics
-  node-exporter:
-    image: prom/node-exporter:latest
-    container_name: devops-node-exporter
-    hostname: node-exporter
-    command:
-      - '--path.rootfs=/host'
-    volumes:
-      - /:/host:ro,rslave
-    networks:
-      - monitoring-network
-    restart: unless-stopped
-    labels:
-      - "com.devops.service=exporter"
-      - "com.devops.description=Node exporter for system metrics"
+  # DISABLED ON WINDOWS: Requires Linux mount propagation modes
+  # Use windows_exporter or wmi_exporter for Windows host metrics
+  # node-exporter:
+  #   image: prom/node-exporter:latest
+  #   container_name: devops-node-exporter
+  #   hostname: node-exporter
+  #   command:
+  #     - '--path.rootfs=/host'
+  #   volumes:
+  #     - /:/host:ro,rslave
+  #   networks:
+  #     - monitoring-network
+  #   restart: unless-stopped
+  #   labels:
+  #     - "com.devops.service=exporter"
+  #     - "com.devops.description=Node exporter for system metrics"
 
   # cAdvisor - Container Metrics
   cadvisor:

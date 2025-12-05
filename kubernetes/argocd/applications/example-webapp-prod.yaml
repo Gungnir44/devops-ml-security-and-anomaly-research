@@ -1,0 +1,58 @@
+---
+# Example: Web Application - Production Environment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp-prod
+  namespace: argocd
+  labels:
+    app: webapp
+    environment: prod
+    managed-by: argocd
+    criticality: high
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: prod-deployments
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: prod-alerts
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: prod-alerts
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: devops-project
+
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/YOUR-REPO.git  # TODO: Update
+    targetRevision: v1.0.0  # Production uses Git tags
+    path: gitops/applications/prod/webapp
+
+    kustomize:
+      namePrefix: prod-
+      commonLabels:
+        environment: prod
+        managed-by: argocd
+        criticality: high
+      replicas:
+        - name: webapp
+          count: 3  # HA setup for production
+      images:
+        - webapp=webapp:v1.0.0  # Pinned version
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod
+
+  syncPolicy:
+    # Manual sync for production - no auto-sync!
+    automated: null
+
+    syncOptions:
+      - CreateNamespace=true
+      - ApplyOutOfSyncOnly=true  # Only apply changed resources
+
+    retry:
+      limit: 3
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 5m
+
+  revisionHistoryLimit: 20  # Keep more history for production

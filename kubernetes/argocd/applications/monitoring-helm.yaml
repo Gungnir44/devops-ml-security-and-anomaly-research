@@ -1,0 +1,90 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-helm
+  namespace: argocd
+  labels:
+    app: monitoring
+    environment: production
+    managed-by: argocd
+    deployment-method: helm
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: monitoring
+
+  # Source - Helm chart
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/YOUR-REPO.git  # TODO: Update with your Git repo
+    targetRevision: main
+    path: kubernetes/helm/monitoring  # Path to Helm chart
+
+    # Helm-specific configuration
+    helm:
+      releaseName: monitoring
+
+      # Override values from values.yaml
+      values: |
+        grafana:
+          adminPassword: "changeme123"
+          service:
+            type: NodePort
+            nodePort: 30300
+
+        prometheus:
+          replicas: 1
+          resources:
+            requests:
+              cpu: 200m
+              memory: 512Mi
+            limits:
+              cpu: 1000m
+              memory: 2Gi
+
+        postgres:
+          storage:
+            size: 5Gi
+          resources:
+            requests:
+              cpu: 200m
+              memory: 256Mi
+
+        redis:
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+      # Additional value files (optional)
+      # valueFiles:
+      #   - values-production.yaml
+
+      # Parameters to override (alternative to values)
+      # parameters:
+      #   - name: grafana.adminPassword
+      #     value: "supersecret"
+
+  # Destination
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true  # Use server-side apply for better diff detection
+
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  revisionHistoryLimit: 10

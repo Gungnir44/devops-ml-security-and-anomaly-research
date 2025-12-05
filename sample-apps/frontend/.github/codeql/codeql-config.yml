@@ -1,0 +1,31 @@
+name: "CodeQL Config for Frontend"
+
+# Paths to analyze
+paths:
+  - src/
+
+# Paths to ignore
+paths-ignore:
+  - node_modules/
+  - dist/
+  - build/
+  - coverage/
+  - "**/*.test.js"
+  - "**/*.test.jsx"
+  - "**/*.spec.js"
+  - "**/*.spec.jsx"
+
+# Queries to run
+queries:
+  - uses: security-and-quality
+  - uses: security-extended
+
+# Disable default queries that might be too noisy
+disable-default-queries: false
+
+# Query filters
+query-filters:
+  - exclude:
+      id: js/unused-local-variable
+  - exclude:
+      id: js/debugger-statement

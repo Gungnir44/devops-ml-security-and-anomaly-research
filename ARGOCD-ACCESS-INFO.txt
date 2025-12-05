@@ -1,0 +1,95 @@
+================================================================================
+ARGOCD ACCESS INFORMATION
+================================================================================
+Date Created: December 4, 2025
+Cluster: devops-cluster (kind)
+
+================================================================================
+WEB UI ACCESS
+================================================================================
+URL:      https://localhost:30080
+Username: admin
+Password: jTZMN7ac7fSEulrE
+
+Note: You'll need to accept the self-signed certificate warning in your browser.
+
+================================================================================
+KUBERNETES CLUSTER INFO
+================================================================================
+Cluster Name: devops-cluster
+Context:      kind-devops-cluster
+Control Plane: 127.0.0.1:6750
+
+Nodes:
+- devops-cluster-control-plane (control-plane)
+- devops-cluster-worker
+- devops-cluster-worker2
+
+================================================================================
+ARGOCD CLI COMMANDS
+================================================================================
+# Login via CLI (if ArgoCD CLI is installed)
+argocd login localhost:30080 --username admin --password jTZMN7ac7fSEulrE --insecure
+
+# List applications
+argocd app list
+
+# Get ArgoCD version
+argocd version
+
+# Change password (recommended after first login)
+argocd account update-password
+
+================================================================================
+DEPLOYED ARGOCD PROJECTS
+================================================================================
+✅ monitoring (Monitoring and Observability Stack)
+✅ devops-project
+
+================================================================================
+KUBERNETES COMMANDS
+================================================================================
+# Get all ArgoCD resources
+kubectl get all -n argocd
+
+# View ArgoCD server logs
+kubectl logs -n argocd deployment/argocd-server
+
+# Get ArgoCD projects
+kubectl get appprojects -n argocd
+
+# Get ArgoCD applications
+kubectl get applications -n argocd
+
+# Access ArgoCD via port-forward (alternative to NodePort)
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+================================================================================
+PORT MAPPINGS (from kind cluster config)
+================================================================================
+- ArgoCD Server:  30080 (HTTPS)
+- Grafana:        30300
+- Prometheus:     30090
+- HTTP:           80
+- HTTPS:          443
+
+================================================================================
+NEXT STEPS
+================================================================================
+1. Open browser to https://localhost:30080
+2. Login with credentials above
+3. Set up Git repository for your Kubernetes manifests
+4. Deploy applications via ArgoCD
+5. Change admin password for security
+
+================================================================================
+IMPORTANT SECURITY NOTES
+================================================================================
+⚠️  Default password - Change after first login!
+⚠️  This is for development/research only - not production ready
+⚠️  The password is stored in Kubernetes secret: argocd-initial-admin-secret
+
+To retrieve password again:
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+================================================================================

@@ -1,357 +1,442 @@
-# DevOps Learning Journey
+# DevOps ML Security and Anomaly Research
 
-[![CI - Test and Lint](https://github.com/Gungnir44/DevOps-Learning-Repo/actions/workflows/ci.yml/badge.svg)](https://github.com/Gungnir44/DevOps-Learning-Repo/actions/workflows/ci.yml)
-[![Docker Build and Push](https://github.com/Gungnir44/DevOps-Learning-Repo/actions/workflows/docker-build.yml/badge.svg)](https://github.com/Gungnir44/DevOps-Learning-Repo/actions/workflows/docker-build.yml)
-[![Deploy](https://github.com/Gungnir44/DevOps-Learning-Repo/actions/workflows/deploy.yml/badge.svg)](https://github.com/Gungnir44/DevOps-Learning-Repo/actions/workflows/deploy.yml)
+[![Backend CI/CD](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/backend-ci-cd.yml/badge.svg)](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/backend-ci-cd.yml)
+[![Python CI/CD](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/python-ci-cd.yml/badge.svg)](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/python-ci-cd.yml)
+[![Frontend CI/CD](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/frontend-ci-cd.yml/badge.svg)](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/frontend-ci-cd.yml)
+[![Security Scan](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/security-scanning.yml/badge.svg)](https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/actions/workflows/security-scanning.yml)
 
-**Author**: Joshua
-**Background**: Software Engineering & Cyber Security
-**Goal**: Master DevOps practices and build a comprehensive portfolio
+> **Master's Degree Research Project**: ML-Based Security Anomaly Detection for DevOps Pipelines
 
----
-
-## About This Repository
-
-This repository documents my journey learning DevOps from the ground up. It contains hands-on projects, automation scripts, infrastructure code, and real-world implementations of DevOps practices.
-
-### Why DevOps?
-
-Read my detailed analysis: [why-devops-is-important.txt](./why-devops-is-important.txt)
+A comprehensive DevOps security research platform featuring full-stack microservices, automated CI/CD pipelines, 15+ security scanning tools, and machine learning infrastructure for detecting anomalies in DevOps environments.
 
 ---
 
-## Learning Roadmap
+## Quick Links
 
-### Phase 1: Foundation ✅ COMPLETED
-- [x] Linux & Command Line
-- [x] Git & Version Control
-- [x] Shell Scripting & Python Automation
-- [x] Networking Basics
-- [x] System Health Monitoring
-- [x] Email Alerting
-- [x] Automated Scheduling
-
-**Project**: DevOps Toolbox - Automation scripts with monitoring and alerts
-
-### Phase 2: Containerization ✅ COMPLETED
-- [x] Docker fundamentals
-- [x] Docker Compose orchestration
-- [x] Container networking & storage
-- [x] Multi-container applications (16 containers!)
-- [x] Volume management & persistence
-- [x] Health checks & restart policies
-- [x] Multi-stage builds
-- [x] Database integration (PostgreSQL, MySQL, MongoDB, Redis)
-- [x] Message queue (RabbitMQ)
-- [x] **Observability Stack (Prometheus + Grafana + ELK)**
-- [x] **Metrics collection & exporters**
-- [x] **Production monitoring patterns**
-
-**Project**: Enterprise-grade monitoring and observability platform
-**Tech Stack**:
-- Monitoring: Prometheus, Grafana, cAdvisor
-- Logging: Elasticsearch, Kibana
-- Databases: PostgreSQL, MySQL, MongoDB, Redis
-- Infrastructure: Docker Compose, 16 containers
-
-**Guides**:
-- Quick Start: [docker/DOCKER_QUICK_START.md](./docker/DOCKER_QUICK_START.md)
-- Observability: [docker/OBSERVABILITY_GUIDE.md](./docker/OBSERVABILITY_GUIDE.md)
-
-### Phase 3: CI/CD Pipeline ✅ COMPLETED
-- [x] GitHub Actions workflows
-- [x] Automated testing (pytest with coverage)
-- [x] Code quality checks (flake8, black, pylint)
-- [x] Security scanning (safety, bandit, trivy)
-- [x] Docker image building and pushing
-- [x] Multi-stage deployment workflows
-- [x] CI/CD badges and status reporting
-
-**Project**: Production-ready CI/CD pipeline with automated testing and deployment
-**Tech Stack**:
-- CI/CD: GitHub Actions
-- Testing: pytest, pytest-cov
-- Linting: flake8, black, pylint
-- Security: bandit, safety, trivy
-- Containerization: Docker multi-stage builds
-
-**Workflows**:
-- CI: Automated testing, linting, and security scans on every push
-- Docker Build: Automated image builds with vulnerability scanning
-- Integration Tests: Full stack testing with Docker services
-- Deploy: Manual deployment to multiple environments
-
-**Development Tools**:
-- Makefile: Quick commands for common tasks
-- Pre-commit hooks: Automated code quality checks before commit
-- Pytest configuration: Organized test execution with markers
-- Integration tests: Real-world Docker stack testing
-
-### Phase 4: Infrastructure as Code ✅ COMPLETED
-- [x] Terraform infrastructure provisioning
-- [x] Ansible configuration management
-- [x] Docker provider integration
-- [x] State management
-- [x] Variables and outputs
-- [x] Ansible roles and playbooks
-- [x] Inventory management
-
-**Project**: Automated infrastructure provisioning and configuration
-**Tech Stack**:
-- Terraform: Infrastructure provisioning (Docker, networks, containers)
-- Ansible: Configuration management and deployment
-- Variables: Environment-specific configurations
-- Modules: Reusable infrastructure components
-
-**Features**:
-- Declarative infrastructure definitions
-- Automated provisioning with Terraform
-- Configuration management with Ansible
-- State tracking and management
-- Idempotent operations
-- Environment separation (dev/staging/prod)
-
-### Phase 5: Container Orchestration ✅ COMPLETED
-- [x] Kubernetes fundamentals
-- [x] Helm charts
-- [x] Deployments and StatefulSets
-- [x] Services (ClusterIP, NodePort)
-- [x] ConfigMaps and Secrets
-- [x] Resource management
-- [x] Probes and health checks
-- [x] Persistent storage
-
-**Project**: Deploy monitoring stack on Kubernetes with Helm
-**Tech Stack**:
-- Kubernetes: Container orchestration
-- Helm: Package manager for Kubernetes
-- Manifests: Deployments, Services, ConfigMaps, Secrets
-- StatefulSets: Stateful applications (PostgreSQL)
-
-**Features**:
-- Complete Kubernetes manifests for monitoring stack
-- Helm chart with customizable values
-- Resource limits and requests
-- Liveness and readiness probes
-- Persistent volume claims
-- Namespace isolation
-- Service discovery
-
-### Phase 6: Cloud & Monitoring ✅ COMPLETED
-- [x] AWS ECS Fargate deployment
-- [x] Azure AKS deployment
-- [x] Prometheus AlertManager configuration
-- [x] Comprehensive alert rules (infrastructure, containers, databases, applications)
-- [x] Incident response runbooks
-- [x] CloudWatch and Azure Monitor integration
-- [x] Auto-scaling configuration
-- [x] High availability setup
-
-**Project**: Production-ready cloud deployments with advanced alerting
-**Tech Stack**:
-- Cloud: AWS ECS Fargate, Azure AKS
-- IaC: Terraform for AWS and Azure
-- Alerting: Prometheus AlertManager
-- Monitoring: CloudWatch, Azure Monitor, Container Insights
-- Notifications: Email, Slack, PagerDuty
-
-**Features**:
-- Multi-cloud deployment configurations (AWS + Azure)
-- 50+ alert rules covering infrastructure, containers, databases, and applications
-- Detailed incident response runbooks with step-by-step procedures
-- Auto-scaling based on CPU utilization
-- Persistent storage with EFS (AWS) and Azure Files
-- High availability across multiple availability zones
-- Production-grade security (encryption, IAM, RBAC)
-
-**Guides**:
-- Cloud Deployment: [cloud/README.md](./cloud/README.md)
-- Monitoring & Alerting: [monitoring/README.md](./monitoring/README.md)
-- Incident Runbooks: [monitoring/runbooks/](./monitoring/runbooks/)
-
-### Phase 7: DevSecOps ✅ COMPLETED
-- [x] Security scanning (SAST/DAST)
-- [x] Secrets management (HashiCorp Vault)
-- [x] Policy as Code (Open Policy Agent)
-- [x] Compliance scanning (CIS benchmarks)
-- [x] Container security scanning
-- [x] Infrastructure as Code security
-- [x] Secret detection and prevention
-- [x] SBOM generation
-
-**Project**: Production-grade security implementation with DevSecOps practices
-**Tech Stack**:
-- Secrets: HashiCorp Vault (Docker + Kubernetes)
-- SAST: Semgrep, Bandit, Gitleaks, TruffleHog
-- DAST: OWASP ZAP, Nikto, testssl.sh
-- Container Security: Trivy, Grype, Dockle
-- IaC Security: Checkov, tfsec, KICS
-- Policy Enforcement: Open Policy Agent (OPA)
-- Compliance: CIS Kubernetes Benchmark, HIPAA, PCI-DSS
-
-**Features**:
-- HashiCorp Vault deployment (Docker and Kubernetes)
-- Demo application showing Vault integration
-- Static secrets, dynamic secrets, encryption as a service
-- Comprehensive security scanning workflows (7 different scanners)
-- DAST scanning with OWASP ZAP
-- Policy as Code: 50+ security policies for Kubernetes, Terraform, Docker
-- CIS Kubernetes Benchmark compliance checks
-- Automated security scans in CI/CD
-- SBOM (Software Bill of Materials) generation
-- License compliance checking
-
-**Guides**:
-- Security Overview: [security/README.md](./security/README.md)
-- Vault Integration: [security/vault/](./security/vault/)
-- OPA Policies: [security/opa/policies/](./security/opa/policies/)
-- Compliance: [security/compliance/](./security/compliance/)
+| Resource | Description |
+|----------|-------------|
+| [Complete Project Summary](COMPLETE-PROJECT-SUMMARY.md) | Full overview of the entire project |
+| [CI/CD Documentation](CI-CD-PIPELINE-SUMMARY.md) | Detailed pipeline information |
+| [Security Tools Guide](SECURITY-TOOLS-SETUP.md) | Security scanning setup |
+| [Backend API](sample-apps/backend-api/) | Node.js REST API service |
+| [Python Service](sample-apps/python-service/) | FastAPI data processing |
+| [Frontend Dashboard](sample-apps/frontend/) | React web interface |
 
 ---
 
-## Repository Structure
+## Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Quick Start](#quick-start)
+- [Applications](#applications)
+- [CI/CD Pipelines](#cicd-pipelines)
+- [Security Scanning](#security-scanning)
+- [Research Components](#research-components)
+- [Documentation](#documentation)
+- [Development](#development)
+- [Deployment](#deployment)
+
+---
+
+## Overview
+
+### What is This?
+
+This repository contains the complete infrastructure for my Master's degree research on **ML-based security anomaly detection in DevOps pipelines**. It's a production-grade platform that:
+
+1. **Runs real microservices** (React + Node.js + Python)
+2. **Scans for security vulnerabilities** using 15+ industry-standard tools
+3. **Collects data automatically** for machine learning model training
+4. **Deploys via GitOps** using Kubernetes and ArgoCD
+
+### Key Features
+
+✅ **3 Production-Ready Microservices**
+✅ **10-Stage CI/CD Pipelines** (per application)
+✅ **15+ Security Scanning Tools** integrated
+✅ **210 ML Features** for anomaly detection
+✅ **Kubernetes + ArgoCD** for orchestration
+✅ **Prometheus + Grafana + ELK** for monitoring
+✅ **Automated Research Data Collection**
+
+---
+
+## Architecture
 
 ```
-.
-├── scripts/
-│   ├── python/          # Python automation scripts
-│   └── bash/            # Bash scripts for system tasks
-├── docker/              # Dockerfiles and compose files
-├── kubernetes/          # K8s manifests and Helm charts
-├── terraform/           # Infrastructure as Code (local)
-├── ansible/             # Configuration management playbooks
-├── cloud/               # Cloud deployment (AWS ECS, Azure AKS)
-│   ├── aws/            # AWS ECS Fargate deployment
-│   └── azure/          # Azure AKS deployment
-├── monitoring/          # Advanced alerting and incident response
-│   ├── alertmanager/   # AlertManager configuration
-│   ├── alert-rules/    # Prometheus alert definitions
-│   └── runbooks/       # Incident response procedures
-├── security/            # DevSecOps and security automation
-│   ├── vault/          # HashiCorp Vault deployment
-│   ├── opa/            # Open Policy Agent policies
-│   ├── scanning/       # Security scanning configs
-│   └── compliance/     # Compliance checks (CIS, etc.)
-├── .github/workflows/   # GitHub Actions CI/CD + Security
-├── ci-cd/               # Pipeline configurations
-├── docs/                # Documentation and learning notes
-└── projects/            # Complete project implementations
+┌─────────────────────────────────────────────────┐
+│         Frontend (React + Vite + Nginx)         │
+│              Port: 3001 / 80                    │
+└────────────┬───────────────────┬────────────────┘
+             │                   │
+             ▼                   ▼
+┌────────────────────┐  ┌──────────────────────┐
+│   Backend API      │  │  Python Service      │
+│ (Node.js/Express)  │  │    (FastAPI)         │
+│    Port: 3000      │  │    Port: 8000        │
+└────────────────────┘  └──────────────────────┘
+             │                   │
+             ▼                   ▼
+┌─────────────────────────────────────────────────┐
+│        Database Layer (PostgreSQL)              │
+│   Monitoring (Prometheus, Grafana, ELK)         │
+│   Security Scanning (15+ tools)                 │
+└─────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Projects Portfolio
+## Quick Start
 
-### 1. DevOps Toolbox (Phase 1)
-**Status**: In Progress
-**Description**: Collection of automation scripts for common DevOps tasks
-**Tech Stack**: Python, Bash, Git
-**Skills Demonstrated**: Scripting, automation, version control
+### Prerequisites
 
-- System health monitoring
-- Log analysis and parsing
-- Automated backups
-- Network diagnostics
+- Docker & Docker Compose
+- Kubernetes (kind/minikube)
+- Node.js 18+ & Python 3.11+
+- Git
 
-### 2. Containerized Microservices (Phase 2)
-**Status**: Planned
-**Tech Stack**: Docker, Docker Compose, Python/Node.js
+### 1. Clone Repository
 
-### 3. CI/CD Pipeline (Phase 3)
-**Status**: Planned
-**Tech Stack**: GitHub Actions, Jenkins, Docker
+```bash
+git clone https://github.com/Gungnir44/devops-ml-security-and-anomaly-research.git
+cd devops-ml-security-and-anomaly-research
+```
 
-### 4. Infrastructure Automation (Phase 4)
-**Status**: Planned
-**Tech Stack**: Terraform, Ansible, AWS
+### 2. Start Monitoring Stack
 
-### 5. Kubernetes Deployment (Phase 5)
-**Status**: Planned
-**Tech Stack**: Kubernetes, Helm, Docker
+```bash
+cd docker
+docker-compose -f docker-compose-monitoring.yml up -d
 
-### 6. Full-Stack Observability (Phase 6)
-**Status**: Planned
-**Tech Stack**: Prometheus, Grafana, ELK Stack
+# Access:
+# Prometheus: http://localhost:9090
+# Grafana: http://localhost:3000
+# Kibana: http://localhost:5601
+```
 
-### 7. Secure DevOps Pipeline (Phase 7)
-**Status**: Planned
-**Tech Stack**: HashiCorp Vault, Trivy, SonarQube
+### 3. Run Applications
 
----
+**Backend (Terminal 1):**
+```bash
+cd sample-apps/backend-api
+npm install && npm start
+# http://localhost:3000
+```
 
-## Skills & Tools
+**Python Service (Terminal 2):**
+```bash
+cd sample-apps/python-service
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+# http://localhost:8000/docs
+```
 
-### Currently Learning
-- Linux system administration
-- Python scripting for automation
-- Git workflow and best practices
-- Docker basics
-
-### Tools to Master
-**Version Control**: Git, GitHub
-**Containerization**: Docker, Podman
-**Orchestration**: Kubernetes, Docker Swarm
-**CI/CD**: GitHub Actions, Jenkins, GitLab CI
-**IaC**: Terraform, CloudFormation
-**Configuration Management**: Ansible, Chef
-**Cloud Platforms**: AWS, Azure, GCP
-**Monitoring**: Prometheus, Grafana, Datadog
-**Logging**: ELK Stack, Fluentd
-**Security**: Vault, Trivy, Aqua Security
-**Scripting**: Python, Bash, PowerShell
+**Frontend (Terminal 3):**
+```bash
+cd sample-apps/frontend
+npm install && npm run dev
+# http://localhost:3001
+```
 
 ---
 
-## Daily Log
+## Applications
 
-### Week 1
-- **Day 1**: Set up DevOps learning repository structure
-  - Initialized Git repository
-  - Created project organization
-  - Documented DevOps importance
-  - Built first automation script: System Health Checker
+### 1. Backend API (Node.js + Express)
+
+**Purpose**: RESTful API for user management and data operations
+
+- Health checks & Prometheus metrics
+- CRUD operations for users
+- JWT authentication ready
+- 70%+ test coverage
+
+**Endpoints**:
+- `GET /health` - Service health
+- `GET /api/v1/users` - List users
+- `POST /api/v1/users` - Create user
+- `GET /metrics` - Prometheus metrics
+
+[Full Documentation →](sample-apps/backend-api/README.md)
+
+### 2. Python Service (FastAPI)
+
+**Purpose**: Data processing and analytics service
+
+- Async FastAPI framework
+- Pydantic validation
+- Swagger UI auto-generated
+- Batch processing support
+
+**Endpoints**:
+- `GET /docs` - Swagger documentation
+- `POST /api/v1/process` - Process data
+- `POST /api/v1/batch-process` - Batch operations
+- `GET /api/v1/analytics/summary` - Analytics
+
+[Full Documentation →](sample-apps/python-service/README.md)
+
+### 3. Frontend Dashboard (React)
+
+**Purpose**: Web interface for monitoring and management
+
+- Modern React 18 with Vite
+- 4 pages: Dashboard, Users, Processing, Security
+- Real-time health indicators
+- Nginx production server
+
+**Pages**:
+- `/` - Dashboard & overview
+- `/users` - User management
+- `/processing` - Data processing
+- `/security` - Security metrics
+
+[Full Documentation →](sample-apps/frontend/README.md)
 
 ---
 
-## Resources
+## CI/CD Pipelines
 
-### Books
-- "The Phoenix Project" by Gene Kim
-- "The DevOps Handbook" by Gene Kim
-- "Site Reliability Engineering" by Google
+### Pipeline Architecture
 
-### Online Courses
-- Linux Foundation DevOps courses
-- Cloud provider certifications (AWS, Azure)
+Each application has a **10-stage pipeline**:
 
-### Communities
-- DevOps subreddit
-- CNCF Slack channels
-- Local DevOps meetups
+1. **Code Quality** - Linting & formatting
+2. **Testing** - 70% coverage requirement
+3. **Secret Scanning** - TruffleHog, Gitleaks
+4. **SAST** - CodeQL, Semgrep, Bandit
+5. **Dependency Scan** - npm audit, pip-audit
+6. **Build** - Docker multi-stage builds
+7. **Container Scan** - Trivy, Grype, Dockle
+8. **Push** - GitHub Container Registry
+9. **Deploy** - Kubernetes via ArgoCD
+10. **Metrics** - Research data collection
+
+### Path-Filtered Execution
+
+- **Backend**: Only runs when `sample-apps/backend-api/**` changes
+- **Python**: Only runs when `sample-apps/python-service/**` changes
+- **Frontend**: Only runs when `sample-apps/frontend/**` changes
+
+### Workflow Files
+
+- `.github/workflows/backend-ci-cd.yml`
+- `.github/workflows/python-ci-cd.yml`
+- `.github/workflows/frontend-ci-cd.yml`
+- `.github/workflows/security-scanning.yml`
+
+[Full CI/CD Documentation →](CI-CD-PIPELINE-SUMMARY.md)
 
 ---
 
-## Certifications Target
+## Security Scanning
 
-- [ ] AWS Certified DevOps Engineer
-- [ ] Certified Kubernetes Administrator (CKA)
-- [ ] HashiCorp Certified: Terraform Associate
-- [ ] Docker Certified Associate
+### Integrated Tools (15+)
+
+| Category | Tools |
+|----------|-------|
+| **Secrets** | TruffleHog, Gitleaks |
+| **SAST** | CodeQL, Semgrep, Bandit |
+| **Containers** | Trivy, Grype, Dockle |
+| **Dependencies** | npm audit, pip-audit, Snyk |
+| **IaC** | Checkov, tfsec |
+| **Kubernetes** | kubeaudit, kubeval |
+
+### Running Scans Locally
+
+```bash
+cd scripts/security-scanning
+./install-tools.sh  # One-time setup
+./scan-all.sh       # Run all scans
+
+# Results: security-scan-results/YYYYMMDD_HHMMSS/
+```
+
+[Security Setup Guide →](SECURITY-TOOLS-SETUP.md)
 
 ---
 
-## Connect
+## Research Components
 
-Building in public and documenting my DevOps journey. Follow along as I transform from beginner to DevOps engineer!
+### ML Features (210 Total)
 
-**Learning Philosophy**: Practice beats theory. Every concept gets a hands-on project.
+1. **Infrastructure Metrics** (40) - CPU, memory, disk
+2. **CI/CD Events** (35) - Pipeline runs, duration
+3. **Security Scans** (21) - Vulnerabilities found
+4. **Access Logs** (28) - Request patterns
+5. **Container Events** (24) - Deployments, restarts
+6. **Code Changes** (25) - Commits, complexity
+7. **Deployment Events** (22) - Frequency, rollbacks
+
+### Attack Scenarios (14 Planned)
+
+- Credential stuffing
+- SQL injection
+- Container escape
+- Cryptojacking
+- Data exfiltration
+- Supply chain attacks
+- And more...
+
+[Feature Details →](FEATURE-ENGINEERING.md) | [Attack Scenarios →](ATTACK-SCENARIOS.md)
+
+---
+
+## Project Structure
+
+```
+devops-ml-security-and-anomaly-research/
+├── .github/workflows/          # CI/CD pipelines
+│   ├── backend-ci-cd.yml
+│   ├── python-ci-cd.yml
+│   ├── frontend-ci-cd.yml
+│   └── security-scanning.yml
+│
+├── sample-apps/
+│   ├── backend-api/            # Node.js API
+│   ├── python-service/         # FastAPI service
+│   └── frontend/               # React app
+│
+├── kubernetes/                 # K8s manifests
+├── docker/                     # Docker Compose
+├── scripts/                    # Automation scripts
+├── curriculum/                 # Research planning
+└── gitops/                     # GitOps configs
+```
+
+---
+
+## Documentation
+
+### Core Docs
+
+- [Complete Project Summary](COMPLETE-PROJECT-SUMMARY.md)
+- [CI/CD Pipeline Summary](CI-CD-PIPELINE-SUMMARY.md)
+- [Security Tools Setup](SECURITY-TOOLS-SETUP.md)
+- [Project Proposal](PROJECT-PROPOSAL.md)
+- [Feature Engineering](FEATURE-ENGINEERING.md)
+
+### Application Docs
+
+- [Backend API](sample-apps/backend-api/README.md)
+- [Python Service](sample-apps/python-service/README.md)
+- [Frontend](sample-apps/frontend/README.md)
+
+---
+
+## Development
+
+### Running Tests
+
+```bash
+# Backend
+cd sample-apps/backend-api && npm test
+
+# Python
+cd sample-apps/python-service && pytest
+
+# Frontend
+cd sample-apps/frontend && npm test
+```
+
+### Code Quality
+
+```bash
+# Backend/Frontend
+npm run lint
+npm run format
+
+# Python
+black app/ tests/
+flake8 app/
+mypy app/
+```
+
+---
+
+## Deployment
+
+### Kubernetes
+
+```bash
+# Create cluster
+kind create cluster --config kubernetes/kind-cluster-config.yaml
+
+# Deploy apps
+kubectl apply -f sample-apps/backend-api/k8s/
+kubectl apply -f sample-apps/python-service/k8s/
+kubectl apply -f sample-apps/frontend/k8s/
+
+# Verify
+kubectl get pods -n production
+```
+
+### GitOps with ArgoCD
+
+```bash
+# Install ArgoCD
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Access UI: https://localhost:30080
+# Username: admin
+# Password: (see ARGOCD-ACCESS-INFO.txt)
+```
+
+---
+
+## Research Progress
+
+### Phase 1: Infrastructure ✅ COMPLETE
+
+- ✅ Full-stack microservices (3 apps)
+- ✅ Kubernetes + ArgoCD
+- ✅ Monitoring stack
+- ✅ 15+ security tools
+- ✅ CI/CD pipelines
+- ✅ Documentation
+
+### Phase 2: Data Collection ⏳ CURRENT
+
+- ⏳ Baseline data (4 weeks)
+- ⏳ Security scan aggregation
+- ⏳ CI/CD metrics
+- ⏳ Infrastructure metrics
+
+### Phase 3-5: Upcoming
+
+- Attack simulation
+- ML model training
+- Thesis writing
+
+---
+
+## Statistics
+
+- **Total Files**: 76+
+- **Lines of Code**: ~8,500+
+- **Applications**: 3 (full-stack)
+- **Security Tools**: 15+
+- **CI/CD Workflows**: 3
+- **ML Features**: 210
+- **Documentation Pages**: 15+
 
 ---
 
 ## License
 
-MIT License - Feel free to use these projects and scripts for your own learning journey.
+MIT License - See [LICENSE](LICENSE) file
 
 ---
 
-**Last Updated**: November 14, 2025
+## Author
+
+**Gungnir44** (Joshua)
+Master's Degree Research - DevOps Security & ML
+GitHub: [@Gungnir44](https://github.com/Gungnir44)
+
+---
+
+**Status**: ✅ Phase 1 Complete - Ready for Data Collection
+**Last Updated**: December 2025
+**Version**: 1.0.0

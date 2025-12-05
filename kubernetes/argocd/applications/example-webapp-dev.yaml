@@ -1,0 +1,52 @@
+---
+# Example: Web Application - Development Environment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: webapp-dev
+  namespace: argocd
+  labels:
+    app: webapp
+    environment: dev
+    managed-by: argocd
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: devops-notifications
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: devops-project
+
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/YOUR-REPO.git  # TODO: Update
+    targetRevision: develop  # Dev branch
+    path: gitops/applications/dev/webapp
+
+    # Kustomize example
+    kustomize:
+      namePrefix: dev-
+      commonLabels:
+        environment: dev
+        managed-by: argocd
+      images:
+        - webapp=webapp:latest  # Override image tag
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  revisionHistoryLimit: 10

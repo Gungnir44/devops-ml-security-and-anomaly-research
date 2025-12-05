@@ -1,0 +1,317 @@
+{
+  "module": 1,
+  "title": "DevOps Transformation Proposal",
+  "total_points": 135,
+  "passing_score": 108,
+  "portfolio_quality": 122,
+  "components": {
+    "part1_current_state": {
+      "points": 25,
+      "criteria": {
+        "process_documentation": {
+          "points": 5,
+          "looks_for": [
+            "Complete process map from idea to production",
+            "All steps identified",
+            "Wait times vs process times shown",
+            "Handoffs and dependencies noted"
+          ]
+        },
+        "metrics_calculation": {
+          "points": 5,
+          "looks_for": [
+            "DORA metrics calculated (DF, LT, CFR, MTTR)",
+            "Calculations shown with work",
+            "Realistic numbers",
+            "Units included"
+          ]
+        },
+        "dora_assessment": {
+          "points": 5,
+          "looks_for": [
+            "Correctly classifies as Elite/High/Medium/Low",
+            "Justification based on all 4 metrics",
+            "Understands performance levels"
+          ]
+        },
+        "problems_identified": {
+          "points": 5,
+          "looks_for": [
+            "At least 5 problems identified",
+            "Mix of technical, cultural, business problems",
+            "Specific, not generic",
+            "Evidence-based"
+          ]
+        },
+        "cost_calculations": {
+          "points": 5,
+          "looks_for": [
+            "Annual costs calculated",
+            "Includes deployment, incident, opportunity costs",
+            "Work shown",
+            "Realistic assumptions"
+          ]
+        }
+      }
+    },
+    "part2_root_cause": {
+      "points": 15,
+      "criteria": {
+        "five_whys_applied": {
+          "points": 6,
+          "looks_for": [
+            "5 Whys used correctly for top 3 problems",
+            "Each 'why' digs deeper",
+            "Reaches true root causes"
+          ]
+        },
+        "root_causes_identified": {
+          "points": 6,
+          "looks_for": [
+            "Root causes are system/process issues, not people",
+            "Goes beyond symptoms",
+            "Addresses underlying issues"
+          ]
+        },
+        "categorization": {
+          "points": 3,
+          "looks_for": [
+            "Correctly categorizes as technical/cultural/organizational",
+            "Understanding of different problem types"
+          ]
+        }
+      }
+    },
+    "part3_transformation_plan": {
+      "points": 30,
+      "criteria": {
+        "three_phase_plan": {
+          "points": 10,
+          "looks_for": [
+            "Phases 1-3 clearly defined",
+            "Logical progression (foundation → expansion → optimization)",
+            "Each phase has clear goals",
+            "Timeline is realistic (12 months total)"
+          ]
+        },
+        "practical_initiatives": {
+          "points": 10,
+          "looks_for": [
+            "Specific initiatives (not vague 'implement DevOps')",
+            "Tools named and justified",
+            "Addresses technical, process, AND cultural changes",
+            "Realistic for organization size/maturity"
+          ]
+        },
+        "holistic_approach": {
+          "points": 5,
+          "looks_for": [
+            "Balances people, process, technology",
+            "Includes training/enablement",
+            "Addresses culture change",
+            "Considers change management"
+          ]
+        },
+        "metrics_defined": {
+          "points": 5,
+          "looks_for": [
+            "Success metrics for each phase",
+            "DORA metrics tracked",
+            "Business outcomes measured",
+            "Clear targets set"
+          ]
+        }
+      }
+    },
+    "part4_roi_calculation": {
+      "points": 20,
+      "criteria": {
+        "investment_complete": {
+          "points": 5,
+          "looks_for": [
+            "All investment categories (tools, training, time)",
+            "Realistic costs",
+            "Broken down clearly"
+          ]
+        },
+        "savings_complete": {
+          "points": 5,
+          "looks_for": [
+            "All savings categories identified",
+            "Based on improvements from Part 3",
+            "Conservative estimates",
+            "Work shown"
+          ]
+        },
+        "roi_accurate": {
+          "points": 5,
+          "looks_for": [
+            "ROI calculated correctly: (Savings - Investment) / Investment * 100%",
+            "Payback period calculated",
+            "Reasonable result (100-300% Year 1 typical)"
+          ]
+        },
+        "three_year_projection": {
+          "points": 5,
+          "looks_for": [
+            "Years 2-3 included",
+            "Compounding benefits considered",
+            "Reduced investment in later years",
+            "3-year net benefit calculated"
+          ]
+        }
+      }
+    },
+    "part5_executive_presentation": {
+      "points": 20,
+      "criteria": {
+        "clear_problem": {
+          "points": 4,
+          "looks_for": [
+            "Problem stated clearly in business terms",
+            "Impact quantified",
+            "Urgency conveyed"
+          ]
+        },
+        "compelling_case": {
+          "points": 4,
+          "looks_for": [
+            "Value proposition clear",
+            "ROI prominently featured",
+            "Benefits > costs clearly shown"
+          ]
+        },
+        "professional_quality": {
+          "points": 4,
+          "looks_for": [
+            "Appropriate for executive audience (not too technical)",
+            "Well-formatted and designed",
+            "No typos or errors",
+            "Slides/pages flow logically"
+          ]
+        },
+        "accurate_financials": {
+          "points": 4,
+          "looks_for": [
+            "Numbers match Part 4",
+            "Presented clearly",
+            "Charts/visuals if appropriate"
+          ]
+        },
+        "strong_recommendation": {
+          "points": 4,
+          "looks_for": [
+            "Clear call to action",
+            "Next steps defined",
+            "Confidence in recommendation"
+          ]
+        }
+      }
+    },
+    "part6_roadmap": {
+      "points": 15,
+      "criteria": {
+        "detailed_plan": {
+          "points": 5,
+          "looks_for": [
+            "Week-by-week for first 90 days",
+            "Activities specified for each week",
+            "Not vague 'work on DevOps'"
+          ]
+        },
+        "realistic_timeline": {
+          "points": 5,
+          "looks_for": [
+            "Reasonable time estimates",
+            "Accounts for learning curve",
+            "Doesn't try to do everything in Week 1"
+          ]
+        },
+        "clear_milestones": {
+          "points": 5,
+          "looks_for": [
+            "Deliverables for each week/phase",
+            "Success criteria defined",
+            "Dependencies noted"
+          ]
+        }
+      }
+    },
+    "part7_metrics_dashboard": {
+      "points": 10,
+      "criteria": {
+        "comprehensive_metrics": {
+          "points": 5,
+          "looks_for": [
+            "DORA metrics included",
+            "Cost tracking",
+            "Team health/satisfaction",
+            "Business outcomes"
+          ]
+        },
+        "clear_visualization": {
+          "points": 3,
+          "looks_for": [
+            "Dashboard layout described clearly",
+            "Appropriate chart types mentioned",
+            "Mockup or detailed description"
+          ]
+        },
+        "aligned_with_goals": {
+          "points": 2,
+          "looks_for": [
+            "Metrics align with transformation plan",
+            "Tracks progress toward targets",
+            "Actionable (can drive decisions)"
+          ]
+        }
+      }
+    }
+  },
+  "quality_levels": {
+    "portfolio_ready": {
+      "score_range": "122-135 (90%+)",
+      "characteristics": [
+        "Professional presentation quality",
+        "Deep analysis",
+        "Compelling business case",
+        "Specific and actionable",
+        "Could present to real executives"
+      ]
+    },
+    "strong_pass": {
+      "score_range": "108-121 (80-89%)",
+      "characteristics": [
+        "Solid understanding demonstrated",
+        "Complete work",
+        "Minor polish needed",
+        "Ready to proceed to next module"
+      ]
+    },
+    "needs_improvement": {
+      "score_range": "94-107 (70-79%)",
+      "characteristics": [
+        "Basic understanding",
+        "Some gaps or errors",
+        "Should revise before using in portfolio",
+        "May proceed but review recommended"
+      ]
+    },
+    "unsatisfactory": {
+      "score_range": "<94 (<70%)",
+      "characteristics": [
+        "Fundamental misunderstandings",
+        "Incomplete work",
+        "Must redo after reviewing lessons",
+        "Not ready to proceed"
+      ]
+    }
+  },
+  "grading_philosophy": {
+    "balance": "This is both an assessment and a portfolio piece. Grade rigorously but constructively.",
+    "specificity": "Provide specific, actionable feedback. 'Improve analysis' is not helpful. 'Add root cause analysis using 5 Whys for the deployment problem' is helpful.",
+    "encouragement": "Acknowledge good work. This is a major effort. Recognize what student did well.",
+    "honesty": "If work isn't portfolio-ready, say so clearly. Better honest feedback now than embarrassment later.",
+    "learning_focus": "Focus on whether student understands concepts, not perfection. Can they apply DevOps thinking?"
+  }
+}

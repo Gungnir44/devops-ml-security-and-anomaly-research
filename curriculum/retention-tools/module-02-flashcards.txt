@@ -1,0 +1,238 @@
+# Module 2: Linux & Git - Flashcards
+
+# Linux Fundamentals
+
+What is the root directory in Linux?
+/ (forward slash) - the top of the entire filesystem tree
+
+What does pwd command do?
+Print Working Directory - shows your current location in the filesystem
+
+What does ls -lah do?
+List files in long format (-l), including hidden files (-a), with human-readable sizes (-h)
+
+What's the difference between cd ~ and cd - ?
+cd ~ goes to home directory; cd - goes to previous directory
+
+What does chmod 755 mean?
+Owner: rwx (7), Group: r-x (5), Others: r-x (5) - owner full access, others read+execute
+
+What does chmod 644 mean?
+Owner: rw- (6), Group: r-- (4), Others: r-- (4) - owner can write, others read-only
+
+How do you make a file executable?
+chmod +x filename  OR  chmod 755 filename
+
+What's the difference between cp and mv?
+cp copies (original remains), mv moves/renames (original gone)
+
+Why is rm -rf dangerous?
+Deletes recursively (-r) and forcefully (-f) without confirmation; no undo; can destroy system
+
+What does mkdir -p do?
+Creates parent directories as needed; mkdir -p /a/b/c creates all three if they don't exist
+
+What does touch command do?
+Creates empty file or updates timestamp of existing file
+
+What's the difference between > and >> ?
+> overwrites file, >> appends to file
+
+What does | (pipe) do?
+Sends output of one command as input to next command; chains commands together
+
+What does tail -f do?
+Follow mode - shows real-time updates to file; essential for watching logs
+
+What does grep -i do?
+Case-insensitive search
+
+What does grep -r do?
+Recursive search - searches through directories
+
+What does grep -v do?
+Invert match - shows lines NOT matching the pattern
+
+What's the find command syntax for files modified in last 7 days?
+find /path -name "*.log" -mtime -7
+
+What does 2>/dev/null do?
+Redirects error messages (stderr) to /dev/null (discards them)
+
+What does wc -l do?
+Word count lines - counts number of lines in file or output
+
+What does sort | uniq -c do?
+Sorts lines then counts unique occurrences
+
+What does awk '{print $1}' do?
+Prints first column/field from each line
+
+What does sed 's/old/new/g' do?
+Stream editor - replaces all occurrences of 'old' with 'new'
+
+Why do 96% of web servers run Linux?
+Free, stable, secure, automation-friendly, powers the cloud
+
+What's the difference between Ubuntu and Alpine Linux?
+Ubuntu: Full-featured, 70MB, user-friendly; Alpine: Minimal, 5MB, container-focused
+
+What package manager does Ubuntu use?
+apt (apt-get, apt install)
+
+What package manager does CentOS use?
+yum or dnf
+
+What's the Linux philosophy?
+Do one thing well; work together; handle text streams
+
+Why is everything a file in Linux?
+Uniform interface - hardware, configs, processes all accessed like files
+
+What does sudo mean?
+Super User DO - run command with admin/root privileges
+
+# Git Fundamentals
+
+What is Git?
+Distributed version control system - tracks code changes over time
+
+What's the difference between Git and GitHub?
+Git is the version control tool; GitHub is a hosting service for Git repositories
+
+What are the three states in Git?
+Working Directory, Staging Area (Index), Repository (committed)
+
+What does git init do?
+Initialize new Git repository in current directory
+
+What does git add do?
+Stages changes for commit - moves files from working directory to staging area
+
+What does git commit do?
+Saves staged changes to repository with a message
+
+What does git status show?
+Current state: which files are modified, staged, untracked
+
+What does git log show?
+History of commits with author, date, message
+
+What does git diff show?
+Differences between working directory and last commit (or between commits)
+
+What's the difference between git fetch and git pull?
+fetch downloads changes but doesn't merge; pull = fetch + merge
+
+What does git push do?
+Uploads local commits to remote repository
+
+What does git clone do?
+Downloads complete copy of remote repository
+
+What is a branch in Git?
+Parallel line of development; pointer to a specific commit
+
+What does git branch do?
+Lists branches OR creates new branch (git branch name)
+
+What does git checkout do?
+Switches to different branch or commit
+
+What does git merge do?
+Combines changes from one branch into current branch
+
+What is a merge conflict?
+Occurs when same lines modified in different branches; Git can't auto-merge
+
+How do you resolve a merge conflict?
+Edit conflicting files, choose which changes to keep, git add, then git commit
+
+What's the difference between merge and rebase?
+Merge creates merge commit preserving history; rebase replays commits on top of another branch (linear history)
+
+What is origin in Git?
+Default name for remote repository you cloned from
+
+What does git remote -v show?
+Lists all remote repositories and their URLs
+
+What is HEAD in Git?
+Pointer to current commit/branch you're on
+
+What does git stash do?
+Temporarily saves uncommitted changes; useful when switching branches
+
+What does git cherry-pick do?
+Applies specific commit from one branch to another
+
+What is .gitignore?
+File listing patterns for files Git should not track (e.g., *.log, node_modules/)
+
+Why should you never commit passwords to Git?
+They remain in history forever; accessible to anyone with repo access; security risk
+
+What makes a good commit message?
+Clear, concise, describes WHY not just WHAT; present tense; <50 chars summary
+
+What is a pull request?
+Request to merge your branch into another branch; includes code review
+
+What is GitFlow workflow?
+Branching model: main (production), develop (integration), feature branches, release branches
+
+Why use feature branches?
+Isolate work; don't break main branch; enable parallel development; easier code review
+
+What does git reset do?
+Moves HEAD to different commit; can unstage or undo commits
+
+What does git revert do?
+Creates new commit that undoes previous commit; preserves history
+
+What's the difference between git reset and git revert?
+reset rewrites history (dangerous on shared branches); revert adds new commit (safe)
+
+What does git reflog show?
+History of HEAD movements; can recover "lost" commits
+
+What is a Git hook?
+Script that runs automatically at certain points (pre-commit, pre-push, etc.)
+
+What is a detached HEAD state?
+HEAD points to commit instead of branch; changes not on any branch
+
+# Combined Application
+
+What commands check if web server is running on Linux?
+systemctl status nginx  OR  ps aux | grep nginx  OR  top
+
+How do you view last 100 lines of nginx error log?
+tail -n 100 /var/log/nginx/error.log
+
+How do you follow nginx access log in real-time?
+tail -f /var/log/nginx/access.log
+
+How do you find all .conf files in /etc?
+find /etc -name "*.conf"
+
+How do you check disk space on Linux?
+df -h (disk free, human-readable)
+
+How do you check size of a directory?
+du -sh /path/to/directory
+
+How would you find top 10 largest files?
+du -ah /path | sort -hr | head -10  OR  find /path -type f -exec du -h {} + | sort -hr | head -10
+
+How do you find all error lines in all log files?
+grep -r "error" /var/log/*.log  OR  find /var/log -name "*.log" -exec grep -i "error" {} +
+
+How do you count how many processes are running?
+ps aux | wc -l
+
+How do you kill a process?
+kill PID (graceful)  OR  kill -9 PID (force)
+
+# End of Module 2 Flashcards
+# Total: 70 cards covering Linux & Git fundamentals

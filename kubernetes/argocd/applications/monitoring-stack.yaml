@@ -1,0 +1,53 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring-stack
+  namespace: argocd
+  labels:
+    app: monitoring
+    environment: production
+    managed-by: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: monitoring
+
+  # Source - where the manifests are
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/YOUR-REPO.git  # TODO: Update with your Git repo
+    targetRevision: main  # or master, depending on your default branch
+    path: kubernetes/manifests  # Path to Kubernetes manifests in your repo
+
+  # Destination - where to deploy
+  destination:
+    server: https://kubernetes.default.svc  # In-cluster deployment
+    namespace: monitoring
+
+  # Sync policy
+  syncPolicy:
+    automated:
+      prune: true  # Remove resources not in Git
+      selfHeal: true  # Auto-sync when cluster state differs from Git
+      allowEmpty: false  # Don't sync if directory is empty
+    syncOptions:
+      - CreateNamespace=true  # Auto-create namespace if it doesn't exist
+      - PrunePropagationPolicy=foreground  # Wait for resources to be deleted
+      - PruneLast=true  # Prune resources after sync
+
+    retry:
+      limit: 5  # Number of failed sync attempts before giving up
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m
+
+  # Ignore differences in certain fields
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas  # Ignore replica count (for HPA)
+
+  # Health assessment
+  revisionHistoryLimit: 10

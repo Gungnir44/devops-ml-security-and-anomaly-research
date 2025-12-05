@@ -1,0 +1,111 @@
+.DataProcessing h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.DataProcessing .subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.processing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.processing-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.processing-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.result-box.success {
+  background-color: #d1fae5;
+  border-color: #10b981;
+}
+
+.result-box.error {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.result-box h4 {
+  margin-bottom: 15px;
+  color: #065f46;
+}
+
+.result-box p {
+  margin: 8px 0;
+  color: #047857;
+}
+
+.result-box .timestamp {
+  margin-top: 15px;
+  font-size: 0.85em;
+  color: #059669;
+  font-style: italic;
+}
+
+.results-table {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.results-table th {
+  background-color: #047857;
+}
+
+.api-docs {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.api-docs h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.endpoint-list {
+  margin-top: 20px;
+}
+
+.endpoint-list h4 {
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.endpoint-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.endpoint-list li {
+  padding: 8px 0;
+  color: #4b5563;
+}
+
+@media (max-width: 768px) {
+  .processing-grid {
+    grid-template-columns: 1fr;
+  }
+}

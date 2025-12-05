@@ -1,0 +1,174 @@
+# Module 1: DevOps Fundamentals - Flashcards
+
+# Import these into Anki or use as a study guide
+# Format: Question on one line, Answer on next line, blank line between cards
+
+What problem led to the emergence of DevOps?
+Organizational silos between Development (speed) and Operations (stability) caused slow, error-prone releases and finger-pointing
+
+What are the Three Ways of DevOps?
+1. Flow (smooth delivery, eliminate waste)
+2. Feedback (fast detection and recovery)
+3. Continuous Learning & Experimentation
+
+What are the Three Pillars of DevOps?
+1. People (culture, collaboration, shared goals)
+2. Process (automation, measurement, improvement)
+3. Technology (tools that enable people and process)
+
+Define "Continuous Integration" (CI)
+Developers merge code to shared repository multiple times per day; automated builds and tests run immediately to catch issues early
+
+Define "Continuous Delivery" (CD)
+Code is always in a deployable state; can release to production at any time with a button click (but manual approval)
+
+Define "Continuous Deployment"
+Every code change that passes automated tests is automatically deployed to production (no manual approval)
+
+What are the 4 DORA metrics?
+1. Deployment Frequency
+2. Lead Time for Changes
+3. Change Failure Rate
+4. Mean Time to Recovery (MTTR)
+
+Define "Deployment Frequency"
+How often code is deployed to production (Elite: On-demand/multiple per day; Low: Monthly to every 6 months)
+
+Define "Lead Time for Changes"
+Time from code commit to running in production (Elite: < 1 hour; Low: 1-6 months)
+
+Define "Change Failure Rate"
+Percentage of deployments that cause production failures requiring rollback or hotfix (Elite: 0-15%; Low: 46-60%)
+
+Define "Mean Time to Recovery" (MTTR)
+How quickly service is restored after a production incident (Elite: < 1 hour; Low: 1 week to 1 month)
+
+What DORA level is this: Deploy weekly, 1-week lead time, 20% failures, 1-day MTTR?
+HIGH performer (weekly deploys = High; 1-week lead time = High; 20% = High; 1-day MTTR = High)
+
+What DORA level is this: Deploy quarterly, 3-month lead time, 45% failures, 1-week MTTR?
+LOW performer (all metrics in LOW range)
+
+Define "toil" in DevOps
+Manual, repetitive work that provides no enduring value; should be automated (e.g., manual deployments, ticket-based provisioning)
+
+Define "Lead Time" in software delivery
+Total time from feature request (or code commit) to production deployment; includes process time + wait time
+
+Define "Process Time"
+Actual time spent working on a task (e.g., coding, testing, deploying)
+
+Define "Wait Time"
+Time spent waiting between process steps (e.g., waiting for code review, waiting for deployment window)
+
+What is a "blameless post-mortem"?
+After an incident, team analyzes what went wrong focusing on system/process failures, NOT blaming individuals; goal is learning and prevention
+
+Name 3 types of waste (muda) in software delivery
+1. Waiting (for approvals, reviews, deployment windows)
+2. Defects (bugs, rework, rollbacks)
+3. Overprocessing (unnecessary steps, manual work that should be automated)
+
+What is the DevOps Infinity Loop (8 phases)?
+Plan → Code → Build → Test → Release → Deploy → Operate → Monitor (and back to Plan)
+
+What happens in the "Plan" phase?
+Define requirements, prioritize features, create user stories, plan sprints
+
+What happens in the "Code" phase?
+Write code, commit to version control, collaborate via pull requests
+
+What happens in the "Build" phase?
+Compile code, run automated builds, create artifacts (containers, packages)
+
+What happens in the "Test" phase?
+Run automated tests (unit, integration, end-to-end), security scans, code quality checks
+
+What happens in the "Release" phase?
+Prepare for deployment, create release notes, get approvals (if needed)
+
+What happens in the "Deploy" phase?
+Push code to production using automation (CI/CD pipelines)
+
+What happens in the "Operate" phase?
+Manage production environment, handle incidents, scale resources
+
+What happens in the "Monitor" phase?
+Collect metrics, logs, traces; detect issues; feed insights back to Plan phase
+
+Calculate Lead Time: Dev=3 days, Code Review wait=2 days, QA=2 days, QA wait=5 days, Deployment wait=90 days. What's the lead time?
+106 days total (3+2+2+5+90+other steps)
+
+From the above, what's the efficiency ratio?
+~8.5% (only 9 days of actual work out of 106 total days; 91.5% is waiting)
+
+What ROI calculation shows value of DevOps transformation?
+ROI = (Annual Savings - Investment) / Investment × 100
+Example: ($822k savings - $290k investment) / $290k = 184% ROI
+
+Why do elite performers have LOWER failure rates despite deploying MORE frequently?
+Smaller batches = less risk per deployment; faster feedback = catch issues earlier; practice makes perfect; automation reduces human error
+
+True or False: DevOps is primarily about tools like Docker and Kubernetes
+FALSE - DevOps is primarily about culture and process; tools enable but don't create DevOps
+
+True or False: Automation eliminates jobs
+FALSE - Automation eliminates toil (boring work); frees people for higher-value work like innovation, architecture, problem-solving
+
+True or False: You need to achieve Elite DORA performance immediately
+FALSE - Even moving from Low to Medium performer provides massive value; continuous improvement over time
+
+True or False: DevOps only applies to software companies
+FALSE - Any organization delivering value through technology can benefit (finance, healthcare, retail, government, etc.)
+
+Name 3 benefits of DevOps for business
+1. Faster time-to-market (competitive advantage)
+2. Lower failure rates (reduced costs, better reliability)
+3. Faster recovery (minimized downtime impact)
+4. Employee satisfaction (less toil, more innovation)
+5. Better customer experience (frequent improvements, quick fixes)
+
+What is the Westrum Organizational Culture model?
+Pathological (power-oriented, fear) → Bureaucratic (rule-oriented, slow) → Generative (performance-oriented, high trust)
+DevOps requires Generative culture
+
+What does "shift left" mean?
+Move quality/security activities earlier in the development process (e.g., test during development, not after; security in design, not at deployment)
+
+What is "Infrastructure as Code" (IaC)?
+Managing infrastructure (servers, networks, configs) using code and version control instead of manual processes; enables repeatability and automation
+
+What is a "deployment pipeline"?
+Automated sequence of steps that take code from commit to production: Build → Test → Deploy
+Also called CI/CD pipeline
+
+What is "blue-green deployment"?
+Two identical production environments (blue and green); deploy to inactive one, test, then switch traffic instantly; allows instant rollback
+
+What is a "canary deployment"?
+Deploy new version to small subset of users (5-10%) first; monitor for issues; gradually increase to 100% if healthy; roll back if problems detected
+
+What is "feature flag" (feature toggle)?
+Code switch that enables/disables features without redeploying; allows testing in production, gradual rollouts, quick rollback
+
+Why do large batch deployments fail more often?
+More changes = more complexity; harder to troubleshoot; blast radius is larger; accumulates risk; testing is harder
+
+Give an example of "collaboration over silos"
+Dev and Ops work together on same team; shared on-call rotation; joint ownership of production; cross-functional teams
+
+What is "psychological safety" in DevOps teams?
+Team members feel safe to take risks, admit mistakes, ask questions without fear of blame or punishment; essential for learning culture
+
+What company reduced deployment time from 4 hours to 30 seconds? How?
+Amazon - Automated their deployment pipeline; moved from large monolithic deployments to small microservices deployed independently
+
+What was Etsy's key DevOps transformation?
+Went from deploying twice per week (with fear and stress) to deploying 25-50 times per day with confidence through automation and culture change
+
+Why did Netflix build Chaos Monkey?
+To intentionally break production systems to test resilience; builds confidence that systems can handle failures; finds weaknesses before real incidents
+
+# End of Module 1 Flashcards
+# Total: 50 cards covering all key concepts
+# Review schedule: Day 1, 3, 7, 14, 30, 60, 90

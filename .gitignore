@@ -105,3 +105,27 @@ reports/
 tmp/
 temp/
 *.tmp
+
+# Node.js
+node_modules/
+package-lock.json
+.npm
+.eslintcache
+*.tgz
+
+# Test coverage
+coverage/
+.nyc_output/
+.pytest_cache/
+.vitest/
+
+# Docker images
+*.tar
+
+# Security scanning results
+security-scan-results/
+scan-results/
+*.sarif
+
+# Backup README
+README-OLD.md

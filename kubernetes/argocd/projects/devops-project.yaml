@@ -1,0 +1,95 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: devops-project
+  namespace: argocd
+  labels:
+    project: devops
+    environment: multi
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Main DevOps Project - Multi-environment deployments
+
+  # Source repositories
+  sourceRepos:
+    - '*'  # Allow all repositories
+
+  # Destinations for all environments
+  destinations:
+    - namespace: 'dev'
+      server: https://kubernetes.default.svc
+    - namespace: 'staging'
+      server: https://kubernetes.default.svc
+    - namespace: 'prod'
+      server: https://kubernetes.default.svc
+    - namespace: 'monitoring'
+      server: https://kubernetes.default.svc
+    - namespace: 'security'
+      server: https://kubernetes.default.svc
+
+  # Cluster resources
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+    - group: 'rbac.authorization.k8s.io'
+      kind: '*'
+
+  # Namespace resources
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+
+  # Roles
+  roles:
+    - name: dev-full-access
+      description: Full access to dev environment
+      policies:
+        - p, proj:devops-project:dev-full-access, applications, *, devops-project/dev-*, allow
+      groups:
+        - developers
+
+    - name: staging-deployer
+      description: Can deploy to staging
+      policies:
+        - p, proj:devops-project:staging-deployer, applications, sync, devops-project/staging-*, allow
+        - p, proj:devops-project:staging-deployer, applications, get, devops-project/staging-*, allow
+      groups:
+        - deployers
+
+    - name: prod-admin
+      description: Production admin access
+      policies:
+        - p, proj:devops-project:prod-admin, applications, *, devops-project/prod-*, allow
+      groups:
+        - prod-admins
+
+  # Sync windows
+  syncWindows:
+    # Dev - always allowed
+    - kind: allow
+      schedule: '* * * * *'
+      duration: 24h
+      applications:
+        - 'dev-*'
+      manualSync: true
+
+    # Staging - business hours only
+    - kind: allow
+      schedule: '0 9-17 * * 1-5'  # 9 AM - 5 PM, Mon-Fri
+      duration: 8h
+      applications:
+        - 'staging-*'
+      manualSync: true
+
+    # Production - controlled windows
+    - kind: allow
+      schedule: '0 2 * * 0'  # 2 AM on Sundays
+      duration: 4h
+      applications:
+        - 'prod-*'
+      manualSync: true
+
+  orphanedResources:
+    warn: true

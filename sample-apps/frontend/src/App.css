@@ -1,0 +1,97 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.App-header .subtitle {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.App-nav {
+  background-color: white;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.App-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.App-nav li a {
+  display: block;
+  padding: 20px 30px;
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
+}
+
+.App-nav li a:hover {
+  background-color: #f9fafb;
+  color: #4f46e5;
+  border-bottom-color: #4f46e5;
+}
+
+.health-indicators {
+  display: flex;
+  gap: 15px;
+}
+
+.indicator {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.indicator.healthy {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.indicator.unhealthy {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.App-main {
+  flex: 1;
+  padding: 40px 0;
+}
+
+.App-footer {
+  background-color: #1f2937;
+  color: #9ca3af;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: auto;
+}

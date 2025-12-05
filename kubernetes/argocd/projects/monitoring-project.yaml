@@ -1,0 +1,89 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: monitoring
+  namespace: argocd
+  labels:
+    project: monitoring
+    environment: production
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Monitoring and Observability Stack
+
+  # Source repositories that applications within this project can deploy from
+  sourceRepos:
+    - '*'  # Allow all repositories (restrict this in production)
+
+  # Destination namespaces and clusters
+  destinations:
+    - namespace: monitoring
+      server: https://kubernetes.default.svc  # In-cluster
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+
+  # Cluster resource allow list
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+    - group: ''
+      kind: PersistentVolume
+    - group: 'rbac.authorization.k8s.io'
+      kind: ClusterRole
+    - group: 'rbac.authorization.k8s.io'
+      kind: ClusterRoleBinding
+
+  # Namespace resource allow list (resources that can be deployed in namespaces)
+  namespaceResourceWhitelist:
+    - group: ''
+      kind: '*'  # Allow all core resources
+    - group: 'apps'
+      kind: '*'  # Deployments, StatefulSets, etc.
+    - group: 'batch'
+      kind: '*'  # Jobs, CronJobs
+    - group: 'networking.k8s.io'
+      kind: '*'  # Ingress, NetworkPolicies
+    - group: 'policy'
+      kind: '*'  # PodDisruptionBudgets
+    - group: 'autoscaling'
+      kind: '*'  # HorizontalPodAutoscalers
+
+  # Roles for this project
+  roles:
+    - name: read-only
+      description: Read-only access to monitoring applications
+      policies:
+        - p, proj:monitoring:read-only, applications, get, monitoring/*, allow
+        - p, proj:monitoring:read-only, applications, sync, monitoring/*, deny
+      groups:
+        - monitoring-viewers
+
+    - name: developers
+      description: Developer access - can sync applications
+      policies:
+        - p, proj:monitoring:developers, applications, get, monitoring/*, allow
+        - p, proj:monitoring:developers, applications, sync, monitoring/*, allow
+        - p, proj:monitoring:developers, applications, delete, monitoring/*, deny
+      groups:
+        - monitoring-developers
+
+    - name: admins
+      description: Full access to monitoring applications
+      policies:
+        - p, proj:monitoring:admins, applications, *, monitoring/*, allow
+      groups:
+        - monitoring-admins
+
+  # Sync windows - when automatic sync can occur
+  syncWindows:
+    - kind: allow
+      schedule: '* * * * *'  # Always allow (adjust for maintenance windows)
+      duration: 24h
+      applications:
+        - '*'
+      manualSync: true
+
+  # Orphaned resources - what to do with resources not in Git
+  orphanedResources:
+    warn: true  # Warn about orphaned resources

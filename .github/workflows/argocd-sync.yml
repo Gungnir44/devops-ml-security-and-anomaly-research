@@ -1,0 +1,266 @@
+name: ArgoCD Sync
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - staging
+    paths:
+      - 'gitops/**'
+      - 'kubernetes/manifests/**'
+      - 'kubernetes/helm/**'
+      - 'kubernetes/argocd/applications/**'
+  pull_request:
+    branches:
+      - main
+      - staging
+    paths:
+      - 'gitops/**'
+      - 'kubernetes/manifests/**'
+      - 'kubernetes/helm/**'
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to sync'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+      application:
+        description: 'Application name (or "all")'
+        required: true
+        default: 'all'
+
+env:
+  ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}  # e.g., argocd.example.com or localhost:8080
+
+jobs:
+  validate-manifests:
+    name: Validate Kubernetes Manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+        with:
+          version: 'v1.28.0'
+
+      - name: Validate YAML syntax
+        run: |
+          echo "Validating YAML syntax..."
+          find gitops/ kubernetes/manifests/ -name '*.yaml' -o -name '*.yml' | while read file; do
+            echo "Checking $file"
+            kubectl apply --dry-run=client -f "$file" || echo "Warning: $file may have issues"
+          done
+
+      - name: Install kubeval
+        run: |
+          wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+          tar xf kubeval-linux-amd64.tar.gz
+          sudo mv kubeval /usr/local/bin
+
+      - name: Validate Kubernetes manifests
+        run: |
+          echo "Validating Kubernetes manifests..."
+          find gitops/ kubernetes/manifests/ -name '*.yaml' -o -name '*.yml' | xargs kubeval --strict --ignore-missing-schemas || true
+
+      - name: Install Kustomize
+        run: |
+          curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+          sudo mv kustomize /usr/local/bin/
+
+      - name: Validate Kustomize builds
+        run: |
+          echo "Validating Kustomize configurations..."
+          for dir in gitops/applications/*/*/; do
+            if [ -f "$dir/kustomization.yaml" ]; then
+              echo "Building $dir"
+              kustomize build "$dir" | kubectl apply --dry-run=client -f - || echo "Warning: $dir may have issues"
+            fi
+          done
+
+  security-scan:
+    name: Security Scan Kubernetes Manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Checkov on Kubernetes manifests
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: gitops/
+          framework: kubernetes
+          output_format: sarif
+          output_file_path: reports/checkov-k8s.sarif
+          soft_fail: true
+
+      - name: Upload Checkov results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: reports/checkov-k8s.sarif
+          category: checkov-kubernetes
+
+  argocd-diff:
+    name: ArgoCD Diff Preview
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ArgoCD CLI
+        run: |
+          curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          chmod +x /usr/local/bin/argocd
+
+      - name: ArgoCD Login
+        run: |
+          # Login to ArgoCD (requires ARGOCD_SERVER and ARGOCD_AUTH_TOKEN secrets)
+          argocd login ${{ secrets.ARGOCD_SERVER }} \
+            --auth-token=${{ secrets.ARGOCD_AUTH_TOKEN }} \
+            --grpc-web
+
+      - name: Generate ArgoCD Diff
+        id: argocd_diff
+        continue-on-error: true
+        run: |
+          echo "Generating diffs for affected applications..."
+
+          # Find changed files
+          git fetch origin ${{ github.base_ref }}
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+
+          # Determine affected applications
+          AFFECTED_APPS=""
+          if echo "$CHANGED_FILES" | grep -q "gitops/applications/dev/"; then
+            AFFECTED_APPS="$AFFECTED_APPS webapp-dev"
+          fi
+          if echo "$CHANGED_FILES" | grep -q "gitops/applications/staging/"; then
+            AFFECTED_APPS="$AFFECTED_APPS webapp-staging"
+          fi
+          if echo "$CHANGED_FILES" | grep -q "kubernetes/manifests/"; then
+            AFFECTED_APPS="$AFFECTED_APPS monitoring-stack"
+          fi
+
+          # Generate diffs
+          for app in $AFFECTED_APPS; do
+            echo "## Diff for $app" >> diff-output.txt
+            argocd app diff $app >> diff-output.txt || true
+            echo "" >> diff-output.txt
+          done
+
+      - name: Comment PR with diff
+        if: steps.argocd_diff.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const diff = fs.readFileSync('diff-output.txt', 'utf8');
+
+            const comment = `## ArgoCD Deployment Preview
+
+            The following changes will be applied when this PR is merged:
+
+            \`\`\`diff
+            ${diff}
+            \`\`\`
+
+            Review the changes carefully before merging.`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  argocd-sync-dev:
+    name: Sync to Development
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/main'
+    needs: [validate-manifests, security-scan]
+    environment: development
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ArgoCD CLI
+        run: |
+          curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          chmod +x /usr/local/bin/argocd
+
+      - name: ArgoCD Login
+        run: |
+          argocd login ${{ secrets.ARGOCD_SERVER }} \
+            --auth-token=${{ secrets.ARGOCD_AUTH_TOKEN }} \
+            --grpc-web
+
+      - name: Sync Development Applications
+        run: |
+          echo "Syncing development applications..."
+          argocd app sync webapp-dev --prune --timeout 300
+          argocd app wait webapp-dev --health --timeout 300
+
+      - name: Check Application Health
+        run: |
+          argocd app get webapp-dev
+
+  argocd-sync-staging:
+    name: Sync to Staging
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/staging'
+    needs: [validate-manifests, security-scan]
+    environment: staging
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install ArgoCD CLI
+        run: |
+          curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+          chmod +x /usr/local/bin/argocd
+
+      - name: ArgoCD Login
+        run: |
+          argocd login ${{ secrets.ARGOCD_SERVER }} \
+            --auth-token=${{ secrets.ARGOCD_AUTH_TOKEN }} \
+            --grpc-web
+
+      - name: Sync Staging Applications
+        run: |
+          echo "Syncing staging applications..."
+          argocd app sync webapp-staging --prune --timeout 300
+          argocd app wait webapp-staging --health --timeout 300
+
+      - name: Check Application Health
+        run: |
+          argocd app get webapp-staging
+
+  notify:
+    name: Notification
+    runs-on: ubuntu-latest
+    needs: [argocd-sync-dev, argocd-sync-staging]
+    if: always()
+    steps:
+      - name: Send Slack notification
+        if: success()
+        run: |
+          echo "✅ ArgoCD sync completed successfully"
+          # Add Slack webhook integration here if desired
+          # curl -X POST -H 'Content-type: application/json' \
+          #   --data '{"text":"ArgoCD sync completed successfully"}' \
+          #   ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: Send failure notification
+        if: failure()
+        run: |
+          echo "❌ ArgoCD sync failed"
+          # Add Slack webhook integration here

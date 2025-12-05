@@ -1,0 +1,161 @@
+{
+  "module": 2,
+  "title": "Linux & Git Fundamentals Quiz",
+  "total_points": 20,
+  "passing_score": 16,
+  "sections": {
+    "multiple_choice": {
+      "points": 10,
+      "questions": {
+        "q1": {
+          "points": 2,
+          "correct_answer": "B",
+          "explanation": "The root directory in Linux is / (forward slash), which is the top of the entire filesystem tree"
+        },
+        "q2": {
+          "points": 2,
+          "correct_answer": "A",
+          "explanation": "755 means owner has rwx (7), group has r-x (5), and others have r-x (5)"
+        },
+        "q3": {
+          "points": 2,
+          "correct_answer": "B",
+          "explanation": "Git workflow is: add (stage changes) → commit (save to repo) → push (upload to remote)"
+        },
+        "q4": {
+          "points": 2,
+          "correct_answer": "B",
+          "explanation": "tail -f follows a file in real-time, essential for watching log files"
+        },
+        "q5": {
+          "points": 2,
+          "correct_answer": "B",
+          "explanation": "Feature branches allow working on features without affecting the stable main branch"
+        }
+      }
+    },
+    "true_false": {
+      "points": 5,
+      "questions": {
+        "q6": {
+          "points": 1,
+          "correct_answer": "TRUE",
+          "explanation": "In Linux philosophy, everything (including hardware devices) is represented as a file for uniform interface"
+        },
+        "q7": {
+          "points": 1,
+          "correct_answer": "FALSE",
+          "explanation": "rm -rf / is EXTREMELY DANGEROUS and will delete everything on the system. Never run this command!"
+        },
+        "q8": {
+          "points": 1,
+          "correct_answer": "TRUE",
+          "explanation": "git pull = git fetch (download changes) + git merge (integrate changes)"
+        },
+        "q9": {
+          "points": 1,
+          "correct_answer": "FALSE",
+          "explanation": "Ubuntu uses apt, CentOS uses yum/dnf. Different package managers for different distros."
+        },
+        "q10": {
+          "points": 1,
+          "correct_answer": "TRUE",
+          "explanation": "Merge conflicts occur when the same lines are modified differently in separate branches"
+        }
+      }
+    },
+    "short_answer": {
+      "points": 5,
+      "questions": {
+        "q11": {
+          "points": 1,
+          "key_points": [
+            "> overwrites file completely",
+            ">> appends to existing file",
+            "> creates new file if doesn't exist"
+          ]
+        },
+        "q12": {
+          "points": 1,
+          "key_points": [
+            "Git tracks history/changes over time",
+            "Git allows reverting to previous versions",
+            "Git enables collaboration (branching, merging)",
+            "Git shows who made what changes and when"
+          ],
+          "minimum_points": 2
+        },
+        "q13": {
+          "points": 1,
+          "correct_answer": "640",
+          "explanation": "rw- (6), r-- (4), --- (0) = 640"
+        },
+        "q14": {
+          "points": 1,
+          "correct_answer": "find /var/log -name \"*.log\" -mtime -7",
+          "key_elements": [
+            "find command",
+            "/var/log path",
+            "-name \"*.log\"",
+            "-mtime -7 (or similar time criteria)"
+          ]
+        },
+        "q15": {
+          "points": 1,
+          "key_steps": [
+            "Create feature branch from main",
+            "Make changes and commit",
+            "Push branch to remote",
+            "Create pull request",
+            "Review and approve",
+            "Merge to main"
+          ],
+          "minimum_steps": 3
+        }
+      }
+    },
+    "bonus": {
+      "points": 2,
+      "q16": {
+        "commands": {
+          "check_process": {
+            "acceptable_answers": [
+              "systemctl status nginx",
+              "ps aux | grep nginx",
+              "pgrep nginx",
+              "service nginx status"
+            ]
+          },
+          "view_log": {
+            "acceptable_answers": [
+              "tail -n 50 /var/log/nginx/error.log",
+              "tail -50 /var/log/nginx/error.log",
+              "less /var/log/nginx/error.log"
+            ]
+          },
+          "check_disk": {
+            "acceptable_answers": [
+              "df -h",
+              "df"
+            ]
+          },
+          "find_configs": {
+            "acceptable_answers": [
+              "find /etc -name \"*.conf\" -mtime -7",
+              "find /etc -mtime -7 -name \"*.conf\"",
+              "ls -lt /etc/nginx/",
+              "find /etc/nginx -mtime -7"
+            ]
+          }
+        },
+        "explanation_required": true
+      }
+    }
+  },
+  "grading_notes": {
+    "multiple_choice": "Award 1 point for correct answer, 1 point for explanation showing understanding",
+    "true_false": "Award 0.5 points for correct answer, 0.5 points for explanation",
+    "short_answer": "Award full points if key concepts are present, partial credit for incomplete answers",
+    "bonus": "Award points for correct commands that achieve the goal, even if not exact match. Explanation should show understanding of what each command does."
+  }
+}

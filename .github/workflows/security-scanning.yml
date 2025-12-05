@@ -1,0 +1,506 @@
+name: Security Scanning Suite
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    # Run daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+env:
+  # For research data collection
+  SCAN_RESULTS_DIR: security-scan-results
+
+jobs:
+  # =============================================================================
+  # SECRET SCANNING - TruffleHog
+  # =============================================================================
+  secret-scanning-trufflehog:
+    name: Secret Scanning (TruffleHog)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for TruffleHog
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: TruffleHog Secret Scan
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --json --results=verified,unknown
+
+      - name: TruffleHog Filesystem Scan (JSON output for research)
+        run: |
+          docker run --rm -v "$PWD:/scan" \
+            trufflesecurity/trufflehog:latest \
+            filesystem /scan \
+            --json \
+            --no-update \
+            > ${{ env.SCAN_RESULTS_DIR }}/trufflehog-results.json || true
+
+      - name: Parse TruffleHog results for metrics
+        run: |
+          echo "### TruffleHog Scan Results" >> $GITHUB_STEP_SUMMARY
+          if [ -f "${{ env.SCAN_RESULTS_DIR }}/trufflehog-results.json" ]; then
+            SECRET_COUNT=$(cat ${{ env.SCAN_RESULTS_DIR }}/trufflehog-results.json | wc -l)
+            echo "- Total findings: $SECRET_COUNT" >> $GITHUB_STEP_SUMMARY
+            echo "- Results saved to: ${{ env.SCAN_RESULTS_DIR }}/trufflehog-results.json" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- No secrets detected ✅" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload TruffleHog results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trufflehog-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/trufflehog-results.json
+          retention-days: 90
+
+  # =============================================================================
+  # SECRET SCANNING - Gitleaks (Alternative/Comparison)
+  # =============================================================================
+  secret-scanning-gitleaks:
+    name: Secret Scanning (Gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: Gitleaks Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_SUMMARY: true
+
+      - name: Gitleaks JSON Report
+        if: always()
+        run: |
+          docker run --rm -v "$PWD:/scan" \
+            zricethezav/gitleaks:latest \
+            detect \
+            --source /scan \
+            --report-path /scan/${{ env.SCAN_RESULTS_DIR }}/gitleaks-report.json \
+            --report-format json \
+            --verbose || true
+
+      - name: Upload Gitleaks results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gitleaks-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/gitleaks-report.json
+          retention-days: 90
+
+  # =============================================================================
+  # CONTAINER SCANNING - Trivy
+  # =============================================================================
+  container-scanning-trivy:
+    name: Container Scanning (Trivy)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: Run Trivy vulnerability scanner (filesystem)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: '${{ env.SCAN_RESULTS_DIR }}/trivy-fs.sarif'
+          severity: 'CRITICAL,HIGH,MEDIUM'
+
+      - name: Run Trivy with JSON output (for research data)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'json'
+          output: '${{ env.SCAN_RESULTS_DIR }}/trivy-fs.json'
+
+      - name: Scan Docker images (if Dockerfiles exist)
+        run: |
+          if find . -name "Dockerfile*" -o -name "*.Dockerfile" | grep -q .; then
+            echo "Found Dockerfiles, scanning..."
+
+            # Build images first
+            for dockerfile in $(find . -name "Dockerfile*" -o -name "*.Dockerfile"); do
+              IMAGE_NAME=$(basename $(dirname $dockerfile))
+              echo "Building $IMAGE_NAME from $dockerfile"
+              docker build -f "$dockerfile" -t "$IMAGE_NAME:latest" . || true
+
+              # Scan the built image
+              docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+                -v $PWD:/scan \
+                aquasec/trivy:latest image \
+                --format json \
+                --output /scan/${{ env.SCAN_RESULTS_DIR }}/trivy-image-$IMAGE_NAME.json \
+                "$IMAGE_NAME:latest" || true
+            done
+          fi
+
+      - name: Upload Trivy SARIF to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: '${{ env.SCAN_RESULTS_DIR }}/trivy-fs.sarif'
+          category: trivy-filesystem
+
+      - name: Upload Trivy results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: trivy-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/trivy-*.json
+          retention-days: 90
+
+  # =============================================================================
+  # CONTAINER SCANNING - Grype (Alternative)
+  # =============================================================================
+  container-scanning-grype:
+    name: Container Scanning (Grype)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: Install Grype
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+
+      - name: Scan filesystem with Grype
+        run: |
+          grype dir:. \
+            --output json \
+            --file ${{ env.SCAN_RESULTS_DIR }}/grype-fs.json || true
+
+      - name: Upload Grype results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: grype-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/grype-*.json
+          retention-days: 90
+
+  # =============================================================================
+  # SAST - CodeQL
+  # =============================================================================
+  sast-codeql:
+    name: SAST (CodeQL)
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+    strategy:
+      matrix:
+        language: ['javascript', 'python']  # Add languages as needed
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: +security-extended,security-and-quality
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
+          output: ${{ env.SCAN_RESULTS_DIR }}/codeql-${{ matrix.language }}.sarif
+          upload: true
+
+      - name: Upload CodeQL results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: codeql-results-${{ matrix.language }}
+          path: ${{ env.SCAN_RESULTS_DIR }}/codeql-*.sarif
+          retention-days: 90
+
+  # =============================================================================
+  # SAST - Semgrep
+  # =============================================================================
+  sast-semgrep:
+    name: SAST (Semgrep)
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: Run Semgrep
+        run: |
+          semgrep scan \
+            --config auto \
+            --sarif \
+            --output ${{ env.SCAN_RESULTS_DIR }}/semgrep.sarif \
+            --json-output ${{ env.SCAN_RESULTS_DIR }}/semgrep.json \
+            --verbose || true
+
+      - name: Upload Semgrep SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: ${{ env.SCAN_RESULTS_DIR }}/semgrep.sarif
+          category: semgrep
+
+      - name: Upload Semgrep results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: semgrep-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/semgrep.*
+          retention-days: 90
+
+  # =============================================================================
+  # DEPENDENCY SCANNING - npm audit
+  # =============================================================================
+  dependency-npm-audit:
+    name: Dependency Scan (npm)
+    runs-on: ubuntu-latest
+    if: hashFiles('**/package-lock.json') != ''
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: Run npm audit
+        run: |
+          npm audit --json > ${{ env.SCAN_RESULTS_DIR }}/npm-audit.json || true
+          npm audit --audit-level=moderate || true
+
+      - name: Parse npm audit results
+        run: |
+          echo "### npm Audit Results" >> $GITHUB_STEP_SUMMARY
+          if [ -f "${{ env.SCAN_RESULTS_DIR }}/npm-audit.json" ]; then
+            cat ${{ env.SCAN_RESULTS_DIR }}/npm-audit.json | jq -r '
+              "- Total vulnerabilities: \(.metadata.vulnerabilities.total)",
+              "- Critical: \(.metadata.vulnerabilities.critical)",
+              "- High: \(.metadata.vulnerabilities.high)",
+              "- Moderate: \(.metadata.vulnerabilities.moderate)",
+              "- Low: \(.metadata.vulnerabilities.low)"
+            ' >> $GITHUB_STEP_SUMMARY || echo "No vulnerabilities found" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload npm audit results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: npm-audit-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/npm-audit.json
+          retention-days: 90
+
+  # =============================================================================
+  # DEPENDENCY SCANNING - pip audit (Python)
+  # =============================================================================
+  dependency-pip-audit:
+    name: Dependency Scan (Python)
+    runs-on: ubuntu-latest
+    if: hashFiles('**/requirements.txt', '**/Pipfile.lock', '**/poetry.lock') != ''
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Create results directory
+        run: mkdir -p ${{ env.SCAN_RESULTS_DIR }}
+
+      - name: Install pip-audit
+        run: pip install pip-audit
+
+      - name: Run pip-audit
+        run: |
+          pip-audit --format json --output ${{ env.SCAN_RESULTS_DIR }}/pip-audit.json || true
+          pip-audit --desc || true
+
+      - name: Upload pip-audit results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pip-audit-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/pip-audit.json
+          retention-days: 90
+
+  # =============================================================================
+  # DEPENDENCY SCANNING - Snyk
+  # =============================================================================
+  dependency-snyk:
+    name: Dependency Scan (Snyk)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=${{ env.SCAN_RESULTS_DIR }}/snyk.sarif --json-file-output=${{ env.SCAN_RESULTS_DIR }}/snyk.json
+
+      - name: Upload Snyk SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: ${{ env.SCAN_RESULTS_DIR }}/snyk.sarif
+          category: snyk
+
+      - name: Upload Snyk results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: snyk-results
+          path: ${{ env.SCAN_RESULTS_DIR }}/snyk.*
+          retention-days: 90
+
+  # =============================================================================
+  # AGGREGATE RESULTS - For Research Data Collection
+  # =============================================================================
+  aggregate-results:
+    name: Aggregate Security Scan Results
+    runs-on: ubuntu-latest
+    needs:
+      - secret-scanning-trufflehog
+      - secret-scanning-gitleaks
+      - container-scanning-trivy
+      - container-scanning-grype
+      - sast-codeql
+      - sast-semgrep
+      - dependency-npm-audit
+      - dependency-pip-audit
+      - dependency-snyk
+    if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download all scan results
+        uses: actions/download-artifact@v4
+        with:
+          path: all-scan-results
+
+      - name: Aggregate results into single JSON
+        run: |
+          mkdir -p aggregated-results
+
+          cat > aggregated-results/security-scan-summary.json << 'EOF'
+          {
+            "scan_timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "repository": "${{ github.repository }}",
+            "commit_sha": "${{ github.sha }}",
+            "branch": "${{ github.ref_name }}",
+            "scan_results": {
+              "secret_scanning": {
+                "trufflehog": {},
+                "gitleaks": {}
+              },
+              "container_scanning": {
+                "trivy": {},
+                "grype": {}
+              },
+              "sast": {
+                "codeql": {},
+                "semgrep": {}
+              },
+              "dependency_scanning": {
+                "npm_audit": {},
+                "pip_audit": {},
+                "snyk": {}
+              }
+            }
+          }
+          EOF
+
+          # Merge all JSON results
+          find all-scan-results -name "*.json" -type f | while read file; do
+            echo "Processing: $file"
+            cat "$file" >> aggregated-results/all-findings.jsonl
+            echo "" >> aggregated-results/all-findings.jsonl
+          done
+
+      - name: Generate summary report
+        run: |
+          echo "# Security Scan Summary" > aggregated-results/SUMMARY.md
+          echo "" >> aggregated-results/SUMMARY.md
+          echo "**Scan Date:** $(date -u)" >> aggregated-results/SUMMARY.md
+          echo "**Commit:** ${{ github.sha }}" >> aggregated-results/SUMMARY.md
+          echo "**Branch:** ${{ github.ref_name }}" >> aggregated-results/SUMMARY.md
+          echo "" >> aggregated-results/SUMMARY.md
+
+          echo "## Scan Results" >> aggregated-results/SUMMARY.md
+          echo "All detailed results are available in the artifacts." >> aggregated-results/SUMMARY.md
+          echo "" >> aggregated-results/SUMMARY.md
+          echo "### Available Scans:" >> aggregated-results/SUMMARY.md
+          ls -R all-scan-results >> aggregated-results/SUMMARY.md
+
+      - name: Upload aggregated results
+        uses: actions/upload-artifact@v4
+        with:
+          name: aggregated-security-results
+          path: aggregated-results/
+          retention-days: 90
+
+      - name: Create summary
+        run: |
+          echo "## 🔒 Security Scan Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All security scans have been completed. Results are available in artifacts." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Scans Performed:" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Secret Scanning (TruffleHog & Gitleaks)" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Container Scanning (Trivy & Grype)" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ SAST (CodeQL & Semgrep)" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Dependency Scanning (npm/pip/Snyk)" >> $GITHUB_STEP_SUMMARY
