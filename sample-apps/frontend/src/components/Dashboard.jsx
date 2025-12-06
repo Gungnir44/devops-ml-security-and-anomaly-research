@@ -67,7 +67,7 @@ function Dashboard() {
       <div className="info-section">
         <h3>About This Project</h3>
         <p>
-          This dashboard is part of a Master's degree research project on
+          This dashboard is part of a Master&apos;s degree research project on
           <strong> ML-Based Security Anomaly Detection for DevOps Pipelines</strong>.
         </p>
         <p>

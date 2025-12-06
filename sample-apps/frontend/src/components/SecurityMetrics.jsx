@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './SecurityMetrics.css'
 
 function SecurityMetrics() {
-  const [metrics, setMetrics] = useState({
+  const [metrics] = useState({
     secretScans: 245,
     containerScans: 189,
     sastScans: 312,

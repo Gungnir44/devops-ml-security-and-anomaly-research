@@ -93,7 +93,7 @@ http_request_duration_seconds_count 150
 });
 
 // Error handling
-app.use((err, req, res, next) => {
+app.use((err, req, res, _next) => {
   console.error('Error:', err);
   res.status(500).json({
     error: 'Internal server error',

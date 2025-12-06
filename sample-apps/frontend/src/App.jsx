@@ -63,7 +63,7 @@ function App() {
 
         <footer className="App-footer">
           <div className="container">
-            <p>&copy; 2025 DevOps Security Research Project | Master's Thesis</p>
+            <p>&copy; 2025 DevOps Security Research Project | Master&apos;s Thesis</p>
           </div>
         </footer>
       </div>
