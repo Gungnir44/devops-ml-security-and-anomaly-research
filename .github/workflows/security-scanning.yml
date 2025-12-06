@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - develop
+      - hardened
   pull_request:
     branches:
       - main
       - develop
+      - hardened
   schedule:
     # Run daily at 2 AM UTC
     - cron: '0 2 * * *'

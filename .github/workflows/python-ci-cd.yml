@@ -2,12 +2,12 @@ name: Python Service CI/CD
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, hardened]
     paths:
       - 'sample-apps/python-service/**'
       - '.github/workflows/python-ci-cd.yml'
   pull_request:
-    branches: [main]
+    branches: [main, hardened]
     paths:
       - 'sample-apps/python-service/**'
   workflow_dispatch:
