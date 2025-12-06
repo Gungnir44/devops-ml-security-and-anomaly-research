@@ -10,10 +10,11 @@ describe('App', () => {
 
   it('renders navigation links', () => {
     render(<App />)
-    expect(screen.getByText(/Dashboard/i)).toBeInTheDocument()
-    expect(screen.getByText(/Users API/i)).toBeInTheDocument()
-    expect(screen.getByText(/Data Processing/i)).toBeInTheDocument()
-    expect(screen.getByText(/Security Metrics/i)).toBeInTheDocument()
+    // Use getByRole to specifically target navigation links (not header text containing "Dashboard")
+    expect(screen.getByRole('link', { name: /^Dashboard$/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Users API/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Data Processing/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Security Metrics/i })).toBeInTheDocument()
   })
 
   it('renders footer', () => {
