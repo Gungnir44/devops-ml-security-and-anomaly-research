@@ -14,7 +14,7 @@ export default defineConfig({
       '/python-api': {
         target: 'http://localhost:8000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/python-api/, '/api'),
+        rewrite: path => path.replace(/^\/python-api/, '/api'),
       },
     },
   },
@@ -24,10 +24,7 @@ export default defineConfig({
     setupFiles: './src/tests/setup.js',
     coverage: {
       reporter: ['text', 'json', 'html'],
-      exclude: [
-        'node_modules/',
-        'src/tests/',
-      ],
+      exclude: ['node_modules/', 'src/tests/'],
     },
   },
 })

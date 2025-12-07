@@ -29,10 +29,18 @@
   font-size: 2.5em;
 }
 
-.metric-icon.critical { color: #ef4444; }
-.metric-icon.high { color: #f59e0b; }
-.metric-icon.medium { color: #eab308; }
-.metric-icon.low { color: #10b981; }
+.metric-icon.critical {
+  color: #ef4444;
+}
+.metric-icon.high {
+  color: #f59e0b;
+}
+.metric-icon.medium {
+  color: #eab308;
+}
+.metric-icon.low {
+  color: #10b981;
+}
 
 .metric-content h3 {
   font-size: 2em;

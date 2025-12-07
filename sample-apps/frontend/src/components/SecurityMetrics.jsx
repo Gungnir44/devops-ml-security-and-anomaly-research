@@ -106,7 +106,9 @@ function SecurityMetrics() {
           <tbody>
             {scanTools.map((tool, index) => (
               <tr key={index}>
-                <td><strong>{tool.name}</strong></td>
+                <td>
+                  <strong>{tool.name}</strong>
+                </td>
                 <td>
                   <span className="category-badge">{tool.category}</span>
                 </td>
@@ -122,8 +124,8 @@ function SecurityMetrics() {
       <div className="research-info">
         <h3>ML-Based Anomaly Detection</h3>
         <p>
-          This system collects security scan data to train machine learning models
-          for detecting anomalous behavior in DevOps pipelines.
+          This system collects security scan data to train machine learning
+          models for detecting anomalous behavior in DevOps pipelines.
         </p>
         <div className="ml-features">
           <h4>Feature Categories (210 total features):</h4>

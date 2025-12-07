@@ -150,7 +150,7 @@ jobs:
         if: matrix.tool == 'codeql'
         uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:javascript"
+          category: '/language:javascript'
           upload: true
           output: codeql-results
 
@@ -452,7 +452,16 @@ jobs:
   collect-metrics:
     name: Collect CI/CD Metrics
     runs-on: ubuntu-latest
-    needs: [code-quality, test, secret-scanning, sast, dependency-scan, build, container-scan]
+    needs:
+      [
+        code-quality,
+        test,
+        secret-scanning,
+        sast,
+        dependency-scan,
+        build,
+        container-scan,
+      ]
     if: always()
     steps:
       - name: Checkout code

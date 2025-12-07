@@ -34,10 +34,18 @@ function App() {
         <nav className="App-nav">
           <div className="container">
             <ul>
-              <li><Link to="/">Dashboard</Link></li>
-              <li><Link to="/users">Users API</Link></li>
-              <li><Link to="/processing">Data Processing</Link></li>
-              <li><Link to="/security">Security Metrics</Link></li>
+              <li>
+                <Link to="/">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/users">Users API</Link>
+              </li>
+              <li>
+                <Link to="/processing">Data Processing</Link>
+              </li>
+              <li>
+                <Link to="/security">Security Metrics</Link>
+              </li>
             </ul>
             <div className="health-indicators">
               <span className={`indicator ${health.backend}`}>
@@ -63,7 +71,10 @@ function App() {
 
         <footer className="App-footer">
           <div className="container">
-            <p>&copy; 2025 DevOps Security Research Project | Master&apos;s Thesis</p>
+            <p>
+              &copy; 2025 DevOps Security Research Project | Master&apos;s
+              Thesis
+            </p>
           </div>
         </footer>
       </div>

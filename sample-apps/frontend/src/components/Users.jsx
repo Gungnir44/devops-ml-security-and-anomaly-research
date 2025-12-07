@@ -19,14 +19,16 @@ function Users() {
       setUsers(data.users || [])
       setError(null)
     } catch (err) {
-      setError('Failed to fetch users. Make sure backend API is running on port 3000.')
+      setError(
+        'Failed to fetch users. Make sure backend API is running on port 3000.'
+      )
       console.error(err)
     } finally {
       setLoading(false)
     }
   }
 
-  const handleCreateUser = async (e) => {
+  const handleCreateUser = async e => {
     e.preventDefault()
     try {
       const response = await fetch('/api/v1/users', {
@@ -87,7 +89,7 @@ function Users() {
               <input
                 type="text"
                 value={newUser.name}
-                onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+                onChange={e => setNewUser({ ...newUser, name: e.target.value })}
                 required
               />
             </div>
@@ -97,7 +99,9 @@ function Users() {
               <input
                 type="email"
                 value={newUser.email}
-                onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+                onChange={e =>
+                  setNewUser({ ...newUser, email: e.target.value })
+                }
                 required
               />
             </div>
@@ -106,14 +110,16 @@ function Users() {
               <label>Role</label>
               <select
                 value={newUser.role}
-                onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
+                onChange={e => setNewUser({ ...newUser, role: e.target.value })}
               >
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
               </select>
             </div>
 
-            <button type="submit" className="btn-primary">Create User</button>
+            <button type="submit" className="btn-primary">
+              Create User
+            </button>
           </form>
 
           <div className="api-info">

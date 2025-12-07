@@ -30,7 +30,7 @@ function DataProcessing() {
     setLoading(true)
     try {
       const values = batchData.split(',').map(v => ({
-        value: parseFloat(v.trim())
+        value: parseFloat(v.trim()),
       }))
 
       const response = await fetch('/python-api/v1/batch-process', {
@@ -60,7 +60,7 @@ function DataProcessing() {
             <input
               type="number"
               value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
+              onChange={e => setInputValue(e.target.value)}
               placeholder="Enter a number"
             />
           </div>
@@ -75,9 +75,15 @@ function DataProcessing() {
           {result && !result.error && (
             <div className="result-box success">
               <h4>Result:</h4>
-              <p><strong>Original:</strong> {result.original_value}</p>
-              <p><strong>Processed:</strong> {result.processed_value}</p>
-              <p><strong>Operation:</strong> {result.operation}</p>
+              <p>
+                <strong>Original:</strong> {result.original_value}
+              </p>
+              <p>
+                <strong>Processed:</strong> {result.processed_value}
+              </p>
+              <p>
+                <strong>Operation:</strong> {result.operation}
+              </p>
               <p className="timestamp">
                 {new Date(result.timestamp).toLocaleString()}
               </p>
@@ -97,7 +103,7 @@ function DataProcessing() {
             <label>Comma-separated values (max 100)</label>
             <textarea
               value={batchData}
-              onChange={(e) => setBatchData(e.target.value)}
+              onChange={e => setBatchData(e.target.value)}
               placeholder="5, 10, 15, 20, 25"
               rows="3"
             />
@@ -152,10 +158,18 @@ function DataProcessing() {
         <div className="endpoint-list">
           <h4>Available Endpoints:</h4>
           <ul>
-            <li><code>POST /api/v1/process</code> - Process single value</li>
-            <li><code>POST /api/v1/batch-process</code> - Process multiple values</li>
-            <li><code>GET /api/v1/analytics/summary</code> - Get analytics</li>
-            <li><code>GET /metrics</code> - Prometheus metrics</li>
+            <li>
+              <code>POST /api/v1/process</code> - Process single value
+            </li>
+            <li>
+              <code>POST /api/v1/batch-process</code> - Process multiple values
+            </li>
+            <li>
+              <code>GET /api/v1/analytics/summary</code> - Get analytics
+            </li>
+            <li>
+              <code>GET /metrics</code> - Prometheus metrics
+            </li>
           </ul>
         </div>
       </div>

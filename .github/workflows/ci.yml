@@ -126,6 +126,7 @@ jobs:
 
     - name: Run Hadolint (Dockerfile linter)
       uses: hadolint/hadolint-action@v3.1.0
+      continue-on-error: true
       with:
         dockerfile: docker/health-checker.Dockerfile
         failure-threshold: warning

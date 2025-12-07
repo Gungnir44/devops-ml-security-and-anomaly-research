@@ -1,4 +1,4 @@
-name: "CodeQL Config for Frontend"
+name: 'CodeQL Config for Frontend'
 
 # Paths to analyze
 paths:
@@ -10,10 +10,10 @@ paths-ignore:
   - dist/
   - build/
   - coverage/
-  - "**/*.test.js"
-  - "**/*.test.jsx"
-  - "**/*.spec.js"
-  - "**/*.spec.jsx"
+  - '**/*.test.js'
+  - '**/*.test.jsx'
+  - '**/*.spec.js'
+  - '**/*.spec.jsx'
 
 # Queries to run
 queries:

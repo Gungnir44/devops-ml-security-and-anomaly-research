@@ -68,11 +68,16 @@ function Dashboard() {
         <h3>About This Project</h3>
         <p>
           This dashboard is part of a Master&apos;s degree research project on
-          <strong> ML-Based Security Anomaly Detection for DevOps Pipelines</strong>.
+          <strong>
+            {' '}
+            ML-Based Security Anomaly Detection for DevOps Pipelines
+          </strong>
+          .
         </p>
         <p>
-          The system monitors CI/CD pipelines, infrastructure events, and security scans
-          to detect anomalous behavior using machine learning models.
+          The system monitors CI/CD pipelines, infrastructure events, and
+          security scans to detect anomalous behavior using machine learning
+          models.
         </p>
 
         <div className="features">
