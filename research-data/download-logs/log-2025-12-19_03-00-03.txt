@@ -1,0 +1,14 @@
+[2025-12-19 03:00:03] ==========================================
+[2025-12-19 03:00:03] Starting automated research data download
+[2025-12-19 03:00:03] ==========================================
+[2025-12-19 03:00:03] Step 1: Downloading workflow artifacts...
+[2025-12-19 03:00:04] âœ
+[2025-12-19 03:00:04] 
+[2025-12-19 03:00:04] ==========================================
+[2025-12-19 03:00:04] Automated download completed
+[2025-12-19 03:00:04] ==========================================
+[2025-12-19 03:00:04] Data saved to: C:\Users\joshu\Desktop\DevOps Project\research-data\
+[2025-12-19 03:00:04] Log file: C:\Users\joshu\Desktop\DevOps Project\research-data\download-logs\log-2025-12-19_03-00-03.txt
+[2025-12-19 03:00:04] 
+[2025-12-19 03:00:04] Cleaning up old log files (keeping last 30 days)...
+[2025-12-19 03:00:04] Done!

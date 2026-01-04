@@ -1,0 +1,57 @@
+{
+    "number":  300,
+    "created_at":  "2025-12-05T00:39:06Z",
+    "updated_at":  "2025-12-05T00:39:06Z",
+    "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/300",
+    "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/300",
+    "state":  "open",
+    "fixed_at":  null,
+    "dismissed_by":  null,
+    "dismissed_at":  null,
+    "dismissed_reason":  null,
+    "dismissed_comment":  null,
+    "rule":  {
+                 "id":  "B104",
+                 "severity":  "warning",
+                 "description":  "",
+                 "name":  "hardcoded_bind_all_interfaces",
+                 "tags":  [
+                              "external/cwe/cwe-605",
+                              "security"
+                          ],
+                 "full_description":  "",
+                 "help":  "",
+                 "help_uri":  "https://bandit.readthedocs.io/en/1.9.2/plugins/b104_hardcoded_bind_all_interfaces.html"
+             },
+    "tool":  {
+                 "name":  "Bandit",
+                 "guid":  null,
+                 "version":  "1.9.2"
+             },
+    "most_recent_instance":  {
+                                 "ref":  "refs/heads/main",
+                                 "analysis_key":  ".github/workflows/python-ci-cd.yml:sast",
+                                 "environment":  "{\"tool\":\"bandit\"}",
+                                 "category":  "bandit",
+                                 "state":  "open",
+                                 "commit_sha":  "d3a1ab2f6380180259b694ab97681f995316edbe",
+                                 "message":  {
+                                                 "text":  "Possible binding to all interfaces."
+                                             },
+                                 "location":  {
+                                                  "path":  "sample-apps/python-service/app/main.py",
+                                                  "start_line":  204,
+                                                  "end_line":  204,
+                                                  "start_column":  14,
+                                                  "end_column":  23
+                                              },
+                                 "classifications":  [
+
+                                                     ]
+                             },
+    "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/300/instances",
+    "dismissal_approved_by":  null,
+    "assignees":  [
+
+                  ]
+}

@@ -1,0 +1,1215 @@
+# Complete Feature Definitions for ML-Based Security Anomaly Detection
+# Total: 210 features across 8 categories
+
+# ==============================================================================
+# CATEGORY 1: SECURITY SCAN RESULTS (21 features)
+# ==============================================================================
+security_scans:
+  description: "Features extracted from security scanning tools"
+  total_features: 21
+  features:
+    # Vulnerability counts by severity
+    - name: vuln_critical_count
+      type: integer
+      description: "Total critical vulnerabilities found"
+      source: ["trivy", "grype", "codeql", "semgrep", "bandit"]
+
+    - name: vuln_high_count
+      type: integer
+      description: "Total high-severity vulnerabilities"
+      source: ["trivy", "grype", "codeql", "semgrep", "bandit"]
+
+    - name: vuln_medium_count
+      type: integer
+      description: "Total medium-severity vulnerabilities"
+      source: ["trivy", "grype", "codeql", "semgrep", "bandit"]
+
+    - name: vuln_low_count
+      type: integer
+      description: "Total low-severity vulnerabilities"
+      source: ["trivy", "grype", "codeql", "semgrep", "bandit"]
+
+    # Secret detection
+    - name: secrets_detected_count
+      type: integer
+      description: "Number of secrets/credentials detected"
+      source: ["trufflehog", "gitleaks"]
+
+    - name: secrets_verified_count
+      type: integer
+      description: "Number of verified active secrets"
+      source: ["trufflehog"]
+
+    # Container security
+    - name: container_vulnerabilities
+      type: integer
+      description: "Vulnerabilities in container images"
+      source: ["trivy", "grype"]
+
+    - name: container_misconfigurations
+      type: integer
+      description: "Container configuration issues"
+      source: ["dockle", "checkov"]
+
+    # Dependency vulnerabilities
+    - name: npm_vulnerabilities
+      type: integer
+      description: "npm package vulnerabilities"
+      source: ["npm-audit"]
+
+    - name: python_vulnerabilities
+      type: integer
+      description: "Python package vulnerabilities"
+      source: ["pip-audit"]
+
+    # SAST findings
+    - name: sast_code_smells
+      type: integer
+      description: "Code quality issues detected"
+      source: ["codeql", "semgrep"]
+
+    - name: sast_security_issues
+      type: integer
+      description: "Security issues in code"
+      source: ["codeql", "semgrep", "bandit"]
+
+    # Infrastructure as Code (IaC)
+    - name: iac_misconfigurations
+      type: integer
+      description: "IaC security misconfigurations"
+      source: ["checkov", "tfsec"]
+
+    # Vulnerability trends
+    - name: vuln_new_count
+      type: integer
+      description: "New vulnerabilities since last scan"
+      derived: true
+
+    - name: vuln_fixed_count
+      type: integer
+      description: "Vulnerabilities fixed since last scan"
+      derived: true
+
+    - name: vuln_age_avg_days
+      type: float
+      description: "Average age of open vulnerabilities (days)"
+      derived: true
+
+    # Scan metrics
+    - name: scans_failed_count
+      type: integer
+      description: "Number of failed security scans"
+      source: ["github_actions"]
+
+    - name: scan_duration_avg_seconds
+      type: float
+      description: "Average security scan duration"
+      source: ["github_actions"]
+
+    # Compliance
+    - name: cve_count
+      type: integer
+      description: "Distinct CVEs identified"
+      source: ["trivy", "grype"]
+
+    - name: cwe_count
+      type: integer
+      description: "Distinct CWEs identified"
+      source: ["codeql", "semgrep"]
+
+    # Risk scoring
+    - name: security_risk_score
+      type: float
+      description: "Weighted risk score (0-100)"
+      derived: true
+      formula: "weighted sum of vulnerabilities by severity"
+
+# ==============================================================================
+# CATEGORY 2: CI/CD PIPELINE EVENTS (35 features)
+# ==============================================================================
+cicd_events:
+  description: "Features from CI/CD pipeline execution"
+  total_features: 35
+  features:
+    # Pipeline execution
+    - name: pipeline_runs_total
+      type: integer
+      description: "Total pipeline runs in window"
+      source: ["github_actions"]
+
+    - name: pipeline_runs_success
+      type: integer
+      description: "Successful pipeline runs"
+      source: ["github_actions"]
+
+    - name: pipeline_runs_failed
+      type: integer
+      description: "Failed pipeline runs"
+      source: ["github_actions"]
+
+    - name: pipeline_runs_cancelled
+      type: integer
+      description: "Cancelled pipeline runs"
+      source: ["github_actions"]
+
+    - name: pipeline_success_rate
+      type: float
+      description: "Pipeline success rate (0-1)"
+      derived: true
+
+    # Timing metrics
+    - name: pipeline_duration_avg_seconds
+      type: float
+      description: "Average pipeline duration"
+      source: ["github_actions"]
+
+    - name: pipeline_duration_max_seconds
+      type: float
+      description: "Maximum pipeline duration"
+      source: ["github_actions"]
+
+    - name: pipeline_duration_std_seconds
+      type: float
+      description: "Standard deviation of duration"
+      derived: true
+
+    # Build stage metrics
+    - name: build_failures_count
+      type: integer
+      description: "Build stage failures"
+      source: ["github_actions"]
+
+    - name: test_failures_count
+      type: integer
+      description: "Test stage failures"
+      source: ["github_actions"]
+
+    - name: lint_failures_count
+      type: integer
+      description: "Lint/code quality failures"
+      source: ["github_actions"]
+
+    # Test coverage
+    - name: test_coverage_percent
+      type: float
+      description: "Code test coverage percentage"
+      source: ["coverage_artifacts"]
+
+    - name: test_coverage_delta
+      type: float
+      description: "Change in coverage from baseline"
+      derived: true
+
+    # Deployment frequency
+    - name: deployments_count
+      type: integer
+      description: "Number of deployments"
+      source: ["github_actions", "argocd"]
+
+    - name: deployments_per_day
+      type: float
+      description: "Deployment frequency"
+      derived: true
+
+    # DORA metrics
+    - name: lead_time_hours
+      type: float
+      description: "Commit to deploy time (hours)"
+      derived: true
+
+    - name: mttr_hours
+      type: float
+      description: "Mean time to recovery (hours)"
+      derived: true
+
+    - name: change_failure_rate
+      type: float
+      description: "% of changes causing failures"
+      derived: true
+
+    # Stage-level timing
+    - name: stage_checkout_seconds
+      type: float
+      description: "Code checkout duration"
+      source: ["github_actions"]
+
+    - name: stage_build_seconds
+      type: float
+      description: "Build stage duration"
+      source: ["github_actions"]
+
+    - name: stage_test_seconds
+      type: float
+      description: "Test stage duration"
+      source: ["github_actions"]
+
+    - name: stage_security_scan_seconds
+      type: float
+      description: "Security scan duration"
+      source: ["github_actions"]
+
+    - name: stage_docker_build_seconds
+      type: float
+      description: "Docker build duration"
+      source: ["github_actions"]
+
+    # Workflow patterns
+    - name: workflows_concurrent_count
+      type: integer
+      description: "Concurrent workflow executions"
+      source: ["github_actions"]
+
+    - name: workflow_queue_time_seconds
+      type: float
+      description: "Time waiting in queue"
+      source: ["github_actions"]
+
+    # Artifact metrics
+    - name: artifacts_generated_count
+      type: integer
+      description: "Artifacts generated per run"
+      source: ["github_actions"]
+
+    - name: artifacts_size_mb
+      type: float
+      description: "Total artifact size (MB)"
+      source: ["github_actions"]
+
+    # Retry patterns
+    - name: job_retry_count
+      type: integer
+      description: "Number of job retries"
+      source: ["github_actions"]
+
+    - name: workflow_rerun_count
+      type: integer
+      description: "Workflow reruns triggered"
+      source: ["github_actions"]
+
+    # Branch patterns
+    - name: main_branch_runs
+      type: integer
+      description: "Runs on main branch"
+      source: ["github_actions"]
+
+    - name: feature_branch_runs
+      type: integer
+      description: "Runs on feature branches"
+      source: ["github_actions"]
+
+    # Trigger patterns
+    - name: push_triggered_runs
+      type: integer
+      description: "Push-triggered runs"
+      source: ["github_actions"]
+
+    - name: schedule_triggered_runs
+      type: integer
+      description: "Schedule-triggered runs"
+      source: ["github_actions"]
+
+    - name: manual_triggered_runs
+      type: integer
+      description: "Manually triggered runs"
+      source: ["github_actions"]
+
+    # Anomaly indicators
+    - name: pipeline_duration_anomaly_score
+      type: float
+      description: "Duration anomaly score (z-score)"
+      derived: true
+
+# ==============================================================================
+# CATEGORY 3: INFRASTRUCTURE METRICS (40 features)
+# ==============================================================================
+infrastructure:
+  description: "System resource and infrastructure metrics"
+  total_features: 40
+  features:
+    # CPU metrics
+    - name: cpu_usage_avg_percent
+      type: float
+      description: "Average CPU usage"
+      source: ["prometheus", "metrics_endpoint"]
+
+    - name: cpu_usage_max_percent
+      type: float
+      description: "Peak CPU usage"
+      source: ["prometheus"]
+
+    - name: cpu_usage_std
+      type: float
+      description: "CPU usage standard deviation"
+      derived: true
+
+    - name: cpu_throttling_count
+      type: integer
+      description: "CPU throttling events"
+      source: ["prometheus"]
+
+    # Memory metrics
+    - name: memory_usage_avg_mb
+      type: float
+      description: "Average memory usage (MB)"
+      source: ["prometheus", "metrics_endpoint"]
+
+    - name: memory_usage_max_mb
+      type: float
+      description: "Peak memory usage (MB)"
+      source: ["prometheus"]
+
+    - name: memory_usage_percent
+      type: float
+      description: "Memory usage percentage"
+      derived: true
+
+    - name: memory_oom_count
+      type: integer
+      description: "Out-of-memory events"
+      source: ["kubernetes", "logs"]
+
+    # Disk metrics
+    - name: disk_usage_percent
+      type: float
+      description: "Disk usage percentage"
+      source: ["prometheus"]
+
+    - name: disk_io_read_mb
+      type: float
+      description: "Disk read (MB)"
+      source: ["prometheus"]
+
+    - name: disk_io_write_mb
+      type: float
+      description: "Disk write (MB)"
+      source: ["prometheus"]
+
+    - name: disk_iops_avg
+      type: float
+      description: "Average I/O operations per second"
+      source: ["prometheus"]
+
+    # Network metrics
+    - name: network_rx_mb
+      type: float
+      description: "Network received (MB)"
+      source: ["prometheus"]
+
+    - name: network_tx_mb
+      type: float
+      description: "Network transmitted (MB)"
+      source: ["prometheus"]
+
+    - name: network_errors_count
+      type: integer
+      description: "Network errors"
+      source: ["prometheus"]
+
+    - name: network_dropped_packets
+      type: integer
+      description: "Dropped network packets"
+      source: ["prometheus"]
+
+    # System load
+    - name: load_avg_1min
+      type: float
+      description: "1-minute load average"
+      source: ["prometheus"]
+
+    - name: load_avg_5min
+      type: float
+      description: "5-minute load average"
+      source: ["prometheus"]
+
+    - name: load_avg_15min
+      type: float
+      description: "15-minute load average"
+      source: ["prometheus"]
+
+    # Process metrics
+    - name: process_count
+      type: integer
+      description: "Number of running processes"
+      source: ["prometheus"]
+
+    - name: thread_count
+      type: integer
+      description: "Number of threads"
+      source: ["prometheus"]
+
+    - name: file_descriptors_open
+      type: integer
+      description: "Open file descriptors"
+      source: ["prometheus"]
+
+    # Container-level infrastructure
+    - name: container_cpu_avg_percent
+      type: float
+      description: "Container CPU usage average"
+      source: ["kubernetes", "prometheus"]
+
+    - name: container_memory_avg_mb
+      type: float
+      description: "Container memory average"
+      source: ["kubernetes", "prometheus"]
+
+    - name: container_restart_count
+      type: integer
+      description: "Container restarts"
+      source: ["kubernetes"]
+
+    - name: pod_pending_count
+      type: integer
+      description: "Pods in pending state"
+      source: ["kubernetes"]
+
+    - name: pod_failed_count
+      type: integer
+      description: "Failed pods"
+      source: ["kubernetes"]
+
+    # Node metrics (if applicable)
+    - name: node_count_total
+      type: integer
+      description: "Total cluster nodes"
+      source: ["kubernetes"]
+
+    - name: node_ready_count
+      type: integer
+      description: "Ready nodes"
+      source: ["kubernetes"]
+
+    - name: node_not_ready_count
+      type: integer
+      description: "Not-ready nodes"
+      source: ["kubernetes"]
+
+    # Resource limits
+    - name: cpu_limit_hit_count
+      type: integer
+      description: "CPU limit violations"
+      source: ["kubernetes"]
+
+    - name: memory_limit_hit_count
+      type: integer
+      description: "Memory limit violations"
+      source: ["kubernetes"]
+
+    # Service health
+    - name: service_uptime_percent
+      type: float
+      description: "Service uptime percentage"
+      source: ["prometheus", "health_checks"]
+
+    - name: health_check_failures
+      type: integer
+      description: "Health check failures"
+      source: ["prometheus", "logs"]
+
+    # Response times
+    - name: http_response_time_avg_ms
+      type: float
+      description: "Average HTTP response time"
+      source: ["prometheus", "metrics_endpoint"]
+
+    - name: http_response_time_p95_ms
+      type: float
+      description: "95th percentile response time"
+      source: ["prometheus"]
+
+    - name: http_response_time_p99_ms
+      type: float
+      description: "99th percentile response time"
+      source: ["prometheus"]
+
+    # Error rates
+    - name: http_5xx_count
+      type: integer
+      description: "HTTP 5xx errors"
+      source: ["prometheus", "logs"]
+
+    - name: http_4xx_count
+      type: integer
+      description: "HTTP 4xx errors"
+      source: ["prometheus", "logs"]
+
+    # Resource anomalies
+    - name: resource_spike_count
+      type: integer
+      description: "Sudden resource usage spikes"
+      derived: true
+
+# ==============================================================================
+# CATEGORY 4: ACCESS LOG FEATURES (28 features)
+# ==============================================================================
+access_logs:
+  description: "Features from application access logs"
+  total_features: 28
+  features:
+    # Request volume
+    - name: requests_total_count
+      type: integer
+      description: "Total requests in window"
+      source: ["nginx_logs", "app_logs", "prometheus"]
+
+    - name: requests_per_second_avg
+      type: float
+      description: "Average requests per second"
+      derived: true
+
+    - name: requests_per_second_max
+      type: float
+      description: "Peak requests per second"
+      derived: true
+
+    # HTTP methods
+    - name: requests_get_count
+      type: integer
+      description: "GET requests"
+      source: ["nginx_logs"]
+
+    - name: requests_post_count
+      type: integer
+      description: "POST requests"
+      source: ["nginx_logs"]
+
+    - name: requests_put_count
+      type: integer
+      description: "PUT requests"
+      source: ["nginx_logs"]
+
+    - name: requests_delete_count
+      type: integer
+      description: "DELETE requests"
+      source: ["nginx_logs"]
+
+    # Status codes
+    - name: status_2xx_count
+      type: integer
+      description: "Successful responses (2xx)"
+      source: ["nginx_logs", "prometheus"]
+
+    - name: status_3xx_count
+      type: integer
+      description: "Redirects (3xx)"
+      source: ["nginx_logs"]
+
+    - name: status_4xx_count
+      type: integer
+      description: "Client errors (4xx)"
+      source: ["nginx_logs", "prometheus"]
+
+    - name: status_5xx_count
+      type: integer
+      description: "Server errors (5xx)"
+      source: ["nginx_logs", "prometheus"]
+
+    - name: error_rate_percent
+      type: float
+      description: "Overall error rate"
+      derived: true
+
+    # Endpoint patterns
+    - name: unique_endpoints_count
+      type: integer
+      description: "Unique endpoints accessed"
+      source: ["nginx_logs"]
+
+    - name: endpoint_diversity_score
+      type: float
+      description: "Shannon entropy of endpoint access"
+      derived: true
+
+    # User agents
+    - name: unique_user_agents_count
+      type: integer
+      description: "Unique user agents"
+      source: ["nginx_logs"]
+
+    - name: bot_requests_count
+      type: integer
+      description: "Bot/crawler requests"
+      source: ["nginx_logs"]
+
+    # IP patterns
+    - name: unique_ips_count
+      type: integer
+      description: "Unique source IPs"
+      source: ["nginx_logs"]
+
+    - name: requests_per_ip_avg
+      type: float
+      description: "Average requests per IP"
+      derived: true
+
+    - name: requests_per_ip_max
+      type: integer
+      description: "Max requests from single IP"
+      derived: true
+
+    # Geographic distribution
+    - name: unique_countries_count
+      type: integer
+      description: "Unique source countries"
+      source: ["nginx_logs", "geoip"]
+
+    # Request sizes
+    - name: request_size_avg_bytes
+      type: float
+      description: "Average request size"
+      source: ["nginx_logs"]
+
+    - name: response_size_avg_bytes
+      type: float
+      description: "Average response size"
+      source: ["nginx_logs"]
+
+    # Authentication patterns
+    - name: auth_attempts_count
+      type: integer
+      description: "Authentication attempts"
+      source: ["app_logs"]
+
+    - name: auth_failures_count
+      type: integer
+      description: "Failed authentications"
+      source: ["app_logs"]
+
+    - name: auth_failure_rate
+      type: float
+      description: "Authentication failure rate"
+      derived: true
+
+    # Suspicious patterns
+    - name: suspicious_payloads_count
+      type: integer
+      description: "Potentially malicious payloads"
+      source: ["waf_logs", "app_logs"]
+
+    - name: sql_injection_attempts
+      type: integer
+      description: "Detected SQL injection attempts"
+      source: ["waf_logs"]
+
+    # Rate limiting
+    - name: rate_limit_hits_count
+      type: integer
+      description: "Rate limit violations"
+      source: ["nginx_logs", "app_logs"]
+
+# ==============================================================================
+# CATEGORY 5: CODE CHANGE FEATURES (25 features)
+# ==============================================================================
+code_changes:
+  description: "Features from code repository activity"
+  total_features: 25
+  features:
+    # Commit activity
+    - name: commits_count
+      type: integer
+      description: "Number of commits"
+      source: ["git_api", "github_api"]
+
+    - name: commits_per_day_avg
+      type: float
+      description: "Average commits per day"
+      derived: true
+
+    - name: commit_time_variance
+      type: float
+      description: "Variance in commit timing"
+      derived: true
+
+    # Authors
+    - name: unique_authors_count
+      type: integer
+      description: "Unique commit authors"
+      source: ["git_api"]
+
+    - name: new_authors_count
+      type: integer
+      description: "New authors in window"
+      derived: true
+
+    # Code volume
+    - name: lines_added_total
+      type: integer
+      description: "Total lines added"
+      source: ["git_api"]
+
+    - name: lines_deleted_total
+      type: integer
+      description: "Total lines deleted"
+      source: ["git_api"]
+
+    - name: lines_changed_total
+      type: integer
+      description: "Total lines changed"
+      derived: true
+
+    - name: files_changed_count
+      type: integer
+      description: "Number of files changed"
+      source: ["git_api"]
+
+    # Commit patterns
+    - name: commit_size_avg_lines
+      type: float
+      description: "Average commit size"
+      derived: true
+
+    - name: commit_size_max_lines
+      type: integer
+      description: "Largest commit size"
+      derived: true
+
+    - name: large_commits_count
+      type: integer
+      description: "Commits larger than threshold"
+      derived: true
+      threshold: 500
+
+    # Branch activity
+    - name: branches_created_count
+      type: integer
+      description: "New branches created"
+      source: ["github_api"]
+
+    - name: branches_deleted_count
+      type: integer
+      description: "Branches deleted"
+      source: ["github_api"]
+
+    - name: pull_requests_count
+      type: integer
+      description: "Pull requests opened"
+      source: ["github_api"]
+
+    - name: pull_requests_merged_count
+      type: integer
+      description: "Pull requests merged"
+      source: ["github_api"]
+
+    # Code complexity
+    - name: cyclomatic_complexity_avg
+      type: float
+      description: "Average code complexity"
+      source: ["code_analysis"]
+
+    - name: code_duplication_percent
+      type: float
+      description: "Code duplication percentage"
+      source: ["code_analysis"]
+
+    # Commit metadata
+    - name: commit_message_length_avg
+      type: float
+      description: "Average commit message length"
+      derived: true
+
+    - name: commits_no_message_count
+      type: integer
+      description: "Commits with empty/minimal messages"
+      derived: true
+
+    # Unusual patterns
+    - name: commits_unusual_hours_count
+      type: integer
+      description: "Commits outside business hours"
+      derived: true
+
+    - name: force_push_count
+      type: integer
+      description: "Force pushes to repository"
+      source: ["github_api", "git_hooks"]
+
+    - name: binary_files_changed_count
+      type: integer
+      description: "Binary files modified"
+      source: ["git_api"]
+
+    # Review patterns
+    - name: code_review_time_avg_hours
+      type: float
+      description: "Average PR review time"
+      source: ["github_api"]
+
+    - name: commits_without_review_count
+      type: integer
+      description: "Direct commits to main (no PR)"
+      derived: true
+
+# ==============================================================================
+# CATEGORY 6: CONTAINER EVENTS (24 features)
+# ==============================================================================
+containers:
+  description: "Container and orchestration events"
+  total_features: 24
+  features:
+    # Container lifecycle
+    - name: containers_started_count
+      type: integer
+      description: "Containers started"
+      source: ["kubernetes", "docker_events"]
+
+    - name: containers_stopped_count
+      type: integer
+      description: "Containers stopped"
+      source: ["kubernetes", "docker_events"]
+
+    - name: containers_restarted_count
+      type: integer
+      description: "Container restarts"
+      source: ["kubernetes"]
+
+    - name: containers_killed_count
+      type: integer
+      description: "Containers forcefully killed"
+      source: ["kubernetes"]
+
+    # Image operations
+    - name: images_pulled_count
+      type: integer
+      description: "Container images pulled"
+      source: ["docker_events", "kubernetes"]
+
+    - name: images_pushed_count
+      type: integer
+      description: "Images pushed to registry"
+      source: ["github_actions", "registry_logs"]
+
+    - name: unique_images_count
+      type: integer
+      description: "Unique container images used"
+      source: ["kubernetes"]
+
+    # Resource usage
+    - name: container_cpu_total_cores
+      type: float
+      description: "Total CPU cores used by containers"
+      source: ["kubernetes", "prometheus"]
+
+    - name: container_memory_total_mb
+      type: float
+      description: "Total memory used by containers"
+      source: ["kubernetes", "prometheus"]
+
+    - name: container_cpu_throttled_count
+      type: integer
+      description: "Containers experiencing CPU throttling"
+      source: ["kubernetes"]
+
+    # Pod operations
+    - name: pods_created_count
+      type: integer
+      description: "Pods created"
+      source: ["kubernetes"]
+
+    - name: pods_deleted_count
+      type: integer
+      description: "Pods deleted"
+      source: ["kubernetes"]
+
+    - name: pods_evicted_count
+      type: integer
+      description: "Pods evicted"
+      source: ["kubernetes"]
+
+    - name: pods_failed_count
+      type: integer
+      description: "Failed pod instances"
+      source: ["kubernetes"]
+
+    # Scaling events
+    - name: scale_up_events_count
+      type: integer
+      description: "Scale-up events"
+      source: ["kubernetes", "hpa_events"]
+
+    - name: scale_down_events_count
+      type: integer
+      description: "Scale-down events"
+      source: ["kubernetes", "hpa_events"]
+
+    - name: replica_count_avg
+      type: float
+      description: "Average replica count"
+      source: ["kubernetes"]
+
+    # Health checks
+    - name: liveness_probe_failures
+      type: integer
+      description: "Liveness probe failures"
+      source: ["kubernetes"]
+
+    - name: readiness_probe_failures
+      type: integer
+      description: "Readiness probe failures"
+      source: ["kubernetes"]
+
+    # Image security
+    - name: unsigned_images_count
+      type: integer
+      description: "Unsigned container images deployed"
+      source: ["admission_controller", "policy_logs"]
+
+    - name: images_from_unknown_registries
+      type: integer
+      description: "Images from non-approved registries"
+      source: ["admission_controller"]
+
+    # Network policies
+    - name: network_policy_violations
+      type: integer
+      description: "Network policy violations"
+      source: ["kubernetes_network_logs"]
+
+    # Container exits
+    - name: container_exit_code_0_count
+      type: integer
+      description: "Clean container exits"
+      source: ["kubernetes"]
+
+    - name: container_exit_nonzero_count
+      type: integer
+      description: "Abnormal container exits"
+      source: ["kubernetes"]
+
+# ==============================================================================
+# CATEGORY 7: DEPLOYMENT EVENTS (22 features)
+# ==============================================================================
+deployments:
+  description: "Deployment and release events"
+  total_features: 22
+  features:
+    # Deployment frequency
+    - name: deployments_count
+      type: integer
+      description: "Total deployments"
+      source: ["argocd", "kubernetes", "github_actions"]
+
+    - name: deployments_per_day
+      type: float
+      description: "Deployment frequency"
+      derived: true
+
+    # Deployment outcomes
+    - name: deployments_successful_count
+      type: integer
+      description: "Successful deployments"
+      source: ["argocd", "github_actions"]
+
+    - name: deployments_failed_count
+      type: integer
+      description: "Failed deployments"
+      source: ["argocd", "github_actions"]
+
+    - name: deployment_success_rate
+      type: float
+      description: "Deployment success rate"
+      derived: true
+
+    # Rollback events
+    - name: rollbacks_count
+      type: integer
+      description: "Deployment rollbacks"
+      source: ["argocd", "kubernetes"]
+
+    - name: rollback_rate
+      type: float
+      description: "Rollback rate"
+      derived: true
+
+    # Deployment timing
+    - name: deployment_duration_avg_seconds
+      type: float
+      description: "Average deployment duration"
+      source: ["argocd", "kubernetes"]
+
+    - name: deployment_duration_max_seconds
+      type: float
+      description: "Maximum deployment duration"
+      source: ["argocd"]
+
+    - name: time_between_deployments_hours
+      type: float
+      description: "Time between deployments"
+      derived: true
+
+    # Environment targeting
+    - name: prod_deployments_count
+      type: integer
+      description: "Production deployments"
+      source: ["argocd"]
+
+    - name: staging_deployments_count
+      type: integer
+      description: "Staging deployments"
+      source: ["argocd"]
+
+    # Deployment strategies
+    - name: blue_green_deployments_count
+      type: integer
+      description: "Blue-green deployments"
+      source: ["argocd", "deployment_configs"]
+
+    - name: canary_deployments_count
+      type: integer
+      description: "Canary deployments"
+      source: ["argocd"]
+
+    - name: rolling_update_count
+      type: integer
+      description: "Rolling update deployments"
+      source: ["kubernetes"]
+
+    # GitOps sync
+    - name: argocd_sync_count
+      type: integer
+      description: "ArgoCD sync operations"
+      source: ["argocd"]
+
+    - name: argocd_out_of_sync_count
+      type: integer
+      description: "Out-of-sync applications"
+      source: ["argocd"]
+
+    - name: argocd_sync_failures
+      type: integer
+      description: "Failed sync operations"
+      source: ["argocd"]
+
+    # Configuration drift
+    - name: config_drift_detected_count
+      type: integer
+      description: "Configuration drift detections"
+      source: ["argocd", "kubernetes"]
+
+    # Deployment patterns
+    - name: deployments_unusual_hours_count
+      type: integer
+      description: "Deployments outside change window"
+      derived: true
+
+    - name: emergency_deployments_count
+      type: integer
+      description: "Emergency/hotfix deployments"
+      source: ["deployment_metadata"]
+
+    # Release notes
+    - name: deployments_without_notes_count
+      type: integer
+      description: "Deployments missing release notes"
+      derived: true
+
+# ==============================================================================
+# CATEGORY 8: NETWORK TRAFFIC (15 features)
+# ==============================================================================
+network:
+  description: "Network traffic and connection patterns"
+  total_features: 15
+  features:
+    # Traffic volume
+    - name: network_ingress_mb
+      type: float
+      description: "Inbound network traffic (MB)"
+      source: ["prometheus", "network_monitoring"]
+
+    - name: network_egress_mb
+      type: float
+      description: "Outbound network traffic (MB)"
+      source: ["prometheus", "network_monitoring"]
+
+    - name: network_total_mb
+      type: float
+      description: "Total network traffic"
+      derived: true
+
+    # Connection patterns
+    - name: connections_established_count
+      type: integer
+      description: "New connections established"
+      source: ["network_monitoring"]
+
+    - name: connections_closed_count
+      type: integer
+      description: "Connections closed"
+      source: ["network_monitoring"]
+
+    - name: connections_active_avg
+      type: float
+      description: "Average active connections"
+      source: ["prometheus"]
+
+    # Protocol distribution
+    - name: http_traffic_percent
+      type: float
+      description: "HTTP traffic percentage"
+      source: ["network_monitoring"]
+
+    - name: https_traffic_percent
+      type: float
+      description: "HTTPS traffic percentage"
+      source: ["network_monitoring"]
+
+    - name: dns_queries_count
+      type: integer
+      description: "DNS query count"
+      source: ["network_monitoring"]
+
+    # External connections
+    - name: unique_external_ips_count
+      type: integer
+      description: "Unique external IPs contacted"
+      source: ["network_monitoring"]
+
+    - name: external_connections_suspicious
+      type: integer
+      description: "Connections to suspicious IPs"
+      source: ["threat_intel", "network_monitoring"]
+
+    # Bandwidth utilization
+    - name: bandwidth_utilization_percent
+      type: float
+      description: "Network bandwidth utilization"
+      derived: true
+
+    # Latency
+    - name: network_latency_avg_ms
+      type: float
+      description: "Average network latency"
+      source: ["prometheus"]
+
+    - name: network_latency_p99_ms
+      type: float
+      description: "99th percentile latency"
+      source: ["prometheus"]
+
+    # Anomalies
+    - name: network_anomalies_count
+      type: integer
+      description: "Detected network anomalies"
+      derived: true
+
+# ==============================================================================
+# METADATA
+# ==============================================================================
+metadata:
+  version: "1.0.0"
+  total_features: 210
+  feature_breakdown:
+    security_scans: 21
+    cicd_events: 35
+    infrastructure: 40
+    access_logs: 28
+    code_changes: 25
+    containers: 24
+    deployments: 22
+    network: 15
+
+  extraction_notes:
+    - "Features marked 'derived: true' are calculated from other features"
+    - "Time windows are configurable (default: 1 hour)"
+    - "All counts are per time window"
+    - "Sources indicate where data originates"
+    - "Some features may be zero if data source not available"

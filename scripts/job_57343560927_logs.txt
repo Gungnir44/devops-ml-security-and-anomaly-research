@@ -1,0 +1,248 @@
+ï»¿2025-12-06T23:51:31.7838332Z Current runner version: '2.329.0'
+2025-12-06T23:51:31.7863440Z ##[group]Runner Image Provisioner
+2025-12-06T23:51:31.7864301Z Hosted Compute Agent
+2025-12-06T23:51:31.7864874Z Version: 20251124.448
+2025-12-06T23:51:31.7865850Z Commit: fda5086b43ec66ade217e5fcd18146c879571177
+2025-12-06T23:51:31.7866621Z Build Date: 2025-11-24T21:16:26Z
+2025-12-06T23:51:31.7867279Z ##[endgroup]
+2025-12-06T23:51:31.7867799Z ##[group]Operating System
+2025-12-06T23:51:31.7868404Z Ubuntu
+2025-12-06T23:51:31.7868922Z 24.04.3
+2025-12-06T23:51:31.7869367Z LTS
+2025-12-06T23:51:31.7869819Z ##[endgroup]
+2025-12-06T23:51:31.7870249Z ##[group]Runner Image
+2025-12-06T23:51:31.7870889Z Image: ubuntu-24.04
+2025-12-06T23:51:31.7871362Z Version: 20251126.144.1
+2025-12-06T23:51:31.7872355Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251126.144/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-06T23:51:31.7873935Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251126.144
+2025-12-06T23:51:31.7874959Z ##[endgroup]
+2025-12-06T23:51:31.7876364Z ##[group]GITHUB_TOKEN Permissions
+2025-12-06T23:51:31.7878548Z Contents: read
+2025-12-06T23:51:31.7879187Z Metadata: read
+2025-12-06T23:51:31.7879697Z SecurityEvents: write
+2025-12-06T23:51:31.7880189Z ##[endgroup]
+2025-12-06T23:51:31.7882452Z Secret source: Actions
+2025-12-06T23:51:31.7883139Z Prepare workflow directory
+2025-12-06T23:51:31.8454378Z Prepare all required actions
+2025-12-06T23:51:31.8492425Z Getting action download info
+2025-12-06T23:51:32.2806321Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-06T23:51:32.8146578Z Download action repository 'trufflesecurity/trufflehog@main' (SHA:2d008a57d60ea41f6da2df57bbaec35ccd7752f9)
+2025-12-06T23:51:33.9798630Z Download action repository 'gitleaks/gitleaks-action@v2' (SHA:ff98106e4c7b2bc287b24eaf42907196329070c7)
+2025-12-06T23:51:34.6109269Z Complete job name: Secret Detection
+2025-12-06T23:51:34.6736319Z ##[group]Run actions/checkout@v4
+2025-12-06T23:51:34.6737066Z with:
+2025-12-06T23:51:34.6737306Z   fetch-depth: 0
+2025-12-06T23:51:34.6737662Z   repository: Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:34.6738325Z   token: ***
+2025-12-06T23:51:34.6738565Z   ssh-strict: true
+2025-12-06T23:51:34.6738803Z   ssh-user: git
+2025-12-06T23:51:34.6739045Z   persist-credentials: true
+2025-12-06T23:51:34.6739315Z   clean: true
+2025-12-06T23:51:34.6739558Z   sparse-checkout-cone-mode: true
+2025-12-06T23:51:34.6739847Z   fetch-tags: false
+2025-12-06T23:51:34.6740079Z   show-progress: true
+2025-12-06T23:51:34.6740335Z   lfs: false
+2025-12-06T23:51:34.6740567Z   submodules: false
+2025-12-06T23:51:34.6740808Z   set-safe-directory: true
+2025-12-06T23:51:34.6741364Z env:
+2025-12-06T23:51:34.6741584Z   NODE_VERSION: 18
+2025-12-06T23:51:34.6741822Z   REGISTRY: ghcr.io
+2025-12-06T23:51:34.6742187Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:34.6742648Z ##[endgroup]
+2025-12-06T23:51:34.7940703Z Syncing repository: Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:34.7942665Z ##[group]Getting Git version info
+2025-12-06T23:51:34.7943624Z Working directory is '/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research'
+2025-12-06T23:51:34.7945064Z [command]/usr/bin/git version
+2025-12-06T23:51:34.7945809Z git version 2.52.0
+2025-12-06T23:51:34.7972452Z ##[endgroup]
+2025-12-06T23:51:34.7990332Z Temporarily overriding HOME='/home/runner/work/_temp/9925e3f6-7c03-4b20-9b02-8d3bf6a82d9e' before making global git config changes
+2025-12-06T23:51:34.7991863Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-06T23:51:34.8005877Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:34.8051082Z Deleting the contents of '/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research'
+2025-12-06T23:51:34.8055313Z ##[group]Initializing the repository
+2025-12-06T23:51:34.8061077Z [command]/usr/bin/git init /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:34.8181225Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-06T23:51:34.8182727Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-06T23:51:34.8183726Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-06T23:51:34.8184260Z hint: call:
+2025-12-06T23:51:34.8184487Z hint:
+2025-12-06T23:51:34.8184806Z hint: 	git config --global init.defaultBranch <name>
+2025-12-06T23:51:34.8185251Z hint:
+2025-12-06T23:51:34.8186006Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-06T23:51:34.8187025Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-06T23:51:34.8187817Z hint:
+2025-12-06T23:51:34.8188264Z hint: 	git branch -m <name>
+2025-12-06T23:51:34.8188777Z hint:
+2025-12-06T23:51:34.8189380Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-06T23:51:34.8190953Z Initialized empty Git repository in /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research/.git/
+2025-12-06T23:51:34.8199518Z [command]/usr/bin/git remote add origin https://github.com/Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:34.8238139Z ##[endgroup]
+2025-12-06T23:51:34.8238877Z ##[group]Disabling automatic garbage collection
+2025-12-06T23:51:34.8243559Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-06T23:51:34.8274337Z ##[endgroup]
+2025-12-06T23:51:34.8275082Z ##[group]Setting up auth
+2025-12-06T23:51:34.8282868Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-06T23:51:34.8316254Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-06T23:51:34.8687203Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-06T23:51:34.8723254Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-06T23:51:34.8983055Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-06T23:51:34.9034717Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-06T23:51:34.9270931Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-06T23:51:34.9306736Z ##[endgroup]
+2025-12-06T23:51:34.9307612Z ##[group]Fetching the repository
+2025-12-06T23:51:34.9316445Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-12-06T23:51:35.4754639Z From https://github.com/Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:35.4755963Z  * [new branch]      hardened   -> origin/hardened
+2025-12-06T23:51:35.4756624Z  * [new branch]      main       -> origin/main
+2025-12-06T23:51:35.4824656Z [command]/usr/bin/git branch --list --remote origin/hardened
+2025-12-06T23:51:35.4849656Z   origin/hardened
+2025-12-06T23:51:35.4858372Z [command]/usr/bin/git rev-parse refs/remotes/origin/hardened
+2025-12-06T23:51:35.4879367Z 3576408def67233e86a0a1f9d4472c9544c3d256
+2025-12-06T23:51:35.4884084Z ##[endgroup]
+2025-12-06T23:51:35.4884561Z ##[group]Determining the checkout info
+2025-12-06T23:51:35.4886080Z ##[endgroup]
+2025-12-06T23:51:35.4891168Z [command]/usr/bin/git sparse-checkout disable
+2025-12-06T23:51:35.4933840Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-06T23:51:35.4962641Z ##[group]Checking out the ref
+2025-12-06T23:51:35.4968194Z [command]/usr/bin/git checkout --progress --force -B hardened refs/remotes/origin/hardened
+2025-12-06T23:51:35.5240247Z Switched to a new branch 'hardened'
+2025-12-06T23:51:35.5241843Z branch 'hardened' set up to track 'origin/hardened'.
+2025-12-06T23:51:35.5250128Z ##[endgroup]
+2025-12-06T23:51:35.5294563Z [command]/usr/bin/git log -1 --format=%H
+2025-12-06T23:51:35.5320620Z 3576408def67233e86a0a1f9d4472c9544c3d256
+2025-12-06T23:51:35.5595796Z ##[group]Run trufflesecurity/trufflehog@main
+2025-12-06T23:51:35.5596166Z with:
+2025-12-06T23:51:35.5596388Z   path: sample-apps/frontend/
+2025-12-06T23:51:35.5596658Z   base: main
+2025-12-06T23:51:35.5596859Z   head: HEAD
+2025-12-06T23:51:35.5597081Z   extra_args: --only-verified
+2025-12-06T23:51:35.5597337Z   version: latest
+2025-12-06T23:51:35.5597548Z env:
+2025-12-06T23:51:35.5597738Z   NODE_VERSION: 18
+2025-12-06T23:51:35.5597954Z   REGISTRY: ghcr.io
+2025-12-06T23:51:35.5598297Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:35.5598710Z ##[endgroup]
+2025-12-06T23:51:35.5714999Z ##[group]Run ##########################################
+2025-12-06T23:51:35.5715622Z [36;1m##########################################[0m
+2025-12-06T23:51:35.5715943Z [36;1m## ADVANCED USAGE                       ##[0m
+2025-12-06T23:51:35.5716267Z [36;1m## Scan by BASE & HEAD user inputs      ##[0m
+2025-12-06T23:51:35.5716635Z [36;1m## If BASE == HEAD, exit with error     ##[0m
+2025-12-06T23:51:35.5716927Z [36;1m##########################################[0m
+2025-12-06T23:51:35.5717267Z [36;1m# Check if jq is installed, if not, install it[0m
+2025-12-06T23:51:35.5717605Z [36;1mif ! command -v jq &> /dev/null[0m
+2025-12-06T23:51:35.5717884Z [36;1mthen[0m
+2025-12-06T23:51:35.5718147Z [36;1m  echo "jq could not be found, installing..."[0m
+2025-12-06T23:51:35.5718492Z [36;1m  apt-get -y update && apt-get install -y jq[0m
+2025-12-06T23:51:35.5718796Z [36;1mfi[0m
+2025-12-06T23:51:35.5719008Z [36;1m[0m
+2025-12-06T23:51:35.5719299Z [36;1mgit status >/dev/null  # make sure we are in a git repository[0m
+2025-12-06T23:51:35.5719682Z [36;1mif [ -n "$BASE" ] || [ -n "$HEAD" ]; then[0m
+2025-12-06T23:51:35.5719986Z [36;1m  if [ -n "$BASE" ]; then[0m
+2025-12-06T23:51:35.5720318Z [36;1m    base_commit=$(git rev-parse "$BASE" 2>/dev/null) || true[0m
+2025-12-06T23:51:35.5720656Z [36;1m  else[0m
+2025-12-06T23:51:35.5720879Z [36;1m    base_commit=""[0m
+2025-12-06T23:51:35.5721114Z [36;1m  fi[0m
+2025-12-06T23:51:35.5721326Z [36;1m  if [ -n "$HEAD" ]; then[0m
+2025-12-06T23:51:35.5721644Z [36;1m    head_commit=$(git rev-parse "$HEAD" 2>/dev/null) || true[0m
+2025-12-06T23:51:35.5721975Z [36;1m  else[0m
+2025-12-06T23:51:35.5722184Z [36;1m    head_commit=""[0m
+2025-12-06T23:51:35.5722423Z [36;1m  fi[0m
+2025-12-06T23:51:35.5722663Z [36;1m  if [ "$base_commit" == "$head_commit" ] ; then[0m
+2025-12-06T23:51:35.5723475Z [36;1m    echo "::error::BASE and HEAD commits are the same. TruffleHog won't scan anything. Please see documentation (https://github.com/trufflesecurity/trufflehog#octocat-trufflehog-github-action)."[0m
+2025-12-06T23:51:35.5724230Z [36;1m    exit 1[0m
+2025-12-06T23:51:35.5724438Z [36;1m  fi[0m
+2025-12-06T23:51:35.5724657Z [36;1m##########################################[0m
+2025-12-06T23:51:35.5724960Z [36;1m## Scan commits based on event type     ##[0m
+2025-12-06T23:51:35.5725266Z [36;1m##########################################[0m
+2025-12-06T23:51:35.5725705Z [36;1melse[0m
+2025-12-06T23:51:35.5725919Z [36;1m  if [ "push" == "push" ]; then[0m
+2025-12-06T23:51:35.5726321Z [36;1m    COMMIT_LENGTH=$(printenv COMMIT_IDS | jq length)[0m
+2025-12-06T23:51:35.5726656Z [36;1m    if [ $COMMIT_LENGTH == "0" ]; then[0m
+2025-12-06T23:51:35.5726948Z [36;1m      echo "No commits to scan"[0m
+2025-12-06T23:51:35.5727216Z [36;1m      exit 0[0m
+2025-12-06T23:51:35.5727427Z [36;1m    fi[0m
+2025-12-06T23:51:35.5727679Z [36;1m    HEAD=3576408def67233e86a0a1f9d4472c9544c3d256[0m
+2025-12-06T23:51:35.5728398Z [36;1m    if [ c8290bd2f94fcc30aebc8c1b35132c0a5268951c == "0000000000000000000000000000000000000000" ]; then[0m
+2025-12-06T23:51:35.5728877Z [36;1m      BASE=""[0m
+2025-12-06T23:51:35.5729105Z [36;1m    else[0m
+2025-12-06T23:51:35.5729361Z [36;1m      BASE=c8290bd2f94fcc30aebc8c1b35132c0a5268951c[0m
+2025-12-06T23:51:35.5729671Z [36;1m    fi[0m
+2025-12-06T23:51:35.5730132Z [36;1m  elif [ "push" == "workflow_dispatch" ] || [ "push" == "schedule" ]; then[0m
+2025-12-06T23:51:35.5730497Z [36;1m    BASE=""[0m
+2025-12-06T23:51:35.5730709Z [36;1m    HEAD=""[0m
+2025-12-06T23:51:35.5730960Z [36;1m  elif [ "push" == "pull_request" ]; then[0m
+2025-12-06T23:51:35.5731245Z [36;1m    BASE=[0m
+2025-12-06T23:51:35.5731448Z [36;1m    HEAD=[0m
+2025-12-06T23:51:35.5731660Z [36;1m  fi[0m
+2025-12-06T23:51:35.5731854Z [36;1mfi[0m
+2025-12-06T23:51:35.5732075Z [36;1m##########################################[0m
+2025-12-06T23:51:35.5732367Z [36;1m##          Run TruffleHog              ##[0m
+2025-12-06T23:51:35.5732707Z [36;1m##########################################[0m
+2025-12-06T23:51:35.5733007Z [36;1mdocker run --rm -v .:/tmp -w /tmp \[0m
+2025-12-06T23:51:35.5733357Z [36;1mghcr.io/trufflesecurity/trufflehog:${VERSION} \[0m
+2025-12-06T23:51:35.5733693Z [36;1mgit file:///tmp/ \[0m
+2025-12-06T23:51:35.5733941Z [36;1m--since-commit \[0m
+2025-12-06T23:51:35.5734183Z [36;1m${BASE:-''} \[0m
+2025-12-06T23:51:35.5734410Z [36;1m--branch \[0m
+2025-12-06T23:51:35.5734626Z [36;1m${HEAD:-''} \[0m
+2025-12-06T23:51:35.5734840Z [36;1m--fail \[0m
+2025-12-06T23:51:35.5735054Z [36;1m--no-update \[0m
+2025-12-06T23:51:35.5735284Z [36;1m--github-actions \[0m
+2025-12-06T23:51:35.5735667Z [36;1m${ARGS:-''}[0m
+2025-12-06T23:51:35.5772309Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-12-06T23:51:35.5772683Z env:
+2025-12-06T23:51:35.5772887Z   NODE_VERSION: 18
+2025-12-06T23:51:35.5773102Z   REGISTRY: ghcr.io
+2025-12-06T23:51:35.5773450Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:35.5773851Z   BASE: main
+2025-12-06T23:51:35.5774052Z   HEAD: HEAD
+2025-12-06T23:51:35.5774265Z   ARGS: --only-verified
+2025-12-06T23:51:35.5774558Z   COMMIT_IDS: [
+  "3576408def67233e86a0a1f9d4472c9544c3d256"
+]
+2025-12-06T23:51:35.5774887Z   VERSION: latest
+2025-12-06T23:51:35.5775096Z ##[endgroup]
+2025-12-06T23:51:35.6778234Z Unable to find image 'ghcr.io/trufflesecurity/trufflehog:latest' locally
+2025-12-06T23:51:36.2708892Z latest: Pulling from trufflesecurity/trufflehog
+2025-12-06T23:51:36.4234590Z 2d35ebdb57d9: Pulling fs layer
+2025-12-06T23:51:36.4235033Z 97d96e8e54e9: Pulling fs layer
+2025-12-06T23:51:36.4235313Z 4f4fb700ef54: Pulling fs layer
+2025-12-06T23:51:36.4235836Z 86540ec5f0ec: Pulling fs layer
+2025-12-06T23:51:36.4236066Z ad25fad5b5e6: Pulling fs layer
+2025-12-06T23:51:36.4236280Z 86540ec5f0ec: Waiting
+2025-12-06T23:51:36.4236481Z ad25fad5b5e6: Waiting
+2025-12-06T23:51:36.5766173Z 4f4fb700ef54: Download complete
+2025-12-06T23:51:36.5951456Z 2d35ebdb57d9: Verifying Checksum
+2025-12-06T23:51:36.5954917Z 2d35ebdb57d9: Download complete
+2025-12-06T23:51:36.6095092Z 97d96e8e54e9: Verifying Checksum
+2025-12-06T23:51:36.6095785Z 97d96e8e54e9: Download complete
+2025-12-06T23:51:36.7292882Z 2d35ebdb57d9: Pull complete
+2025-12-06T23:51:36.7430458Z ad25fad5b5e6: Verifying Checksum
+2025-12-06T23:51:36.7440126Z ad25fad5b5e6: Download complete
+2025-12-06T23:51:36.8295932Z 86540ec5f0ec: Verifying Checksum
+2025-12-06T23:51:36.8296290Z 86540ec5f0ec: Download complete
+2025-12-06T23:51:37.0532859Z 97d96e8e54e9: Pull complete
+2025-12-06T23:51:37.0674368Z 4f4fb700ef54: Pull complete
+2025-12-06T23:51:37.2553114Z 86540ec5f0ec: Pull complete
+2025-12-06T23:51:37.2661607Z ad25fad5b5e6: Pull complete
+2025-12-06T23:51:37.2918376Z Digest: sha256:46900e4b5a294120b309d3e05fee8b3282941628c7e1ceb283086bae5a39b33b
+2025-12-06T23:51:37.2934962Z Status: Downloaded newer image for ghcr.io/trufflesecurity/trufflehog:latest
+2025-12-06T23:51:39.5752571Z ð·ðð·  TruffleHog. Unearth your secrets. ð·ðð·
+2025-12-06T23:51:39.5753389Z 
+2025-12-06T23:51:39.5872899Z 2025-12-06T23:51:39Z	error	trufflehog	error running scan	{"error": "failed to scan Git: error preparing repo: failed to clone file Git repo (file:///tmp): could not clone repo: file:///tmp, error executing git clone: exit status 128, fatal: '/tmp' does not appear to be a git repository\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\n"}
+2025-12-06T23:51:39.6786443Z ##[error]Process completed with exit code 1.
+2025-12-06T23:51:39.6910333Z Post job cleanup.
+2025-12-06T23:51:39.7873054Z [command]/usr/bin/git version
+2025-12-06T23:51:39.7910817Z git version 2.52.0
+2025-12-06T23:51:39.7958134Z Temporarily overriding HOME='/home/runner/work/_temp/36cda2f9-d40f-45c9-b5ac-5c2f75270cff' before making global git config changes
+2025-12-06T23:51:39.7959460Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-06T23:51:39.7965677Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:39.8003737Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-06T23:51:39.8038157Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-06T23:51:39.8271617Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-06T23:51:39.8294096Z http.https://github.com/.extraheader
+2025-12-06T23:51:39.8307145Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-12-06T23:51:39.8338538Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-06T23:51:39.8563658Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-06T23:51:39.8596695Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-06T23:51:39.8939445Z Cleaning up orphan processes

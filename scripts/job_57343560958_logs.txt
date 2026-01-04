@@ -1,0 +1,756 @@
+ï»¿2025-12-06T23:51:30.3319474Z Current runner version: '2.329.0'
+2025-12-06T23:51:30.3353153Z ##[group]Runner Image Provisioner
+2025-12-06T23:51:30.3354371Z Hosted Compute Agent
+2025-12-06T23:51:30.3355269Z Version: 20251124.448
+2025-12-06T23:51:30.3356172Z Commit: fda5086b43ec66ade217e5fcd18146c879571177
+2025-12-06T23:51:30.3357394Z Build Date: 2025-11-24T21:16:26Z
+2025-12-06T23:51:30.3358319Z ##[endgroup]
+2025-12-06T23:51:30.3359147Z ##[group]Operating System
+2025-12-06T23:51:30.3360041Z Ubuntu
+2025-12-06T23:51:30.3361063Z 24.04.3
+2025-12-06T23:51:30.3361789Z LTS
+2025-12-06T23:51:30.3362565Z ##[endgroup]
+2025-12-06T23:51:30.3363386Z ##[group]Runner Image
+2025-12-06T23:51:30.3364277Z Image: ubuntu-24.04
+2025-12-06T23:51:30.3365220Z Version: 20251126.144.1
+2025-12-06T23:51:30.3366866Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251126.144/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-06T23:51:30.3369527Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251126.144
+2025-12-06T23:51:30.3371459Z ##[endgroup]
+2025-12-06T23:51:30.3373310Z ##[group]GITHUB_TOKEN Permissions
+2025-12-06T23:51:30.3375748Z Contents: read
+2025-12-06T23:51:30.3376537Z Metadata: read
+2025-12-06T23:51:30.3377479Z SecurityEvents: write
+2025-12-06T23:51:30.3378382Z ##[endgroup]
+2025-12-06T23:51:30.3381792Z Secret source: Actions
+2025-12-06T23:51:30.3383260Z Prepare workflow directory
+2025-12-06T23:51:30.4146786Z Prepare all required actions
+2025-12-06T23:51:30.4199334Z Getting action download info
+2025-12-06T23:51:30.6549145Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-06T23:51:30.8691179Z Download action repository 'github/codeql-action@v3' (SHA:497990dfed22177a82ba1bbab381bc8f6d27058f)
+2025-12-06T23:51:31.3976508Z Download action repository 'returntocorp/semgrep-action@v1' (SHA:713efdd345f3035192eaa63f56867b88e63e4e5d)
+2025-12-06T23:51:31.8663446Z Complete job name: Static Analysis (semgrep)
+2025-12-06T23:51:31.9054382Z ##[group]Pull down action image 'returntocorp/semgrep-agent:v1'
+2025-12-06T23:51:31.9103688Z ##[command]/usr/bin/docker pull returntocorp/semgrep-agent:v1
+2025-12-06T23:51:32.1440095Z v1: Pulling from returntocorp/semgrep-agent
+2025-12-06T23:51:32.2332166Z 7264a8db6415: Pulling fs layer
+2025-12-06T23:51:32.2332756Z 66e1d5e70e42: Pulling fs layer
+2025-12-06T23:51:32.2333266Z 64dfa579cd50: Pulling fs layer
+2025-12-06T23:51:32.2333772Z afa58c10ee34: Pulling fs layer
+2025-12-06T23:51:32.2334288Z cd87b3fa61f8: Pulling fs layer
+2025-12-06T23:51:32.2334759Z a54df9278105: Pulling fs layer
+2025-12-06T23:51:32.2335233Z 22d9c0f131ae: Pulling fs layer
+2025-12-06T23:51:32.2335870Z bfa6cbe2a060: Pulling fs layer
+2025-12-06T23:51:32.2336352Z e6455d0c4d0a: Pulling fs layer
+2025-12-06T23:51:32.2336828Z 4e6528b8b44b: Pulling fs layer
+2025-12-06T23:51:32.2337296Z 77aae498c7b4: Pulling fs layer
+2025-12-06T23:51:32.2337812Z f6a963258091: Pulling fs layer
+2025-12-06T23:51:32.2338315Z e68b04e3dc22: Pulling fs layer
+2025-12-06T23:51:32.2338761Z e50eacad623d: Pulling fs layer
+2025-12-06T23:51:32.2339183Z 464938719a27: Pulling fs layer
+2025-12-06T23:51:32.2339466Z c09dc33c2ea4: Pulling fs layer
+2025-12-06T23:51:32.2339758Z db70a1bf97d5: Pulling fs layer
+2025-12-06T23:51:32.2340047Z 5667267dbf96: Pulling fs layer
+2025-12-06T23:51:32.2340632Z 55e5ab738d77: Pulling fs layer
+2025-12-06T23:51:32.2340949Z fbf9ea8fb0f3: Pulling fs layer
+2025-12-06T23:51:32.2341235Z afa58c10ee34: Waiting
+2025-12-06T23:51:32.2341515Z cd87b3fa61f8: Waiting
+2025-12-06T23:51:32.2341788Z 22d9c0f131ae: Waiting
+2025-12-06T23:51:32.2342080Z bfa6cbe2a060: Waiting
+2025-12-06T23:51:32.2342344Z a54df9278105: Waiting
+2025-12-06T23:51:32.2342620Z c09dc33c2ea4: Waiting
+2025-12-06T23:51:32.2342887Z f6a963258091: Waiting
+2025-12-06T23:51:32.2343140Z 77aae498c7b4: Waiting
+2025-12-06T23:51:32.2343391Z e6455d0c4d0a: Waiting
+2025-12-06T23:51:32.2343640Z 4e6528b8b44b: Waiting
+2025-12-06T23:51:32.2343896Z e68b04e3dc22: Waiting
+2025-12-06T23:51:32.2344147Z db70a1bf97d5: Waiting
+2025-12-06T23:51:32.2344535Z e50eacad623d: Waiting
+2025-12-06T23:51:32.2345067Z 55e5ab738d77: Waiting
+2025-12-06T23:51:32.2345315Z 5667267dbf96: Waiting
+2025-12-06T23:51:32.2345550Z 464938719a27: Waiting
+2025-12-06T23:51:32.2345794Z fbf9ea8fb0f3: Waiting
+2025-12-06T23:51:32.3152283Z 66e1d5e70e42: Verifying Checksum
+2025-12-06T23:51:32.3152855Z 66e1d5e70e42: Download complete
+2025-12-06T23:51:32.3167716Z 7264a8db6415: Verifying Checksum
+2025-12-06T23:51:32.3171441Z 7264a8db6415: Download complete
+2025-12-06T23:51:32.3709241Z afa58c10ee34: Verifying Checksum
+2025-12-06T23:51:32.3709988Z afa58c10ee34: Download complete
+2025-12-06T23:51:32.4156861Z cd87b3fa61f8: Verifying Checksum
+2025-12-06T23:51:32.4157592Z cd87b3fa61f8: Download complete
+2025-12-06T23:51:32.4346860Z a54df9278105: Verifying Checksum
+2025-12-06T23:51:32.4347701Z a54df9278105: Download complete
+2025-12-06T23:51:32.4446012Z 7264a8db6415: Pull complete
+2025-12-06T23:51:32.4942522Z 22d9c0f131ae: Verifying Checksum
+2025-12-06T23:51:32.4943312Z 22d9c0f131ae: Download complete
+2025-12-06T23:51:32.5699337Z 64dfa579cd50: Verifying Checksum
+2025-12-06T23:51:32.5706427Z 64dfa579cd50: Download complete
+2025-12-06T23:51:32.5733040Z e6455d0c4d0a: Download complete
+2025-12-06T23:51:32.5756019Z bfa6cbe2a060: Verifying Checksum
+2025-12-06T23:51:32.5756639Z bfa6cbe2a060: Download complete
+2025-12-06T23:51:32.6426705Z 77aae498c7b4: Verifying Checksum
+2025-12-06T23:51:32.6428676Z 77aae498c7b4: Download complete
+2025-12-06T23:51:32.7134751Z e68b04e3dc22: Verifying Checksum
+2025-12-06T23:51:32.7135735Z e68b04e3dc22: Download complete
+2025-12-06T23:51:32.7652855Z e50eacad623d: Verifying Checksum
+2025-12-06T23:51:32.7653703Z e50eacad623d: Download complete
+2025-12-06T23:51:32.8130361Z 464938719a27: Verifying Checksum
+2025-12-06T23:51:32.8131022Z 464938719a27: Download complete
+2025-12-06T23:51:32.8319212Z 4e6528b8b44b: Verifying Checksum
+2025-12-06T23:51:32.8320963Z 4e6528b8b44b: Download complete
+2025-12-06T23:51:32.8613843Z c09dc33c2ea4: Verifying Checksum
+2025-12-06T23:51:32.8616613Z c09dc33c2ea4: Download complete
+2025-12-06T23:51:33.0144783Z 5667267dbf96: Verifying Checksum
+2025-12-06T23:51:33.0146602Z 5667267dbf96: Download complete
+2025-12-06T23:51:33.0147499Z db70a1bf97d5: Verifying Checksum
+2025-12-06T23:51:33.0148170Z db70a1bf97d5: Download complete
+2025-12-06T23:51:33.0629131Z 55e5ab738d77: Verifying Checksum
+2025-12-06T23:51:33.0629740Z 55e5ab738d77: Download complete
+2025-12-06T23:51:33.0771502Z f6a963258091: Verifying Checksum
+2025-12-06T23:51:33.0775718Z f6a963258091: Download complete
+2025-12-06T23:51:33.0776427Z fbf9ea8fb0f3: Verifying Checksum
+2025-12-06T23:51:33.0776759Z fbf9ea8fb0f3: Download complete
+2025-12-06T23:51:35.2036936Z 66e1d5e70e42: Pull complete
+2025-12-06T23:51:35.6401648Z 64dfa579cd50: Pull complete
+2025-12-06T23:51:35.6515651Z afa58c10ee34: Pull complete
+2025-12-06T23:51:35.9101602Z cd87b3fa61f8: Pull complete
+2025-12-06T23:51:35.9184066Z a54df9278105: Pull complete
+2025-12-06T23:51:35.9406935Z 22d9c0f131ae: Pull complete
+2025-12-06T23:51:36.1646425Z bfa6cbe2a060: Pull complete
+2025-12-06T23:51:36.9047684Z e6455d0c4d0a: Pull complete
+2025-12-06T23:51:38.0168206Z 4e6528b8b44b: Pull complete
+2025-12-06T23:51:38.0278205Z 77aae498c7b4: Pull complete
+2025-12-06T23:51:38.5685635Z f6a963258091: Pull complete
+2025-12-06T23:51:38.5770453Z e68b04e3dc22: Pull complete
+2025-12-06T23:51:38.5840884Z e50eacad623d: Pull complete
+2025-12-06T23:51:38.5945383Z 464938719a27: Pull complete
+2025-12-06T23:51:38.6016786Z c09dc33c2ea4: Pull complete
+2025-12-06T23:51:38.6106921Z db70a1bf97d5: Pull complete
+2025-12-06T23:51:38.6175571Z 5667267dbf96: Pull complete
+2025-12-06T23:51:38.6259699Z 55e5ab738d77: Pull complete
+2025-12-06T23:51:38.6449232Z fbf9ea8fb0f3: Pull complete
+2025-12-06T23:51:38.6486768Z Digest: sha256:2ed984f89000f77516016248700ad91681cb89bbe2adbdecd1d38dc84394adbb
+2025-12-06T23:51:38.6496771Z Status: Downloaded newer image for returntocorp/semgrep-agent:v1
+2025-12-06T23:51:38.6507486Z docker.io/returntocorp/semgrep-agent:v1
+2025-12-06T23:51:38.6528584Z ##[endgroup]
+2025-12-06T23:51:38.6771597Z ##[group]Run actions/checkout@v4
+2025-12-06T23:51:38.6772476Z with:
+2025-12-06T23:51:38.6772766Z   repository: Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:38.6773221Z   token: ***
+2025-12-06T23:51:38.6773397Z   ssh-strict: true
+2025-12-06T23:51:38.6773578Z   ssh-user: git
+2025-12-06T23:51:38.6773788Z   persist-credentials: true
+2025-12-06T23:51:38.6774038Z   clean: true
+2025-12-06T23:51:38.6774270Z   sparse-checkout-cone-mode: true
+2025-12-06T23:51:38.6774538Z   fetch-depth: 1
+2025-12-06T23:51:38.6774754Z   fetch-tags: false
+2025-12-06T23:51:38.6774963Z   show-progress: true
+2025-12-06T23:51:38.6775183Z   lfs: false
+2025-12-06T23:51:38.6775373Z   submodules: false
+2025-12-06T23:51:38.6775591Z   set-safe-directory: true
+2025-12-06T23:51:38.6776020Z env:
+2025-12-06T23:51:38.6776189Z   NODE_VERSION: 18
+2025-12-06T23:51:38.6776361Z   REGISTRY: ghcr.io
+2025-12-06T23:51:38.6776673Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:38.6777069Z ##[endgroup]
+2025-12-06T23:51:38.7871390Z Syncing repository: Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:38.7873475Z ##[group]Getting Git version info
+2025-12-06T23:51:38.7874563Z Working directory is '/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research'
+2025-12-06T23:51:38.7875999Z [command]/usr/bin/git version
+2025-12-06T23:51:38.7941508Z git version 2.52.0
+2025-12-06T23:51:38.7968081Z ##[endgroup]
+2025-12-06T23:51:38.7981306Z Temporarily overriding HOME='/home/runner/work/_temp/32c0bf74-de7d-47ed-9612-89cec60c9a00' before making global git config changes
+2025-12-06T23:51:38.7982055Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-06T23:51:38.7995065Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:38.8033729Z Deleting the contents of '/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research'
+2025-12-06T23:51:38.8037008Z ##[group]Initializing the repository
+2025-12-06T23:51:38.8042082Z [command]/usr/bin/git init /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:38.8146606Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-06T23:51:38.8147564Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-06T23:51:38.8148042Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-06T23:51:38.8148428Z hint: call:
+2025-12-06T23:51:38.8148596Z hint:
+2025-12-06T23:51:38.8148846Z hint: 	git config --global init.defaultBranch <name>
+2025-12-06T23:51:38.8149122Z hint:
+2025-12-06T23:51:38.8149388Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-06T23:51:38.8150008Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-06T23:51:38.8150881Z hint:
+2025-12-06T23:51:38.8151233Z hint: 	git branch -m <name>
+2025-12-06T23:51:38.8151454Z hint:
+2025-12-06T23:51:38.8151741Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-06T23:51:38.8152884Z Initialized empty Git repository in /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research/.git/
+2025-12-06T23:51:38.8163374Z [command]/usr/bin/git remote add origin https://github.com/Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:38.8195438Z ##[endgroup]
+2025-12-06T23:51:38.8196078Z ##[group]Disabling automatic garbage collection
+2025-12-06T23:51:38.8200598Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-06T23:51:38.8227987Z ##[endgroup]
+2025-12-06T23:51:38.8228586Z ##[group]Setting up auth
+2025-12-06T23:51:38.8235748Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-06T23:51:38.8266063Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-06T23:51:38.8590798Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-06T23:51:38.8620047Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-06T23:51:38.8836459Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-06T23:51:38.8865732Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-06T23:51:38.9093259Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-06T23:51:38.9126849Z ##[endgroup]
+2025-12-06T23:51:38.9127551Z ##[group]Fetching the repository
+2025-12-06T23:51:38.9135792Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +3576408def67233e86a0a1f9d4472c9544c3d256:refs/remotes/origin/hardened
+2025-12-06T23:51:39.0898094Z From https://github.com/Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:39.0899246Z  * [new ref]         3576408def67233e86a0a1f9d4472c9544c3d256 -> origin/hardened
+2025-12-06T23:51:39.0934379Z ##[endgroup]
+2025-12-06T23:51:39.0935040Z ##[group]Determining the checkout info
+2025-12-06T23:51:39.0938633Z ##[endgroup]
+2025-12-06T23:51:39.0942809Z [command]/usr/bin/git sparse-checkout disable
+2025-12-06T23:51:39.0984830Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-06T23:51:39.1011988Z ##[group]Checking out the ref
+2025-12-06T23:51:39.1017533Z [command]/usr/bin/git checkout --progress --force -B hardened refs/remotes/origin/hardened
+2025-12-06T23:51:39.1281481Z Switched to a new branch 'hardened'
+2025-12-06T23:51:39.1284087Z branch 'hardened' set up to track 'origin/hardened'.
+2025-12-06T23:51:39.1292285Z ##[endgroup]
+2025-12-06T23:51:39.1330114Z [command]/usr/bin/git log -1 --format=%H
+2025-12-06T23:51:39.1352517Z 3576408def67233e86a0a1f9d4472c9544c3d256
+2025-12-06T23:51:39.1611975Z ##[warning]Unexpected input(s) 'generateSarif', valid inputs are ['entryPoint', 'args', 'config', 'publishToken']
+2025-12-06T23:51:39.1625369Z ##[group]Run returntocorp/semgrep-action@v1
+2025-12-06T23:51:39.1625635Z with:
+2025-12-06T23:51:39.1625904Z   config: p/security-audit p/react p/javascript p/owasp-top-ten
+2025-12-06T23:51:39.1626234Z   generateSarif: true
+2025-12-06T23:51:39.1626414Z env:
+2025-12-06T23:51:39.1626564Z   NODE_VERSION: 18
+2025-12-06T23:51:39.1626741Z   REGISTRY: ghcr.io
+2025-12-06T23:51:39.1627041Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:39.1627396Z ##[endgroup]
+2025-12-06T23:51:39.1718514Z ##[command]/usr/bin/docker run --name returntocorpsemgrepagentv1_383793 --label 4765e9 --workdir /github/workspace --rm -e "NODE_VERSION" -e "REGISTRY" -e "IMAGE_NAME" -e "INPUT_CONFIG" -e "INPUT_GENERATESARIF" -e "INPUT_PUBLISHTOKEN" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research":"/github/workspace" returntocorp/semgrep-agent:v1
+2025-12-06T23:51:39.3833115Z === Running: SEMGREP_RULES="p/security-audit p/react p/javascript p/owasp-top-ten" semgrep ci
+2025-12-06T23:51:40.1187721Z                   
+2025-12-06T23:51:40.1188121Z                   
+2025-12-06T23:51:40.1188712Z ââââââââââââââââââ
+2025-12-06T23:51:40.1189126Z â Debugging Info â
+2025-12-06T23:51:40.1189541Z ââââââââââââââââââ
+2025-12-06T23:51:40.1192735Z                   
+2025-12-06T23:51:40.1193288Z   SCAN ENVIRONMENT
+2025-12-06T23:51:40.1212006Z   versions    - semgrep 1.36.0 on python 3.11.4                                
+2025-12-06T23:51:40.1212907Z   environment - running in environment github-actions, triggering event is push
+2025-12-06T23:51:40.7933839Z                
+2025-12-06T23:51:40.7934122Z                
+2025-12-06T23:51:40.7934530Z âââââââââââââââ
+2025-12-06T23:51:40.7934948Z â Scan Status â
+2025-12-06T23:51:40.7935253Z âââââââââââââââ
+2025-12-06T23:51:40.9560860Z   Scanning 272 files tracked by git with 675 Code rules:
+2025-12-06T23:51:40.9643638Z                                                                                 
+2025-12-06T23:51:40.9644381Z   Language      Rules   Files          Origin      Rules                        
+2025-12-06T23:51:40.9645269Z  âââââââââââââââââââââââââââââ        âââââââââââââââââââ                       
+2025-12-06T23:51:40.9645708Z   <multilang>      27     535          Community     675                        
+2025-12-06T23:51:40.9646189Z   yaml             19      62                                                   
+2025-12-06T23:51:40.9646982Z   json              3      15                                                   
+2025-12-06T23:51:40.9647382Z   js               81      12                                                   
+2025-12-06T23:51:40.9647708Z   terraform        62      11                                                   
+2025-12-06T23:51:40.9648051Z   python          194       8                                                   
+2025-12-06T23:51:40.9648386Z   dockerfile        4       6                                                   
+2025-12-06T23:51:40.9648707Z   bash              1       5                                                   
+2025-12-06T23:51:40.9648993Z   html              1       5                                                   
+2025-12-06T23:51:40.9649274Z                                                                                 
+2025-12-06T23:51:43.8235356Z                              
+2025-12-06T23:51:43.8235950Z                              
+2025-12-06T23:51:43.8236710Z âââââââââââââââââââââââââââââ
+2025-12-06T23:51:43.8237308Z â 26 Blocking Code Findings â
+2025-12-06T23:51:43.8237895Z âââââââââââââââââââââââââââââ
+2025-12-06T23:51:43.8238336Z                                     
+2025-12-06T23:51:43.8238868Z     .github/workflows/dast-scan.yml 
+2025-12-06T23:51:43.8239751Z        yaml.github-actions.security.run-shell-injection.run-shell-injection     
+2025-12-06T23:51:43.8241128Z           Using variable interpolation `${{...}}` with `github` context data in 
+2025-12-06T23:51:43.8241823Z   a `run:` step could                                                           
+2025-12-06T23:51:43.8242513Z           allow an attacker to inject their own code into the runner. This would
+2025-12-06T23:51:43.8243185Z   allow them to steal                                                           
+2025-12-06T23:51:43.8243871Z           secrets and code. `github` context data can have arbitrary user input 
+2025-12-06T23:51:43.8244836Z   and should be treated                                                         
+2025-12-06T23:51:43.8245558Z           as untrusted. Instead, use an intermediate environment variable with  
+2025-12-06T23:51:43.8246233Z   `env:` to store the                                                           
+2025-12-06T23:51:43.8246902Z           data and use the environment variable in the `run:` script. Be sure to
+2025-12-06T23:51:43.8247605Z   use double-quotes the                                                         
+2025-12-06T23:51:43.8248295Z           environment variable, like this: "$ENVVAR".                           
+2025-12-06T23:51:43.8249028Z           Details: https://sg.run/pkzk                                          
+2025-12-06T23:51:43.8249598Z                                                                                 
+2025-12-06T23:51:43.8250101Z           140â run: |
+2025-12-06T23:51:43.8250728Z           141â   cd testssl.sh
+2025-12-06T23:51:43.8251321Z           142â   ./testssl.sh --jsonfile ../tls-results.json ${{                
+2025-12-06T23:51:43.8252067Z   github.event.inputs.target_url }}                                             
+2025-12-06T23:51:43.8252397Z                                  
+2025-12-06T23:51:43.8252638Z     .github/workflows/deploy.yml 
+2025-12-06T23:51:43.8253028Z        yaml.github-actions.security.run-shell-injection.run-shell-injection     
+2025-12-06T23:51:43.8253819Z           Using variable interpolation `${{...}}` with `github` context data in 
+2025-12-06T23:51:43.8254512Z   a `run:` step could                                                           
+2025-12-06T23:51:43.8255211Z           allow an attacker to inject their own code into the runner. This would
+2025-12-06T23:51:43.8255933Z   allow them to steal                                                           
+2025-12-06T23:51:43.8256522Z           secrets and code. `github` context data can have arbitrary user input 
+2025-12-06T23:51:43.8256972Z   and should be treated                                                         
+2025-12-06T23:51:43.8257450Z           as untrusted. Instead, use an intermediate environment variable with  
+2025-12-06T23:51:43.8258235Z   `env:` to store the                                                           
+2025-12-06T23:51:43.8258790Z           data and use the environment variable in the `run:` script. Be sure to
+2025-12-06T23:51:43.8259202Z   use double-quotes the                                                         
+2025-12-06T23:51:43.8259598Z           environment variable, like this: "$ENVVAR".                           
+2025-12-06T23:51:43.8260017Z           Details: https://sg.run/pkzk                                          
+2025-12-06T23:51:43.8260587Z                                                                                 
+2025-12-06T23:51:43.8260914Z            29â run: |
+2025-12-06T23:51:43.8261256Z            30â   echo "Deploying to ${{ github.event.inputs.environment }}"
+2025-12-06T23:51:43.8261680Z            31â   echo "This would deploy the monitoring stack"
+2025-12-06T23:51:43.8262020Z            32â   # In a real scenario, you would:
+2025-12-06T23:51:43.8262331Z            33â   # - SSH into your server
+2025-12-06T23:51:43.8262615Z            34â   # - Pull latest images
+2025-12-06T23:51:43.8262903Z            35â   # - Run docker-compose up -d
+2025-12-06T23:51:43.8263187Z            36â   # - Run health checks
+2025-12-06T23:51:43.8263424Z            37â 
+2025-12-06T23:51:43.8263592Z                       
+2025-12-06T23:51:43.8263771Z     cloud/aws/main.tf 
+2025-12-06T23:51:43.8264118Z        terraform.aws.security.aws-efs-filesystem-encrypted-with-cmk.aws-efs-file
+2025-12-06T23:51:43.8264604Z   system-encrypted-with-cmk                                                     
+2025-12-06T23:51:43.8265025Z           Ensure EFS filesystem is encrypted at rest using KMS CMKs. CMKs gives 
+2025-12-06T23:51:43.8265416Z   you control over the                                                          
+2025-12-06T23:51:43.8265944Z           encryption key in terms of access and rotation.                       
+2025-12-06T23:51:43.8266349Z           Details: https://sg.run/Kk07                                          
+2025-12-06T23:51:43.8266664Z                                                                                 
+2025-12-06T23:51:43.8267011Z           394â resource "aws_efs_file_system" "monitoring" {
+2025-12-06T23:51:43.8267408Z           395â   creation_token = "monitoring-efs-${var.environment}"
+2025-12-06T23:51:43.8267749Z           396â   encrypted      = true
+2025-12-06T23:51:43.8267986Z           397â 
+2025-12-06T23:51:43.8268180Z           398â   tags = {
+2025-12-06T23:51:43.8268468Z           399â     Name = "monitoring-efs-${var.environment}"
+2025-12-06T23:51:43.8268771Z           400â   }
+2025-12-06T23:51:43.8269040Z           401â }
+2025-12-06T23:51:43.8269427Z             â®â----------------------------------------
+2025-12-06T23:51:43.8269845Z        terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-pu
+2025-12-06T23:51:43.8270529Z   blic-ip-address                                                               
+2025-12-06T23:51:43.8270920Z           Resources in the AWS subnet are assigned a public IP address.         
+2025-12-06T23:51:43.8271320Z   Resources should not be                                                       
+2025-12-06T23:51:43.8271718Z           exposed on the public internet, but should have access limited to     
+2025-12-06T23:51:43.8272115Z   consumers required for the                                                    
+2025-12-06T23:51:43.8272523Z           function of your application. Set `map_public_ip_on_launch` to false  
+2025-12-06T23:51:43.8272907Z   so that resources are                                                         
+2025-12-06T23:51:43.8273283Z           not publicly-accessible.                                              
+2025-12-06T23:51:43.8273676Z           Details: https://sg.run/XJZw                                          
+2025-12-06T23:51:43.8274007Z                                                                                 
+2025-12-06T23:51:43.8274468Z            48â resource "aws_subnet" "public" {
+2025-12-06T23:51:43.8274850Z            49â   count                   = length(var.availability_zones)
+2025-12-06T23:51:43.8275221Z            50â   vpc_id                  = aws_vpc.monitoring.id
+2025-12-06T23:51:43.8275609Z            51â   cidr_block              = cidrsubnet(var.vpc_cidr, 8,          
+2025-12-06T23:51:43.8275951Z   count.index)                                                                  
+2025-12-06T23:51:43.8276370Z            52â   availability_zone       = var.availability_zones[count.index]
+2025-12-06T23:51:43.8276733Z            53â   map_public_ip_on_launch = true
+2025-12-06T23:51:43.8276987Z            54â 
+2025-12-06T23:51:43.8277174Z            55â   tags = {
+2025-12-06T23:51:43.8277456Z            56â     Name =                                                       
+2025-12-06T23:51:43.8277848Z   "monitoring-public-${var.availability_zones[count.index]}"                    
+2025-12-06T23:51:43.8278215Z            57â   }
+2025-12-06T23:51:43.8278481Z              [hid 1 additional lines, adjust with --max-lines-per-finding] 
+2025-12-06T23:51:43.8278952Z        terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-b
+2025-12-06T23:51:43.8279414Z   alancer-tls-version                                                           
+2025-12-06T23:51:43.8279805Z           Detected an AWS load balancer with an insecure TLS version. TLS       
+2025-12-06T23:51:43.8280417Z   versions less than 1.2 are                                                    
+2025-12-06T23:51:43.8280859Z           considered insecure because they can be broken. To fix this, set your 
+2025-12-06T23:51:43.8281251Z   `ssl_policy` to                                                               
+2025-12-06T23:51:43.8281643Z           `"ELBSecurityPolicy-TLS13-1-2-Res-2021-06"`, or include a default     
+2025-12-06T23:51:43.8282199Z   action to redirect to                                                         
+2025-12-06T23:51:43.8282534Z           HTTPS.                                                                
+2025-12-06T23:51:43.8282871Z           Details: https://sg.run/187G                                          
+2025-12-06T23:51:43.8283191Z                                                                                 
+2025-12-06T23:51:43.8283497Z           299â protocol          = "HTTP"
+2025-12-06T23:51:43.8283722Z                         
+2025-12-06T23:51:43.8283906Z     cloud/azure/main.tf 
+2025-12-06T23:51:43.8284266Z        terraform.azure.security.storage.storage-use-secure-tls-policy.storage-us
+2025-12-06T23:51:43.8284731Z   e-secure-tls-policy                                                           
+2025-12-06T23:51:43.8285145Z           Azure Storage currently supports three versions of the TLS protocol:  
+2025-12-06T23:51:43.8285511Z   1.0, 1.1, and 1.2.                                                            
+2025-12-06T23:51:43.8285868Z           Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and 
+2025-12-06T23:51:43.8286242Z   TLS 1.1 are still                                                             
+2025-12-06T23:51:43.8286629Z           supported for backward compatibility. This check will warn if the     
+2025-12-06T23:51:43.8287018Z   minimum TLS is not set to                                                     
+2025-12-06T23:51:43.8287340Z           TLS1_2.                                                               
+2025-12-06T23:51:43.8287671Z           Details: https://sg.run/KXD7                                          
+2025-12-06T23:51:43.8287991Z                                                                                 
+2025-12-06T23:51:43.8288339Z           148â resource "azurerm_storage_account" "monitoring" {
+2025-12-06T23:51:43.8288733Z           149â   name                     = "monitoringst${var.environment}"
+2025-12-06T23:51:43.8289152Z           150â   resource_group_name      =                                     
+2025-12-06T23:51:43.8289555Z   azurerm_resource_group.monitoring.name                                        
+2025-12-06T23:51:43.8290363Z           151â   location                 =                                     
+2025-12-06T23:51:43.8291139Z   azurerm_resource_group.monitoring.location                                    
+2025-12-06T23:51:43.8292006Z           152â   account_tier             = "Standard"
+2025-12-06T23:51:43.8292590Z           153â   account_replication_type = "LRS"
+2025-12-06T23:51:43.8292934Z           154â   account_kind             = "StorageV2"
+2025-12-06T23:51:43.8293205Z           155â 
+2025-12-06T23:51:43.8293403Z           156â   tags = {
+2025-12-06T23:51:43.8293666Z           157â     Environment = var.environment
+2025-12-06T23:51:43.8294136Z              [hid 2 additional lines, adjust with --max-lines-per-finding] 
+2025-12-06T23:51:43.8294694Z                             
+2025-12-06T23:51:43.8294923Z     docker/dashboard/app.py 
+2025-12-06T23:51:43.8295278Z        python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_h
+2025-12-06T23:51:43.8295682Z   ost                                                                           
+2025-12-06T23:51:43.8296043Z           Running flask app with host 0.0.0.0 could expose the server publicly. 
+2025-12-06T23:51:43.8296467Z           Details: https://sg.run/eLby                                          
+2025-12-06T23:51:43.8296790Z                                                                                 
+2025-12-06T23:51:43.8297170Z           113â app.run(host='0.0.0.0', port=5000, debug=False)
+2025-12-06T23:51:43.8297441Z                                          
+2025-12-06T23:51:43.8297696Z     docker/docker-compose-monitoring.yml 
+2025-12-06T23:51:43.8298095Z        yaml.docker-compose.security.privileged-service.privileged-service       
+2025-12-06T23:51:43.8298578Z           Service 'cadvisor' is running in privileged mode. This grants the     
+2025-12-06T23:51:43.8299168Z   container the equivalent                                                      
+2025-12-06T23:51:43.8299578Z           of root capabilities on the host machine. This can lead to container  
+2025-12-06T23:51:43.8299967Z   escapes, privilege                                                            
+2025-12-06T23:51:43.8300684Z           escalation, and other security concerns. Remove the 'privileged' key  
+2025-12-06T23:51:43.8301080Z   to disable this                                                               
+2025-12-06T23:51:43.8301426Z           capability.                                                           
+2025-12-06T23:51:43.8301790Z           Details: https://sg.run/AlX0                                          
+2025-12-06T23:51:43.8302117Z                                                                                 
+2025-12-06T23:51:43.8302418Z            â¶â¶â Autofix â¶ false
+2025-12-06T23:51:43.8302666Z           299â privileged: true
+2025-12-06T23:51:43.8302879Z                                      
+2025-12-06T23:51:43.8303118Z     docker/health-checker.Dockerfile 
+2025-12-06T23:51:43.8303480Z        dockerfile.security.missing-user.missing-user                            
+2025-12-06T23:51:43.8303928Z           By not specifying a USER, a program in the container may run as       
+2025-12-06T23:51:43.8304316Z   'root'. This is a security                                                    
+2025-12-06T23:51:43.8304700Z           hazard. If an attacker can control a process running as root, they may
+2025-12-06T23:51:43.8305087Z   have control over the                                                         
+2025-12-06T23:51:43.8305471Z           container. Ensure that the last USER in a Dockerfile is a USER other  
+2025-12-06T23:51:43.8306030Z   than 'root'.                                                                  
+2025-12-06T23:51:43.8306372Z           Details: https://sg.run/Gbvn                                          
+2025-12-06T23:51:43.8306816Z                                                                                 
+2025-12-06T23:51:43.8307164Z            â¶â¶â Autofix â¶ USER non-root                    
+2025-12-06T23:51:43.8307744Z   CMD python system_health_checker_v2.py --quiet || exit 1
+2025-12-06T23:51:43.8308369Z            52â HEALTHCHECK --interval=30s --timeout=10s --start-period=5s       
+2025-12-06T23:51:43.8308748Z   --retries=3 \                                                                 
+2025-12-06T23:51:43.8309276Z            53â     CMD python system_health_checker_v2.py --quiet || exit 1
+2025-12-06T23:51:43.8309585Z                                     
+2025-12-06T23:51:43.8309899Z     docker/nginx-content/index.html 
+2025-12-06T23:51:43.8310466Z        html.security.plaintext-http-link.plaintext-http-link                    
+2025-12-06T23:51:43.8310936Z           This link points to a plaintext HTTP URL. Prefer an encrypted HTTPS   
+2025-12-06T23:51:43.8311548Z   URL if possible.                                                              
+2025-12-06T23:51:43.8312166Z           Details: https://sg.run/RA5q                                          
+2025-12-06T23:51:43.8312744Z                                                                                 
+2025-12-06T23:51:43.8313869Z            59â <a href="http://localhost:5000" target="_blank">View             
+2025-12-06T23:51:43.8316508Z   Dashboard</a>                                                                 
+2025-12-06T23:51:43.8317218Z             â®â----------------------------------------
+2025-12-06T23:51:43.8317978Z            60â <a href="http://localhost:5000/api/latest"                       
+2025-12-06T23:51:43.8318662Z   target="_blank">API</a>                                                       
+2025-12-06T23:51:43.8319204Z                                                    
+2025-12-06T23:51:43.8319721Z     gitops/applications/dev/webapp/deployment.yaml 
+2025-12-06T23:51:43.8320757Z        yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.al
+2025-12-06T23:51:43.8321961Z   low-privilege-escalation-no-                                                  
+2025-12-06T23:51:43.8322700Z        securitycontext                                                          
+2025-12-06T23:51:43.8323413Z           In Kubernetes, each pod runs in its own isolated environment with its 
+2025-12-06T23:51:43.8324112Z   own set of security                                                           
+2025-12-06T23:51:43.8324811Z           policies. However, certain container images may contain `setuid` or   
+2025-12-06T23:51:43.8325541Z   `setgid` binaries that                                                        
+2025-12-06T23:51:43.8326259Z           could allow an attacker to perform privilege escalation and gain      
+2025-12-06T23:51:43.8326972Z   access to sensitive                                                           
+2025-12-06T23:51:43.8327677Z           resources. To mitigate this risk, it's recommended to add a           
+2025-12-06T23:51:43.8328406Z   `securityContext` to the                                                      
+2025-12-06T23:51:43.8329178Z           container in the pod, with the parameter `allowPrivilegeEscalation`   
+2025-12-06T23:51:43.8329874Z   set to `false`. This                                                          
+2025-12-06T23:51:43.8330730Z           will prevent the container from running any privileged processes and  
+2025-12-06T23:51:43.8331451Z   limit the impact of any                                                       
+2025-12-06T23:51:43.8332182Z           potential attacks. By adding a `securityContext` to your Kubernetes   
+2025-12-06T23:51:43.8332873Z   pod, you can help to                                                          
+2025-12-06T23:51:43.8333567Z           ensure that your containerized applications are more secure and less  
+2025-12-06T23:51:43.8334314Z   vulnerable to privilege                                                       
+2025-12-06T23:51:43.8334983Z           escalation attacks.                                                   
+2025-12-06T23:51:43.8335677Z           Details: https://sg.run/eleR                                          
+2025-12-06T23:51:43.8336437Z                                                                                 
+2025-12-06T23:51:43.8337052Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8337528Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8337973Z   name                                   
+2025-12-06T23:51:43.8338460Z            21â - name: webapp
+2025-12-06T23:51:43.8338849Z                                                        
+2025-12-06T23:51:43.8339377Z     gitops/applications/staging/webapp/deployment.yaml 
+2025-12-06T23:51:43.8340364Z        yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.al
+2025-12-06T23:51:43.8341308Z   low-privilege-escalation-no-                                                  
+2025-12-06T23:51:43.8342034Z        securitycontext                                                          
+2025-12-06T23:51:43.8342756Z           In Kubernetes, each pod runs in its own isolated environment with its 
+2025-12-06T23:51:43.8343447Z   own set of security                                                           
+2025-12-06T23:51:43.8344150Z           policies. However, certain container images may contain `setuid` or   
+2025-12-06T23:51:43.8344867Z   `setgid` binaries that                                                        
+2025-12-06T23:51:43.8345568Z           could allow an attacker to perform privilege escalation and gain      
+2025-12-06T23:51:43.8346278Z   access to sensitive                                                           
+2025-12-06T23:51:43.8346984Z           resources. To mitigate this risk, it's recommended to add a           
+2025-12-06T23:51:43.8347720Z   `securityContext` to the                                                      
+2025-12-06T23:51:43.8348459Z           container in the pod, with the parameter `allowPrivilegeEscalation`   
+2025-12-06T23:51:43.8349365Z   set to `false`. This                                                          
+2025-12-06T23:51:43.8350065Z           will prevent the container from running any privileged processes and  
+2025-12-06T23:51:43.8350945Z   limit the impact of any                                                       
+2025-12-06T23:51:43.8351673Z           potential attacks. By adding a `securityContext` to your Kubernetes   
+2025-12-06T23:51:43.8352364Z   pod, you can help to                                                          
+2025-12-06T23:51:43.8353074Z           ensure that your containerized applications are more secure and less  
+2025-12-06T23:51:43.8353826Z   vulnerable to privilege                                                       
+2025-12-06T23:51:43.8354505Z           escalation attacks.                                                   
+2025-12-06T23:51:43.8355191Z           Details: https://sg.run/eleR                                          
+2025-12-06T23:51:43.8355770Z                                                                                 
+2025-12-06T23:51:43.8356413Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8356944Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8357400Z   name                                   
+2025-12-06T23:51:43.8357907Z            21â - name: webapp
+2025-12-06T23:51:43.8358274Z                                         
+2025-12-06T23:51:43.8358705Z     kubernetes/manifests/databases.yaml 
+2025-12-06T23:51:43.8359451Z        yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.al
+2025-12-06T23:51:43.8360586Z   low-privilege-escalation-no-                                                  
+2025-12-06T23:51:43.8361233Z        securitycontext                                                          
+2025-12-06T23:51:43.8361877Z           In Kubernetes, each pod runs in its own isolated environment with its 
+2025-12-06T23:51:43.8362512Z   own set of security                                                           
+2025-12-06T23:51:43.8363238Z           policies. However, certain container images may contain `setuid` or   
+2025-12-06T23:51:43.8364168Z   `setgid` binaries that                                                        
+2025-12-06T23:51:43.8364907Z           could allow an attacker to perform privilege escalation and gain      
+2025-12-06T23:51:43.8365616Z   access to sensitive                                                           
+2025-12-06T23:51:43.8366314Z           resources. To mitigate this risk, it's recommended to add a           
+2025-12-06T23:51:43.8367062Z   `securityContext` to the                                                      
+2025-12-06T23:51:43.8367808Z           container in the pod, with the parameter `allowPrivilegeEscalation`   
+2025-12-06T23:51:43.8368499Z   set to `false`. This                                                          
+2025-12-06T23:51:43.8369201Z           will prevent the container from running any privileged processes and  
+2025-12-06T23:51:43.8369924Z   limit the impact of any                                                       
+2025-12-06T23:51:43.8372223Z           potential attacks. By adding a `securityContext` to your Kubernetes   
+2025-12-06T23:51:43.8372938Z   pod, you can help to                                                          
+2025-12-06T23:51:43.8373627Z           ensure that your containerized applications are more secure and less  
+2025-12-06T23:51:43.8374373Z   vulnerable to privilege                                                       
+2025-12-06T23:51:43.8375042Z           escalation attacks.                                                   
+2025-12-06T23:51:43.8375724Z           Details: https://sg.run/eleR                                          
+2025-12-06T23:51:43.8376290Z                                                                                 
+2025-12-06T23:51:43.8376884Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8377365Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8378035Z   name                                   
+2025-12-06T23:51:43.8378534Z            21â - name: redis
+2025-12-06T23:51:43.8379025Z             â®â----------------------------------------
+2025-12-06T23:51:43.8379589Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8380052Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8380707Z   name                                   
+2025-12-06T23:51:43.8381216Z            85â - name: postgres
+2025-12-06T23:51:43.8381595Z                                       
+2025-12-06T23:51:43.8382019Z     kubernetes/manifests/grafana.yaml 
+2025-12-06T23:51:43.8382759Z        yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.al
+2025-12-06T23:51:43.8383690Z   low-privilege-escalation-no-                                                  
+2025-12-06T23:51:43.8384413Z        securitycontext                                                          
+2025-12-06T23:51:43.8385122Z           In Kubernetes, each pod runs in its own isolated environment with its 
+2025-12-06T23:51:43.8385842Z   own set of security                                                           
+2025-12-06T23:51:43.8386563Z           policies. However, certain container images may contain `setuid` or   
+2025-12-06T23:51:43.8387295Z   `setgid` binaries that                                                        
+2025-12-06T23:51:43.8388003Z           could allow an attacker to perform privilege escalation and gain      
+2025-12-06T23:51:43.8388707Z   access to sensitive                                                           
+2025-12-06T23:51:43.8389400Z           resources. To mitigate this risk, it's recommended to add a           
+2025-12-06T23:51:43.8390120Z   `securityContext` to the                                                      
+2025-12-06T23:51:43.8390997Z           container in the pod, with the parameter `allowPrivilegeEscalation`   
+2025-12-06T23:51:43.8391692Z   set to `false`. This                                                          
+2025-12-06T23:51:43.8392392Z           will prevent the container from running any privileged processes and  
+2025-12-06T23:51:43.8393293Z   limit the impact of any                                                       
+2025-12-06T23:51:43.8394063Z           potential attacks. By adding a `securityContext` to your Kubernetes   
+2025-12-06T23:51:43.8394761Z   pod, you can help to                                                          
+2025-12-06T23:51:43.8395464Z           ensure that your containerized applications are more secure and less  
+2025-12-06T23:51:43.8396219Z   vulnerable to privilege                                                       
+2025-12-06T23:51:43.8396892Z           escalation attacks.                                                   
+2025-12-06T23:51:43.8397577Z           Details: https://sg.run/eleR                                          
+2025-12-06T23:51:43.8398145Z                                                                                 
+2025-12-06T23:51:43.8398736Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8399212Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8399659Z   name                                   
+2025-12-06T23:51:43.8400353Z            33â - name: grafana
+2025-12-06T23:51:43.8400749Z                                          
+2025-12-06T23:51:43.8401201Z     kubernetes/manifests/prometheus.yaml 
+2025-12-06T23:51:43.8401953Z        yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.al
+2025-12-06T23:51:43.8402890Z   low-privilege-escalation-no-                                                  
+2025-12-06T23:51:43.8403610Z        securitycontext                                                          
+2025-12-06T23:51:43.8404319Z           In Kubernetes, each pod runs in its own isolated environment with its 
+2025-12-06T23:51:43.8405000Z   own set of security                                                           
+2025-12-06T23:51:43.8405705Z           policies. However, certain container images may contain `setuid` or   
+2025-12-06T23:51:43.8406658Z   `setgid` binaries that                                                        
+2025-12-06T23:51:43.8407376Z           could allow an attacker to perform privilege escalation and gain      
+2025-12-06T23:51:43.8408089Z   access to sensitive                                                           
+2025-12-06T23:51:43.8408796Z           resources. To mitigate this risk, it's recommended to add a           
+2025-12-06T23:51:43.8409513Z   `securityContext` to the                                                      
+2025-12-06T23:51:43.8410423Z           container in the pod, with the parameter `allowPrivilegeEscalation`   
+2025-12-06T23:51:43.8411162Z   set to `false`. This                                                          
+2025-12-06T23:51:43.8411876Z           will prevent the container from running any privileged processes and  
+2025-12-06T23:51:43.8412614Z   limit the impact of any                                                       
+2025-12-06T23:51:43.8413365Z           potential attacks. By adding a `securityContext` to your Kubernetes   
+2025-12-06T23:51:43.8414072Z   pod, you can help to                                                          
+2025-12-06T23:51:43.8414796Z           ensure that your containerized applications are more secure and less  
+2025-12-06T23:51:43.8415529Z   vulnerable to privilege                                                       
+2025-12-06T23:51:43.8416206Z           escalation attacks.                                                   
+2025-12-06T23:51:43.8416921Z           Details: https://sg.run/eleR                                          
+2025-12-06T23:51:43.8417520Z                                                                                 
+2025-12-06T23:51:43.8418148Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8418640Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8419114Z   name                                   
+2025-12-06T23:51:43.8419650Z            56â - name: prometheus
+2025-12-06T23:51:43.8420089Z                                                         
+2025-12-06T23:51:43.8420878Z     sample-apps/backend-api/.github/workflows/ci-cd.yml 
+2025-12-06T23:51:43.8422015Z        yaml.github-actions.security.run-shell-injection.run-shell-injection     
+2025-12-06T23:51:43.8422977Z           Using variable interpolation `${{...}}` with `github` context data in 
+2025-12-06T23:51:43.8423695Z   a `run:` step could                                                           
+2025-12-06T23:51:43.8424381Z           allow an attacker to inject their own code into the runner. This would
+2025-12-06T23:51:43.8425108Z   allow them to steal                                                           
+2025-12-06T23:51:43.8425810Z           secrets and code. `github` context data can have arbitrary user input 
+2025-12-06T23:51:43.8426533Z   and should be treated                                                         
+2025-12-06T23:51:43.8427267Z           as untrusted. Instead, use an intermediate environment variable with  
+2025-12-06T23:51:43.8427979Z   `env:` to store the                                                           
+2025-12-06T23:51:43.8428682Z           data and use the environment variable in the `run:` script. Be sure to
+2025-12-06T23:51:43.8429367Z   use double-quotes the                                                         
+2025-12-06T23:51:43.8430046Z           environment variable, like this: "$ENVVAR".                           
+2025-12-06T23:51:43.8430940Z           Details: https://sg.run/pkzk                                          
+2025-12-06T23:51:43.8431510Z                                                                                 
+2025-12-06T23:51:43.8432031Z           333â run: |
+2025-12-06T23:51:43.8432479Z           334â   cat > ci-cd-metrics.json << EOF
+2025-12-06T23:51:43.8432948Z           335â   {
+2025-12-06T23:51:43.8433434Z           336â     "pipeline_run_id": "${{ github.run_id }}",
+2025-12-06T23:51:43.8434097Z           337â     "pipeline_run_number": "${{ github.run_number }}",
+2025-12-06T23:51:43.8435059Z           338â     "repository": "${{ github.repository }}",
+2025-12-06T23:51:43.8435671Z           339â     "branch": "${{ github.ref_name }}",
+2025-12-06T23:51:43.8436253Z           340â     "commit_sha": "${{ github.sha }}",
+2025-12-06T23:51:43.8436961Z           341â     "commit_message": "${{ github.event.head_commit.message }}",
+2025-12-06T23:51:43.8437635Z           342â     "author": "${{ github.actor }}",
+2025-12-06T23:51:43.8438231Z              [hid 14 additional lines, adjust with --max-lines-per-finding] 
+2025-12-06T23:51:43.8438788Z                                     
+2025-12-06T23:51:43.8439197Z     sample-apps/frontend/Dockerfile 
+2025-12-06T23:51:43.8439850Z        dockerfile.security.missing-user.missing-user                            
+2025-12-06T23:51:43.8440869Z           By not specifying a USER, a program in the container may run as       
+2025-12-06T23:51:43.8441593Z   'root'. This is a security                                                    
+2025-12-06T23:51:43.8442303Z           hazard. If an attacker can control a process running as root, they may
+2025-12-06T23:51:43.8442999Z   have control over the                                                         
+2025-12-06T23:51:43.8443696Z           container. Ensure that the last USER in a Dockerfile is a USER other  
+2025-12-06T23:51:43.8444340Z   than 'root'.                                                                  
+2025-12-06T23:51:43.8444891Z           Details: https://sg.run/Gbvn                                          
+2025-12-06T23:51:43.8445429Z                                                                                 
+2025-12-06T23:51:43.8446128Z            â¶â¶â Autofix â¶ USER non-root                                 
+2025-12-06T23:51:43.8446542Z   CMD wget --quiet --tries=1 --spider http://localhost/health || exit 1
+2025-12-06T23:51:43.8447055Z            37â HEALTHCHECK --interval=30s --timeout=3s --start-period=5s        
+2025-12-06T23:51:43.8447433Z   --retries=3 \                                                                 
+2025-12-06T23:51:43.8447859Z            38â   CMD wget --quiet --tries=1 --spider http://localhost/health || 
+2025-12-06T23:51:43.8448385Z   exit 1                                                                        
+2025-12-06T23:51:43.8448650Z                                     
+2025-12-06T23:51:43.8448881Z     sample-apps/frontend/nginx.conf 
+2025-12-06T23:51:43.8449263Z        generic.nginx.security.header-redefinition.header-redefinition           
+2025-12-06T23:51:43.8449738Z           The 'add_header' directive is called in a 'location' block after      
+2025-12-06T23:51:43.8450129Z   headers have been set at                                                      
+2025-12-06T23:51:43.8450769Z           the server block. Calling 'add_header' in the location block will     
+2025-12-06T23:51:43.8451178Z   actually overwrite the                                                        
+2025-12-06T23:51:43.8451574Z           headers defined in the server block, no matter which headers are set. 
+2025-12-06T23:51:43.8451945Z   To fix this,                                                                  
+2025-12-06T23:51:43.8452315Z           explicitly set all headers or set all headers in the server block.    
+2025-12-06T23:51:43.8452719Z           Details: https://sg.run/Lwl7                                          
+2025-12-06T23:51:43.8453042Z                                                                                 
+2025-12-06T23:51:43.8453378Z            42â add_header Content-Type text/plain;
+2025-12-06T23:51:43.8453718Z             â®â----------------------------------------
+2025-12-06T23:51:43.8454059Z            71â add_header Cache-Control "public, immutable";
+2025-12-06T23:51:43.8454391Z             â®â----------------------------------------
+2025-12-06T23:51:43.8454795Z        generic.nginx.security.possible-h2c-smuggling.possible-nginx-h2c-smugglin
+2025-12-06T23:51:43.8455203Z   g                                                                             
+2025-12-06T23:51:43.8455708Z           Conditions for Nginx H2C smuggling identified. H2C smuggling allows   
+2025-12-06T23:51:43.8456107Z   upgrading HTTP/1.1                                                            
+2025-12-06T23:51:43.8456503Z           connections to lesser-known HTTP/2 over cleartext (h2c) connections   
+2025-12-06T23:51:43.8456902Z   which can allow a bypass                                                      
+2025-12-06T23:51:43.8457303Z           of reverse proxy access controls, and lead to long-lived, unrestricted
+2025-12-06T23:51:43.8457702Z   HTTP traffic directly                                                         
+2025-12-06T23:51:43.8458100Z           to back-end servers. To mitigate: WebSocket support required: Allow   
+2025-12-06T23:51:43.8458498Z   only the value websocket                                                      
+2025-12-06T23:51:43.8458898Z           for HTTP/1.1 upgrade headers (e.g., Upgrade: websocket). WebSocket    
+2025-12-06T23:51:43.8459306Z   support not required: Do                                                      
+2025-12-06T23:51:43.8459686Z           not forward Upgrade headers.                                          
+2025-12-06T23:51:43.8460076Z           Details: https://sg.run/ploZ                                          
+2025-12-06T23:51:43.8460584Z                                                                                 
+2025-12-06T23:51:43.8460892Z            48â proxy_http_version 1.1;
+2025-12-06T23:51:43.8461198Z            49â proxy_set_header Upgrade $http_upgrade;
+2025-12-06T23:51:43.8461521Z            50â proxy_set_header Connection 'upgrade';
+2025-12-06T23:51:43.8461832Z             â®â----------------------------------------
+2025-12-06T23:51:43.8462203Z        generic.nginx.security.request-host-used.request-host-used               
+2025-12-06T23:51:43.8462650Z           '$http_host' and '$host' variables may contain a malicious value from 
+2025-12-06T23:51:43.8463034Z   attacker controlled                                                           
+2025-12-06T23:51:43.8463433Z           'Host' request header. Use an explicitly configured host value or a   
+2025-12-06T23:51:43.8463930Z   allow list for                                                                
+2025-12-06T23:51:43.8464259Z           validation.                                                           
+2025-12-06T23:51:43.8464618Z           Details: https://sg.run/4x3Z                                          
+2025-12-06T23:51:43.8464939Z                                                                                 
+2025-12-06T23:51:43.8465244Z            51â proxy_set_header Host $host;
+2025-12-06T23:51:43.8465538Z             â®â----------------------------------------
+2025-12-06T23:51:43.8465819Z            59â proxy_set_header Host $host;
+2025-12-06T23:51:43.8466048Z                                            
+2025-12-06T23:51:43.8466289Z     sample-apps/python-service/app/main.py 
+2025-12-06T23:51:43.8466676Z        python.fastapi.security.wildcard-cors.wildcard-cors                      
+2025-12-06T23:51:43.8467130Z           CORS policy allows any origin (using wildcard '*'). This is insecure  
+2025-12-06T23:51:43.8467529Z   and should be avoided.                                                        
+2025-12-06T23:51:43.8467907Z           Details: https://sg.run/KxApY                                         
+2025-12-06T23:51:43.8468224Z                                                                                 
+2025-12-06T23:51:43.8468612Z            26â allow_origins=["*"],  # Configure appropriately in production
+2025-12-06T23:51:43.8468918Z                                                     
+2025-12-06T23:51:43.8469199Z     security/vault/kubernetes/vault-deployment.yaml 
+2025-12-06T23:51:43.8469633Z        yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.al
+2025-12-06T23:51:43.8470120Z   low-privilege-escalation-no-                                                  
+2025-12-06T23:51:43.8470857Z        securitycontext                                                          
+2025-12-06T23:51:43.8471456Z           In Kubernetes, each pod runs in its own isolated environment with its 
+2025-12-06T23:51:43.8472142Z   own set of security                                                           
+2025-12-06T23:51:43.8472817Z           policies. However, certain container images may contain `setuid` or   
+2025-12-06T23:51:43.8473539Z   `setgid` binaries that                                                        
+2025-12-06T23:51:43.8474238Z           could allow an attacker to perform privilege escalation and gain      
+2025-12-06T23:51:43.8474919Z   access to sensitive                                                           
+2025-12-06T23:51:43.8475628Z           resources. To mitigate this risk, it's recommended to add a           
+2025-12-06T23:51:43.8476330Z   `securityContext` to the                                                      
+2025-12-06T23:51:43.8477081Z           container in the pod, with the parameter `allowPrivilegeEscalation`   
+2025-12-06T23:51:43.8477780Z   set to `false`. This                                                          
+2025-12-06T23:51:43.8478467Z           will prevent the container from running any privileged processes and  
+2025-12-06T23:51:43.8479202Z   limit the impact of any                                                       
+2025-12-06T23:51:43.8479933Z           potential attacks. By adding a `securityContext` to your Kubernetes   
+2025-12-06T23:51:43.8480845Z   pod, you can help to                                                          
+2025-12-06T23:51:43.8481557Z           ensure that your containerized applications are more secure and less  
+2025-12-06T23:51:43.8482350Z   vulnerable to privilege                                                       
+2025-12-06T23:51:43.8483071Z           escalation attacks.                                                   
+2025-12-06T23:51:43.8483787Z           Details: https://sg.run/eleR                                          
+2025-12-06T23:51:43.8484386Z                                                                                 
+2025-12-06T23:51:43.8485152Z            â¶â¶â Autofix â¶ securityContext:
+2025-12-06T23:51:43.8485606Z     allowPrivilegeEscalation: false      
+2025-12-06T23:51:43.8486040Z   name                                   
+2025-12-06T23:51:43.8486497Z            83â - name: vault
+2025-12-06T23:51:43.8486818Z                             
+2025-12-06T23:51:43.8487155Z   BLOCKING CODE RULES FIRED:
+2025-12-06T23:51:43.8487591Z     dockerfile.security.missing-user.missing-user
+2025-12-06T23:51:43.8488240Z     generic.nginx.security.header-redefinition.header-redefinition
+2025-12-06T23:51:43.8489085Z     generic.nginx.security.possible-h2c-smuggling.possible-nginx-h2c-smuggling
+2025-12-06T23:51:43.8489960Z     generic.nginx.security.request-host-used.request-host-used
+2025-12-06T23:51:43.8490869Z     html.security.plaintext-http-link.plaintext-http-link
+2025-12-06T23:51:43.8491517Z     python.fastapi.security.wildcard-cors.wildcard-cors
+2025-12-06T23:51:43.8492294Z     python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host
+2025-12-06T23:51:43.8493247Z     terraform.aws.security.aws-efs-filesystem-encrypted-with-cmk.aws-efs-filesys
+2025-12-06T23:51:43.8494059Z   tem-encrypted-with-cmk                                                        
+2025-12-06T23:51:43.8494865Z     terraform.aws.security.aws-subnet-has-public-ip-address.aws-subnet-has-publi
+2025-12-06T23:51:43.8495610Z   c-ip-address                                                                  
+2025-12-06T23:51:43.8496370Z     terraform.aws.security.insecure-load-balancer-tls-version.insecure-load-bala
+2025-12-06T23:51:43.8497148Z   ncer-tls-version                                                              
+2025-12-06T23:51:43.8497945Z     terraform.azure.security.storage.storage-use-secure-tls-policy.storage-use-s
+2025-12-06T23:51:43.8498728Z   ecure-tls-policy                                                              
+2025-12-06T23:51:43.8499639Z     yaml.docker-compose.security.privileged-service.privileged-service
+2025-12-06T23:51:43.8500675Z     yaml.github-actions.security.run-shell-injection.run-shell-injection
+2025-12-06T23:51:43.8501598Z     yaml.kubernetes.security.allow-privilege-escalation-no-securitycontext.allow
+2025-12-06T23:51:43.8502528Z   -privilege-escalation-no-securitycontext                                      
+2025-12-06T23:51:43.8503037Z 
+2025-12-06T23:51:43.8503167Z                 
+2025-12-06T23:51:43.8503423Z                 
+2025-12-06T23:51:43.8503759Z ââââââââââââââââ
+2025-12-06T23:51:43.8504062Z â Scan Summary â
+2025-12-06T23:51:43.8504379Z ââââââââââââââââ
+2025-12-06T23:51:43.8504718Z Some files were skipped or only partially analyzed.
+2025-12-06T23:51:43.8505201Z   Scan was limited to files tracked by git.
+2025-12-06T23:51:43.8505871Z   Partially scanned: 1 files only partially analyzed due to parsing or internal Semgrep errors
+2025-12-06T23:51:43.8506624Z   Scan skipped: 5 files matching .semgrepignore patterns
+2025-12-06T23:51:43.8507244Z   For a full list of skipped files, run semgrep with the --verbose flag.
+2025-12-06T23:51:43.8507657Z 
+2025-12-06T23:51:43.8507805Z CI scan completed successfully.
+2025-12-06T23:51:43.8508208Z   Found 26 findings (26 blocking) from 675 rules.
+2025-12-06T23:51:43.8508700Z   Has findings for blocking rules so exiting with code 1
+2025-12-06T23:51:43.8509044Z 
+2025-12-06T23:51:43.8509348Z A new version of Semgrep is available. See https://semgrep.dev/docs/upgrading
+2025-12-06T23:51:43.8509799Z 
+2025-12-06T23:51:43.8510103Z Versions prior to 1.76.0 are no longer supported by Semgrep.dev, please upgrade.
+2025-12-06T23:51:45.0829839Z Post job cleanup.
+2025-12-06T23:51:45.1760545Z [command]/usr/bin/git version
+2025-12-06T23:51:45.1796535Z git version 2.52.0
+2025-12-06T23:51:45.1839913Z Temporarily overriding HOME='/home/runner/work/_temp/59a1bf41-26d5-4d30-9688-9bdb8cef95dd' before making global git config changes
+2025-12-06T23:51:45.1841375Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-06T23:51:45.1847221Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:45.1888378Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-06T23:51:45.1920770Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-06T23:51:45.2148105Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-06T23:51:45.2167934Z http.https://github.com/.extraheader
+2025-12-06T23:51:45.2180918Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-12-06T23:51:45.2211493Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-06T23:51:45.2428605Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-06T23:51:45.2459088Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-06T23:51:45.2776806Z Cleaning up orphan processes

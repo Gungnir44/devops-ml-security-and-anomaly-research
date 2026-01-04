@@ -1,0 +1,212 @@
+ï»¿2025-12-06T23:51:30.6569340Z Current runner version: '2.329.0'
+2025-12-06T23:51:30.6601658Z ##[group]Runner Image Provisioner
+2025-12-06T23:51:30.6602721Z Hosted Compute Agent
+2025-12-06T23:51:30.6603712Z Version: 20251124.448
+2025-12-06T23:51:30.6604630Z Commit: fda5086b43ec66ade217e5fcd18146c879571177
+2025-12-06T23:51:30.6605755Z Build Date: 2025-11-24T21:16:26Z
+2025-12-06T23:51:30.6606752Z ##[endgroup]
+2025-12-06T23:51:30.6607561Z ##[group]Operating System
+2025-12-06T23:51:30.6608425Z Ubuntu
+2025-12-06T23:51:30.6609417Z 24.04.3
+2025-12-06T23:51:30.6610180Z LTS
+2025-12-06T23:51:30.6610851Z ##[endgroup]
+2025-12-06T23:51:30.6611758Z ##[group]Runner Image
+2025-12-06T23:51:30.6612540Z Image: ubuntu-24.04
+2025-12-06T23:51:30.6613354Z Version: 20251126.144.1
+2025-12-06T23:51:30.6615192Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251126.144/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-06T23:51:30.6617789Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251126.144
+2025-12-06T23:51:30.6619720Z ##[endgroup]
+2025-12-06T23:51:30.6621451Z ##[group]GITHUB_TOKEN Permissions
+2025-12-06T23:51:30.6624019Z Contents: read
+2025-12-06T23:51:30.6624874Z Metadata: read
+2025-12-06T23:51:30.6625576Z Packages: read
+2025-12-06T23:51:30.6626499Z ##[endgroup]
+2025-12-06T23:51:30.6629810Z Secret source: Actions
+2025-12-06T23:51:30.6631023Z Prepare workflow directory
+2025-12-06T23:51:30.7177561Z Prepare all required actions
+2025-12-06T23:51:30.7215207Z Getting action download info
+2025-12-06T23:51:30.9284053Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-06T23:51:31.1962040Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-12-06T23:51:31.6309530Z Complete job name: Code Quality Checks
+2025-12-06T23:51:31.7019521Z ##[group]Run actions/checkout@v4
+2025-12-06T23:51:31.7020744Z with:
+2025-12-06T23:51:31.7021594Z   repository: Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:31.7022806Z   token: ***
+2025-12-06T23:51:31.7023495Z   ssh-strict: true
+2025-12-06T23:51:31.7024183Z   ssh-user: git
+2025-12-06T23:51:31.7024878Z   persist-credentials: true
+2025-12-06T23:51:31.7025626Z   clean: true
+2025-12-06T23:51:31.7026328Z   sparse-checkout-cone-mode: true
+2025-12-06T23:51:31.7027117Z   fetch-depth: 1
+2025-12-06T23:51:31.7027799Z   fetch-tags: false
+2025-12-06T23:51:31.7028494Z   show-progress: true
+2025-12-06T23:51:31.7029388Z   lfs: false
+2025-12-06T23:51:31.7030080Z   submodules: false
+2025-12-06T23:51:31.7030780Z   set-safe-directory: true
+2025-12-06T23:51:31.7031773Z env:
+2025-12-06T23:51:31.7032472Z   NODE_VERSION: 18
+2025-12-06T23:51:31.7033310Z   REGISTRY: ghcr.io
+2025-12-06T23:51:31.7034236Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:31.7035309Z ##[endgroup]
+2025-12-06T23:51:31.8155435Z Syncing repository: Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:31.8159458Z ##[group]Getting Git version info
+2025-12-06T23:51:31.8161050Z Working directory is '/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research'
+2025-12-06T23:51:31.8162928Z [command]/usr/bin/git version
+2025-12-06T23:51:31.8254126Z git version 2.52.0
+2025-12-06T23:51:31.8280975Z ##[endgroup]
+2025-12-06T23:51:31.8294594Z Temporarily overriding HOME='/home/runner/work/_temp/18782cd5-6652-4ebc-bb3e-108f2f3f8e76' before making global git config changes
+2025-12-06T23:51:31.8296375Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-06T23:51:31.8307763Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:31.8349592Z Deleting the contents of '/home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research'
+2025-12-06T23:51:31.8352174Z ##[group]Initializing the repository
+2025-12-06T23:51:31.8356587Z [command]/usr/bin/git init /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:31.8486922Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-06T23:51:31.8488710Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-06T23:51:31.8490231Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-06T23:51:31.8491719Z hint: call:
+2025-12-06T23:51:31.8492990Z hint:
+2025-12-06T23:51:31.8494414Z hint: 	git config --global init.defaultBranch <name>
+2025-12-06T23:51:31.8496398Z hint:
+2025-12-06T23:51:31.8498123Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-06T23:51:31.8500885Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-06T23:51:31.8503170Z hint:
+2025-12-06T23:51:31.8504383Z hint: 	git branch -m <name>
+2025-12-06T23:51:31.8505740Z hint:
+2025-12-06T23:51:31.8507419Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-06T23:51:31.8510940Z Initialized empty Git repository in /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research/.git/
+2025-12-06T23:51:31.8515300Z [command]/usr/bin/git remote add origin https://github.com/Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:31.8545314Z ##[endgroup]
+2025-12-06T23:51:31.8547337Z ##[group]Disabling automatic garbage collection
+2025-12-06T23:51:31.8549454Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-06T23:51:31.8579190Z ##[endgroup]
+2025-12-06T23:51:31.8581203Z ##[group]Setting up auth
+2025-12-06T23:51:31.8586818Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-06T23:51:31.8619089Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-06T23:51:31.9010634Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-06T23:51:31.9039555Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-06T23:51:31.9256925Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-06T23:51:31.9286074Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-06T23:51:31.9516519Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-06T23:51:31.9550450Z ##[endgroup]
+2025-12-06T23:51:31.9552543Z ##[group]Fetching the repository
+2025-12-06T23:51:31.9560943Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +3576408def67233e86a0a1f9d4472c9544c3d256:refs/remotes/origin/hardened
+2025-12-06T23:51:32.1617454Z From https://github.com/Gungnir44/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:32.1618851Z  * [new ref]         3576408def67233e86a0a1f9d4472c9544c3d256 -> origin/hardened
+2025-12-06T23:51:32.1650517Z ##[endgroup]
+2025-12-06T23:51:32.1653712Z ##[group]Determining the checkout info
+2025-12-06T23:51:32.1655512Z ##[endgroup]
+2025-12-06T23:51:32.1657917Z [command]/usr/bin/git sparse-checkout disable
+2025-12-06T23:51:32.1698934Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-06T23:51:32.1724045Z ##[group]Checking out the ref
+2025-12-06T23:51:32.1726921Z [command]/usr/bin/git checkout --progress --force -B hardened refs/remotes/origin/hardened
+2025-12-06T23:51:32.1995363Z Switched to a new branch 'hardened'
+2025-12-06T23:51:32.1998737Z branch 'hardened' set up to track 'origin/hardened'.
+2025-12-06T23:51:32.2007182Z ##[endgroup]
+2025-12-06T23:51:32.2043596Z [command]/usr/bin/git log -1 --format=%H
+2025-12-06T23:51:32.2066241Z 3576408def67233e86a0a1f9d4472c9544c3d256
+2025-12-06T23:51:32.2315021Z ##[group]Run actions/setup-node@v4
+2025-12-06T23:51:32.2315705Z with:
+2025-12-06T23:51:32.2316229Z   node-version: 18
+2025-12-06T23:51:32.2316786Z   cache: npm
+2025-12-06T23:51:32.2317470Z   cache-dependency-path: sample-apps/frontend/package-lock.json
+2025-12-06T23:51:32.2318287Z   always-auth: false
+2025-12-06T23:51:32.2319088Z   check-latest: false
+2025-12-06T23:51:32.2319929Z   token: ***
+2025-12-06T23:51:32.2320448Z env:
+2025-12-06T23:51:32.2320932Z   NODE_VERSION: 18
+2025-12-06T23:51:32.2321470Z   REGISTRY: ghcr.io
+2025-12-06T23:51:32.2322236Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:32.2323099Z ##[endgroup]
+2025-12-06T23:51:32.4094297Z Attempting to download 18...
+2025-12-06T23:51:32.7115682Z Acquiring 18.20.8 - x64 from https://github.com/actions/node-versions/releases/download/18.20.8-14110393767/node-18.20.8-linux-x64.tar.gz
+2025-12-06T23:51:33.0866072Z Extracting ...
+2025-12-06T23:51:33.0974292Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/f2152daa-00bf-4bd0-86a1-5e9e058e2564 -f /home/runner/work/_temp/53e1dcb0-0a54-4e00-a176-af9c9b0a7f95
+2025-12-06T23:51:34.0749096Z Adding to the cache ...
+2025-12-06T23:51:35.6396596Z ##[group]Environment details
+2025-12-06T23:51:35.8676023Z node: v18.20.8
+2025-12-06T23:51:35.8676376Z npm: 10.8.2
+2025-12-06T23:51:35.8676797Z yarn: 1.22.22
+2025-12-06T23:51:35.8677493Z ##[endgroup]
+2025-12-06T23:51:35.8700422Z [command]/opt/hostedtoolcache/node/18.20.8/x64/bin/npm config get cache
+2025-12-06T23:51:35.9852460Z /home/runner/.npm
+2025-12-06T23:51:36.0580045Z npm cache is not found
+2025-12-06T23:51:36.0734270Z ##[group]Run npm ci
+2025-12-06T23:51:36.0734540Z [36;1mnpm ci[0m
+2025-12-06T23:51:36.0772116Z shell: /usr/bin/bash -e {0}
+2025-12-06T23:51:36.0772398Z env:
+2025-12-06T23:51:36.0772579Z   NODE_VERSION: 18
+2025-12-06T23:51:36.0772772Z   REGISTRY: ghcr.io
+2025-12-06T23:51:36.0773085Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:36.0773465Z ##[endgroup]
+2025-12-06T23:51:36.6582689Z npm warn EBADENGINE Unsupported engine {
+2025-12-06T23:51:36.6583523Z npm warn EBADENGINE   package: 'vite@7.2.6',
+2025-12-06T23:51:36.6584406Z npm warn EBADENGINE   required: { node: '^20.19.0 || >=22.12.0' },
+2025-12-06T23:51:36.6585307Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+2025-12-06T23:51:36.6585923Z npm warn EBADENGINE }
+2025-12-06T23:51:36.6586468Z npm warn EBADENGINE Unsupported engine {
+2025-12-06T23:51:36.6587036Z npm warn EBADENGINE   package: 'vitest@4.0.15',
+2025-12-06T23:51:36.6587901Z npm warn EBADENGINE   required: { node: '^20.0.0 || ^22.0.0 || >=24.0.0' },
+2025-12-06T23:51:36.6588972Z npm warn EBADENGINE   current: { node: 'v18.20.8', npm: '10.8.2' }
+2025-12-06T23:51:36.6589602Z npm warn EBADENGINE }
+2025-12-06T23:51:38.3972417Z npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+2025-12-06T23:51:38.7762502Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-12-06T23:51:38.8065961Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-12-06T23:51:39.3596796Z npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+2025-12-06T23:51:39.3679098Z npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+2025-12-06T23:51:40.6320984Z npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2025-12-06T23:51:44.4324822Z 
+2025-12-06T23:51:44.4325632Z added 408 packages, and audited 409 packages in 8s
+2025-12-06T23:51:44.4326115Z 
+2025-12-06T23:51:44.4326458Z 139 packages are looking for funding
+2025-12-06T23:51:44.4327050Z   run `npm fund` for details
+2025-12-06T23:51:44.4342054Z 
+2025-12-06T23:51:44.4342482Z found 0 vulnerabilities
+2025-12-06T23:51:44.4616409Z ##[group]Run npm run lint
+2025-12-06T23:51:44.4616684Z [36;1mnpm run lint[0m
+2025-12-06T23:51:44.4650511Z shell: /usr/bin/bash -e {0}
+2025-12-06T23:51:44.4650742Z env:
+2025-12-06T23:51:44.4650908Z   NODE_VERSION: 18
+2025-12-06T23:51:44.4651093Z   REGISTRY: ghcr.io
+2025-12-06T23:51:44.4651395Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:44.4651758Z ##[endgroup]
+2025-12-06T23:51:44.5975670Z 
+2025-12-06T23:51:44.5976115Z > frontend@1.0.0 lint
+2025-12-06T23:51:44.5976783Z > eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0
+2025-12-06T23:51:44.5977099Z 
+2025-12-06T23:51:45.2906675Z ##[group]Run npx prettier --check "src/**/*.{js,jsx,css,html}"
+2025-12-06T23:51:45.2907119Z [36;1mnpx prettier --check "src/**/*.{js,jsx,css,html}"[0m
+2025-12-06T23:51:45.2939966Z shell: /usr/bin/bash -e {0}
+2025-12-06T23:51:45.2940197Z env:
+2025-12-06T23:51:45.2940370Z   NODE_VERSION: 18
+2025-12-06T23:51:45.2940545Z   REGISTRY: ghcr.io
+2025-12-06T23:51:45.2940864Z   IMAGE_NAME: Gungnir44/devops-ml-security-and-anomaly-research/frontend
+2025-12-06T23:51:45.2941222Z ##[endgroup]
+2025-12-06T23:51:45.7317209Z Checking formatting...
+2025-12-06T23:51:45.7741949Z [[33mwarn[39m] [33mjsxBracketSameLine[39m is deprecated.
+2025-12-06T23:51:45.8845481Z [[33mwarn[39m] src/App.jsx
+2025-12-06T23:51:45.8977587Z [[33mwarn[39m] src/App.test.jsx
+2025-12-06T23:51:45.9178486Z [[33mwarn[39m] src/components/Dashboard.css
+2025-12-06T23:51:45.9445289Z [[33mwarn[39m] src/components/Dashboard.jsx
+2025-12-06T23:51:46.0081227Z [[33mwarn[39m] src/components/DataProcessing.jsx
+2025-12-06T23:51:46.0343716Z [[33mwarn[39m] src/components/SecurityMetrics.css
+2025-12-06T23:51:46.0606780Z [[33mwarn[39m] src/components/SecurityMetrics.jsx
+2025-12-06T23:51:46.0874960Z [[33mwarn[39m] src/components/Users.jsx
+2025-12-06T23:51:46.1011188Z [[33mwarn[39m] src/index.css
+2025-12-06T23:51:46.1065928Z [[33mwarn[39m] src/main.jsx
+2025-12-06T23:51:46.1109545Z [[33mwarn[39m] Code style issues found in 10 files. Run Prettier with --write to fix.
+2025-12-06T23:51:46.1287641Z ##[error]Process completed with exit code 1.
+2025-12-06T23:51:46.1365389Z Post job cleanup.
+2025-12-06T23:51:46.2303325Z [command]/usr/bin/git version
+2025-12-06T23:51:46.2341270Z git version 2.52.0
+2025-12-06T23:51:46.2386317Z Temporarily overriding HOME='/home/runner/work/_temp/8b42d98b-474a-4c20-93a1-5f78fc1958a5' before making global git config changes
+2025-12-06T23:51:46.2387809Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-06T23:51:46.2393626Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-ml-security-and-anomaly-research/devops-ml-security-and-anomaly-research
+2025-12-06T23:51:46.2430010Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-06T23:51:46.2462998Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-06T23:51:46.2697044Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-06T23:51:46.2718835Z http.https://github.com/.extraheader
+2025-12-06T23:51:46.2731350Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-12-06T23:51:46.2761787Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-06T23:51:46.2982664Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-06T23:51:46.3014332Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-06T23:51:46.3339257Z Cleaning up orphan processes

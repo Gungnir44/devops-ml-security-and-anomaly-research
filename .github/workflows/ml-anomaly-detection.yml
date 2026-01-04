@@ -1,0 +1,172 @@
+name: ML Anomaly Detection
+
+on:
+  schedule:
+    # Run 30 minutes after security scans (2:30 AM UTC daily)
+    - cron: '30 2 * * *'
+
+  workflow_dispatch:
+    inputs:
+      model_type:
+        description: 'ML model to use'
+        required: false
+        default: 'random_forest'
+        type: choice
+        options:
+          - random_forest
+          - xgboost
+          - isolation_forest
+
+  # Trigger after security scanning completes
+  workflow_run:
+    workflows: ["Security Scanning"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+  issues: write  # For creating alerts
+
+jobs:
+  detect-anomalies:
+    runs-on: ubuntu-latest
+    # Only run on main branch scheduled scans
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scikit-learn joblib xgboost
+
+      - name: Download latest security scan artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-scan-results'
+          path: artifacts/
+          merge-multiple: true
+        continue-on-error: true
+
+      - name: Check for trained models
+        id: check-models
+        run: |
+          if [ -d "models" ] && [ -f "models/random_forest_latest.pkl" ]; then
+            echo "models_exist=true" >> $GITHUB_OUTPUT
+            echo "[OK] Trained models found"
+          else
+            echo "models_exist=false" >> $GITHUB_OUTPUT
+            echo "[WARN] No trained models found - ML detection will be skipped"
+            echo "Train models first using: python scripts/ml-train-models.py"
+          fi
+
+      - name: Extract features from artifacts
+        if: steps.check-models.outputs.models_exist == 'true'
+        run: |
+          echo "Extracting ML features from security scan results..."
+          cd "DevOps Master's Degree Project/ml-pipeline"
+          python extract_all_features.py
+        continue-on-error: true
+
+      - name: Run ML anomaly detection
+        if: steps.check-models.outputs.models_exist == 'true'
+        id: ml-detection
+        env:
+          ML_MODEL_TYPE: ${{ inputs.model_type || 'random_forest' }}
+        run: |
+          echo "Running ML anomaly detection..."
+          cd scripts
+          python ml-predict-realtime.py
+        continue-on-error: true
+
+      - name: Create alert issue if anomaly detected
+        if: steps.ml-detection.outputs.anomaly_detected == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const confidence = '${{ steps.ml-detection.outputs.anomaly_confidence }}';
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+
+            const issueBody = `
+            ## 🚨 Anomaly Detected in DevOps Pipeline
+
+            **Detection Time:** ${new Date().toISOString()}
+            **Confidence:** ${(parseFloat(confidence) * 100).toFixed(1)}%
+            **Model:** ${{ inputs.model_type || 'random_forest' }}
+            **Branch:** ${context.ref}
+
+            ### Details
+
+            The ML anomaly detection system has identified unusual patterns in the latest security scan results. This may indicate:
+
+            - New security vulnerabilities introduced
+            - Configuration drift or misconfigurations
+            - Dependency changes with security implications
+            - Infrastructure anomalies
+
+            ### Recommended Actions
+
+            1. **Review recent changes:** Check commits since last normal scan
+            2. **Examine security reports:** Review detailed scan outputs in artifacts
+            3. **Compare with baseline:** Check differences from known-good state
+            4. **Investigate failed jobs:** Look for pipeline failures or warnings
+            5. **Check hardened branch:** Compare main vs hardened branches
+
+            ### Resources
+
+            - [Detection Run](${ runUrl })
+            - [Security Scan Artifacts](${ runUrl }#artifacts)
+            - [ML Prediction Logs](logs/ml-predictions/)
+
+            ---
+
+            *Automated alert from ML Anomaly Detection system*
+            `;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[ML Alert] Anomaly Detected - ${new Date().toISOString().split('T')[0]}`,
+              body: issueBody,
+              labels: ['security', 'ml-alert', 'anomaly']
+            });
+
+      - name: Upload prediction logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ml-prediction-logs-${{ github.run_number }}
+          path: |
+            logs/ml-predictions/
+            scripts/logs/ml-predictions/
+          retention-days: 90
+
+      - name: Post detection summary
+        if: always()
+        run: |
+          echo "### ML Anomaly Detection Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.check-models.outputs.models_exist }}" == "false" ]; then
+            echo "⚠️ **Status:** Models not trained yet" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Train models first in Phase 3 after collecting attack data." >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.ml-detection.outputs.anomaly_detected }}" == "true" ]; then
+            echo "🚨 **Status:** ANOMALY DETECTED" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- Confidence: ${{ steps.ml-detection.outputs.anomaly_confidence }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Model: ${{ inputs.model_type || 'random_forest' }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Alert issue created" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ **Status:** No anomalies detected" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Pipeline appears normal based on ML analysis." >> $GITHUB_STEP_SUMMARY
+          fi

@@ -1,0 +1,2679 @@
+[
+    {
+        "number":  248,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/248",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/248",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_DOCKER_3",
+                     "severity":  "error",
+                     "description":  "Ensure that a user for the container has been created",
+                     "name":  "Ensure that a user for the container has been created",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that a user for the container has been created",
+                     "help":  "Ensure that a user for the container has been created\nResource: /docker/web-dashboard.Dockerfile.",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-a-user-for-the-container-has-been-created"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that a user for the container has been created"
+                                                 },
+                                     "location":  {
+                                                      "path":  "docker/web-dashboard.Dockerfile",
+                                                      "start_line":  1,
+                                                      "end_line":  29,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/248/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  247,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/247",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/247",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_DOCKER_2",
+                     "severity":  "error",
+                     "description":  "Ensure that HEALTHCHECK instructions have been added to container images",
+                     "name":  "Ensure that HEALTHCHECK instructions have been added to container images",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that HEALTHCHECK instructions have been added to container images",
+                     "help":  "Ensure that HEALTHCHECK instructions have been added to container images\nResource: /docker/web-dashboard.Dockerfile.",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that HEALTHCHECK instructions have been added to container images"
+                                                 },
+                                     "location":  {
+                                                      "path":  "docker/web-dashboard.Dockerfile",
+                                                      "start_line":  1,
+                                                      "end_line":  29,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/247/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  246,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/246",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/246",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_DOCKER_3",
+                     "severity":  "error",
+                     "description":  "Ensure that a user for the container has been created",
+                     "name":  "Ensure that a user for the container has been created",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that a user for the container has been created",
+                     "help":  "Ensure that a user for the container has been created\nResource: /docker/web-dashboard.Dockerfile.",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-a-user-for-the-container-has-been-created"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that a user for the container has been created"
+                                                 },
+                                     "location":  {
+                                                      "path":  "docker/health-checker.Dockerfile",
+                                                      "start_line":  1,
+                                                      "end_line":  56,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/246/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  245,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/245",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/245",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_DOCKER_3",
+                     "severity":  "error",
+                     "description":  "Ensure that a user for the container has been created",
+                     "name":  "Ensure that a user for the container has been created",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that a user for the container has been created",
+                     "help":  "Ensure that a user for the container has been created\nResource: /docker/web-dashboard.Dockerfile.",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-a-user-for-the-container-has-been-created"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that a user for the container has been created"
+                                                 },
+                                     "location":  {
+                                                      "path":  "docker/Dockerfile",
+                                                      "start_line":  1,
+                                                      "end_line":  38,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/245/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  244,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/244",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/244",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_DOCKER_2",
+                     "severity":  "error",
+                     "description":  "Ensure that HEALTHCHECK instructions have been added to container images",
+                     "name":  "Ensure that HEALTHCHECK instructions have been added to container images",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that HEALTHCHECK instructions have been added to container images",
+                     "help":  "Ensure that HEALTHCHECK instructions have been added to container images\nResource: /docker/web-dashboard.Dockerfile.",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-healthcheck-instructions-have-been-added-to-container-images"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that HEALTHCHECK instructions have been added to container images"
+                                                 },
+                                     "location":  {
+                                                      "path":  "docker/Dockerfile",
+                                                      "start_line":  1,
+                                                      "end_line":  38,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/244/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  243,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/243",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/243",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_DOCKER_3",
+                     "severity":  "error",
+                     "description":  "Ensure that a user for the container has been created",
+                     "name":  "Ensure that a user for the container has been created",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that a user for the container has been created",
+                     "help":  "Ensure that a user for the container has been created\nResource: /docker/web-dashboard.Dockerfile.",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/docker-policies/docker-policy-index/ensure-that-a-user-for-the-container-has-been-created"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that a user for the container has been created"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/Dockerfile",
+                                                      "start_line":  1,
+                                                      "end_line":  41,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/243/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  242,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/242",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/242",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/242/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  241,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/241",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/241",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/241/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  240,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/240",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/240",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/240/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  239,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/239",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/239",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/239/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  238,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/238",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/238",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "kubernetes/manifests/databases.yaml",
+                                                      "start_line":  68,
+                                                      "end_line":  127,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/238/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  237,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/237",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/237",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "kubernetes/manifests/databases.yaml",
+                                                      "start_line":  3,
+                                                      "end_line":  34,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/237/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  236,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/236",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/236",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "kubernetes/manifests/prometheus.yaml",
+                                                      "start_line":  38,
+                                                      "end_line":  84,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/236/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  235,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/235",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/235",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "kubernetes/manifests/grafana.yaml",
+                                                      "start_line":  15,
+                                                      "end_line":  77,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/235/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  234,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/234",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/234",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "gitops/applications/dev/webapp/deployment.yaml",
+                                                      "start_line":  2,
+                                                      "end_line":  50,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/234/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  233,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/233",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/233",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "gitops/applications/staging/webapp/deployment.yaml",
+                                                      "start_line":  2,
+                                                      "end_line":  50,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/233/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  232,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/232",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/232",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV2_K8S_6",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "name":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of pods which lack an associated NetworkPolicy",
+                     "help":  "Minimize the admission of pods which lack an associated NetworkPolicy\nResource: Pod.default.webapp.app-webapp.environment-prod.criticality-high"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of pods which lack an associated NetworkPolicy"
+                                                 },
+                                     "location":  {
+                                                      "path":  "gitops/applications/prod/webapp/deployment.yaml",
+                                                      "start_line":  2,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/232/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  231,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/231",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/231",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_40",
+                     "severity":  "error",
+                     "description":  "Containers should run as a high UID to avoid host conflict",
+                     "name":  "Containers should run as a high UID to avoid host conflict",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Containers should run as a high UID to avoid host conflict",
+                     "help":  "Containers should run as a high UID to avoid host conflict\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-37"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Containers should run as a high UID to avoid host conflict"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/231/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  230,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/230",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/230",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_31",
+                     "severity":  "error",
+                     "description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "name":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "help":  "Ensure that the seccomp profile is set to docker/default or runtime/default\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-29"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that the seccomp profile is set to docker/default or runtime/default"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/230/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  229,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/229",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/229",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_43",
+                     "severity":  "error",
+                     "description":  "Image should use digest",
+                     "name":  "Image should use digest",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image should use digest",
+                     "help":  "Image should use digest\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-39"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image should use digest"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/229/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  228,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/228",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/228",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_38",
+                     "severity":  "error",
+                     "description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "name":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "help":  "Ensure that Service Account Tokens are only mounted where necessary\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-35"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that Service Account Tokens are only mounted where necessary"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/228/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  227,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/227",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/227",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_29",
+                     "severity":  "error",
+                     "description":  "Apply security context to your pods and containers",
+                     "name":  "Apply security context to your pods and containers",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Apply security context to your pods and containers",
+                     "help":  "Apply security context to your pods and containers\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/ensure-securitycontext-is-applied-to-pods-and-containers"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Apply security context to your pods and containers"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/227/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  226,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/226",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/226",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_14",
+                     "severity":  "error",
+                     "description":  "Image Tag should be fixed - not latest or blank",
+                     "name":  "Image Tag should be fixed - not latest or blank",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image Tag should be fixed - not latest or blank",
+                     "help":  "Image Tag should be fixed - not latest or blank\nResource: Deployment.monitoring.grafana",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-13"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image Tag should be fixed - not latest or blank"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/226/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  225,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/225",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/225",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_25",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of containers with added capability",
+                     "name":  "Minimize the admission of containers with added capability",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of containers with added capability",
+                     "help":  "Minimize the admission of containers with added capability\nResource: Deployment.production.frontend",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-24"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of containers with added capability"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/frontend/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  78,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/225/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  224,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/224",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/224",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_40",
+                     "severity":  "error",
+                     "description":  "Containers should run as a high UID to avoid host conflict",
+                     "name":  "Containers should run as a high UID to avoid host conflict",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Containers should run as a high UID to avoid host conflict",
+                     "help":  "Containers should run as a high UID to avoid host conflict\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-37"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Containers should run as a high UID to avoid host conflict"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/224/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  223,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/223",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/223",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_31",
+                     "severity":  "error",
+                     "description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "name":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "help":  "Ensure that the seccomp profile is set to docker/default or runtime/default\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-29"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that the seccomp profile is set to docker/default or runtime/default"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/223/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  222,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/222",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/222",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_43",
+                     "severity":  "error",
+                     "description":  "Image should use digest",
+                     "name":  "Image should use digest",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image should use digest",
+                     "help":  "Image should use digest\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-39"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image should use digest"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/222/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  221,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/221",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/221",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_38",
+                     "severity":  "error",
+                     "description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "name":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "help":  "Ensure that Service Account Tokens are only mounted where necessary\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-35"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that Service Account Tokens are only mounted where necessary"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/221/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  220,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/220",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/220",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_29",
+                     "severity":  "error",
+                     "description":  "Apply security context to your pods and containers",
+                     "name":  "Apply security context to your pods and containers",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Apply security context to your pods and containers",
+                     "help":  "Apply security context to your pods and containers\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/ensure-securitycontext-is-applied-to-pods-and-containers"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Apply security context to your pods and containers"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/220/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  219,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/219",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/219",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_14",
+                     "severity":  "error",
+                     "description":  "Image Tag should be fixed - not latest or blank",
+                     "name":  "Image Tag should be fixed - not latest or blank",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image Tag should be fixed - not latest or blank",
+                     "help":  "Image Tag should be fixed - not latest or blank\nResource: Deployment.monitoring.grafana",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-13"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image Tag should be fixed - not latest or blank"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/backend-api/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  75,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/219/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  218,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/218",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/218",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_40",
+                     "severity":  "error",
+                     "description":  "Containers should run as a high UID to avoid host conflict",
+                     "name":  "Containers should run as a high UID to avoid host conflict",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Containers should run as a high UID to avoid host conflict",
+                     "help":  "Containers should run as a high UID to avoid host conflict\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-37"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Containers should run as a high UID to avoid host conflict"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/218/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  217,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/217",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/217",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_31",
+                     "severity":  "error",
+                     "description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "name":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "help":  "Ensure that the seccomp profile is set to docker/default or runtime/default\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-29"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that the seccomp profile is set to docker/default or runtime/default"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/217/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  216,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/216",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/216",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_43",
+                     "severity":  "error",
+                     "description":  "Image should use digest",
+                     "name":  "Image should use digest",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image should use digest",
+                     "help":  "Image should use digest\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-39"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image should use digest"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/216/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  215,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/215",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/215",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_38",
+                     "severity":  "error",
+                     "description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "name":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "help":  "Ensure that Service Account Tokens are only mounted where necessary\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-35"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that Service Account Tokens are only mounted where necessary"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/215/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  214,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/214",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/214",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_29",
+                     "severity":  "error",
+                     "description":  "Apply security context to your pods and containers",
+                     "name":  "Apply security context to your pods and containers",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Apply security context to your pods and containers",
+                     "help":  "Apply security context to your pods and containers\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/ensure-securitycontext-is-applied-to-pods-and-containers"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Apply security context to your pods and containers"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/214/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  213,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/213",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/213",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_14",
+                     "severity":  "error",
+                     "description":  "Image Tag should be fixed - not latest or blank",
+                     "name":  "Image Tag should be fixed - not latest or blank",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image Tag should be fixed - not latest or blank",
+                     "help":  "Image Tag should be fixed - not latest or blank\nResource: Deployment.monitoring.grafana",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-13"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image Tag should be fixed - not latest or blank"
+                                                 },
+                                     "location":  {
+                                                      "path":  "sample-apps/python-service/k8s/deployment.yaml",
+                                                      "start_line":  1,
+                                                      "end_line":  73,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/213/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  212,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/212",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/212",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_20",
+                     "severity":  "error",
+                     "description":  "Containers should not run with allowPrivilegeEscalation",
+                     "name":  "Containers should not run with allowPrivilegeEscalation",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Containers should not run with allowPrivilegeEscalation",
+                     "help":  "Containers should not run with allowPrivilegeEscalation\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-19"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Containers should not run with allowPrivilegeEscalation"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/212/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  211,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/211",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/211",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_40",
+                     "severity":  "error",
+                     "description":  "Containers should run as a high UID to avoid host conflict",
+                     "name":  "Containers should run as a high UID to avoid host conflict",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Containers should run as a high UID to avoid host conflict",
+                     "help":  "Containers should run as a high UID to avoid host conflict\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-37"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Containers should run as a high UID to avoid host conflict"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/211/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  210,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/210",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/210",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_15",
+                     "severity":  "error",
+                     "description":  "Image Pull Policy should be Always",
+                     "name":  "Image Pull Policy should be Always",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image Pull Policy should be Always",
+                     "help":  "Image Pull Policy should be Always\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-14"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image Pull Policy should be Always"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/210/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  209,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/209",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/209",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_31",
+                     "severity":  "error",
+                     "description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "name":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that the seccomp profile is set to docker/default or runtime/default",
+                     "help":  "Ensure that the seccomp profile is set to docker/default or runtime/default\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-29"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that the seccomp profile is set to docker/default or runtime/default"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/209/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  208,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/208",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/208",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_43",
+                     "severity":  "error",
+                     "description":  "Image should use digest",
+                     "name":  "Image should use digest",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image should use digest",
+                     "help":  "Image should use digest\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-39"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image should use digest"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/208/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  207,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/207",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/207",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_28",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of containers with the NET_RAW capability",
+                     "name":  "Minimize the admission of containers with the NET_RAW capability",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of containers with the NET_RAW capability",
+                     "help":  "Minimize the admission of containers with the NET_RAW capability\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-27"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of containers with the NET_RAW capability"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/207/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  206,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/206",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/206",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_38",
+                     "severity":  "error",
+                     "description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "name":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Ensure that Service Account Tokens are only mounted where necessary",
+                     "help":  "Ensure that Service Account Tokens are only mounted where necessary\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-35"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Ensure that Service Account Tokens are only mounted where necessary"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/206/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  205,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/205",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/205",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_30",
+                     "severity":  "error",
+                     "description":  "Apply security context to your containers",
+                     "name":  "Apply security context to your containers",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Apply security context to your containers",
+                     "help":  "Apply security context to your containers\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-28"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Apply security context to your containers"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/205/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  204,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/204",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/204",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_23",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of root containers",
+                     "name":  "Minimize the admission of root containers",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of root containers",
+                     "help":  "Minimize the admission of root containers\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-22"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of root containers"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/204/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  203,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/203",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/203",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_14",
+                     "severity":  "error",
+                     "description":  "Image Tag should be fixed - not latest or blank",
+                     "name":  "Image Tag should be fixed - not latest or blank",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Image Tag should be fixed - not latest or blank",
+                     "help":  "Image Tag should be fixed - not latest or blank\nResource: Deployment.monitoring.grafana",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-13"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Image Tag should be fixed - not latest or blank"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/203/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  202,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/202",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/202",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_22",
+                     "severity":  "error",
+                     "description":  "Use read-only filesystem for containers where possible",
+                     "name":  "Use read-only filesystem for containers where possible",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Use read-only filesystem for containers where possible",
+                     "help":  "Use read-only filesystem for containers where possible\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-21"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Use read-only filesystem for containers where possible"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/202/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    },
+    {
+        "number":  201,
+        "created_at":  "2025-12-05T00:35:13Z",
+        "updated_at":  "2025-12-05T00:35:13Z",
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/201",
+        "html_url":  "https://github.com/Gungnir44/devops-ml-security-and-anomaly-research/security/code-scanning/201",
+        "state":  "open",
+        "fixed_at":  null,
+        "dismissed_by":  null,
+        "dismissed_at":  null,
+        "dismissed_reason":  null,
+        "dismissed_comment":  null,
+        "rule":  {
+                     "id":  "CKV_K8S_37",
+                     "severity":  "error",
+                     "description":  "Minimize the admission of containers with capabilities assigned",
+                     "name":  "Minimize the admission of containers with capabilities assigned",
+                     "tags":  [
+
+                              ],
+                     "full_description":  "Minimize the admission of containers with capabilities assigned",
+                     "help":  "Minimize the admission of containers with capabilities assigned\nResource: Deployment.default.webapp",
+                     "help_uri":  "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/kubernetes-policies/kubernetes-policy-index/bc-k8s-34"
+                 },
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "most_recent_instance":  {
+                                     "ref":  "refs/heads/main",
+                                     "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "environment":  "{}",
+                                     "category":  ".github/workflows/security-scan.yml:iac-scan",
+                                     "state":  "open",
+                                     "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+                                     "message":  {
+                                                     "text":  "Minimize the admission of containers with capabilities assigned"
+                                                 },
+                                     "location":  {
+                                                      "path":  "security/vault/kubernetes/vault-deployment.yaml",
+                                                      "start_line":  62,
+                                                      "end_line":  137,
+                                                      "start_column":  1,
+                                                      "end_column":  0
+                                                  },
+                                     "classifications":  [
+
+                                                         ]
+                                 },
+        "instances_url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/alerts/201/instances",
+        "dismissal_approved_by":  null,
+        "assignees":  [
+
+                      ]
+    }
+]

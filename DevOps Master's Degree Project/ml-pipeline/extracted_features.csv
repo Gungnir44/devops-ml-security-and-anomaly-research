@@ -1,0 +1,2 @@
+vuln_critical_count,vuln_high_count,vuln_medium_count,vuln_low_count,secrets_detected_count,secrets_verified_count,container_vulnerabilities,container_misconfigurations,npm_vulnerabilities,python_vulnerabilities,sast_code_smells,sast_security_issues,iac_misconfigurations,vuln_new_count,vuln_fixed_count,vuln_age_avg_days,scans_failed_count,scan_duration_avg_seconds,cve_count,cwe_count,security_risk_score
+3,7,36,5,0,0,51,333,0,0,64,0,333,0,0,0.0,0,0.0,0,0,100.0

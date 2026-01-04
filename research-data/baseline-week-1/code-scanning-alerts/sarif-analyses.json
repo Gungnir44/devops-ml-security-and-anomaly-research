@@ -1,0 +1,359 @@
+[
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+        "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:iac-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T03:22:55Z",
+        "results_count":  195,
+        "rules_count":  69,
+        "id":  829873974,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829873974",
+        "sarif_id":  "b0dbe4aa-d189-11f0-926b-5dd1c2bb211a",
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "deletable":  true,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T03:21:13Z",
+        "results_count":  51,
+        "rules_count":  51,
+        "id":  829871998,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829871998",
+        "sarif_id":  "73e8f1f0-d189-11f0-8a7e-91662451ef85",
+        "tool":  {
+                     "name":  "Grype",
+                     "guid":  null,
+                     "version":  "0.74.4"
+                 },
+        "deletable":  true,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T03:20:52Z",
+        "results_count":  53,
+        "rules_count":  27,
+        "id":  829871670,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829871670",
+        "sarif_id":  "670986ca-d189-11f0-991c-f5ed7f6e5180",
+        "tool":  {
+                     "name":  "Trivy",
+                     "guid":  null,
+                     "version":  "0.65.0"
+                 },
+        "deletable":  true,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:40:09Z",
+        "results_count":  51,
+        "rules_count":  51,
+        "id":  829705707,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829705707",
+        "sarif_id":  "f3adafd2-d172-11f0-8e71-0de7fa15e859",
+        "tool":  {
+                     "name":  "Grype",
+                     "guid":  null,
+                     "version":  "0.74.4"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+        "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:iac-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:39:59Z",
+        "results_count":  195,
+        "rules_count":  69,
+        "id":  829705506,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829705506",
+        "sarif_id":  "edd6a032-d172-11f0-9939-0f0fefb32576",
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "d3a1ab2f6380180259b694ab97681f995316edbe",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:39:54Z",
+        "results_count":  51,
+        "rules_count":  51,
+        "id":  829705399,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829705399",
+        "sarif_id":  "eae51868-d172-11f0-9e70-d5d02edae643",
+        "tool":  {
+                     "name":  "Grype",
+                     "guid":  null,
+                     "version":  "0.74.4"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "8105151a99537c6846013a489a7dcf98451b09c9",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:39:48Z",
+        "results_count":  53,
+        "rules_count":  27,
+        "id":  829705238,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829705238",
+        "sarif_id":  "e710dd3a-d172-11f0-921f-55b62588bf1f",
+        "tool":  {
+                     "name":  "Trivy",
+                     "guid":  null,
+                     "version":  "0.65.0"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "d3a1ab2f6380180259b694ab97681f995316edbe",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:39:31Z",
+        "results_count":  53,
+        "rules_count":  27,
+        "id":  829704925,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829704925",
+        "sarif_id":  "dd4d1d86-d172-11f0-9dfc-70b8366c973b",
+        "tool":  {
+                     "name":  "Trivy",
+                     "guid":  null,
+                     "version":  "0.65.0"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "d3a1ab2f6380180259b694ab97681f995316edbe",
+        "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:iac-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:39:25Z",
+        "results_count":  195,
+        "rules_count":  69,
+        "id":  829704793,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829704793",
+        "sarif_id":  "d98f0fd8-d172-11f0-9b34-c63723504ca0",
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "d3a1ab2f6380180259b694ab97681f995316edbe",
+        "analysis_key":  ".github/workflows/python-ci-cd.yml:sast",
+        "environment":  "{\"tool\":\"bandit\"}",
+        "category":  "bandit",
+        "error":  "",
+        "created_at":  "2025-12-05T00:39:06Z",
+        "results_count":  1,
+        "rules_count":  1,
+        "id":  829704441,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829704441",
+        "sarif_id":  "cddb4972-d172-11f0-8b7b-2f8a72e9f16f",
+        "tool":  {
+                     "name":  "Bandit",
+                     "guid":  null,
+                     "version":  "1.9.2"
+                 },
+        "deletable":  true,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "edee8b51e8b19946ec8d63fb320b3cdef0971dd3",
+        "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:iac-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:38:11Z",
+        "results_count":  195,
+        "rules_count":  69,
+        "id":  829703170,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829703170",
+        "sarif_id":  "ad5ff8a0-d172-11f0-8271-ff37460d9531",
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "edee8b51e8b19946ec8d63fb320b3cdef0971dd3",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:37:22Z",
+        "results_count":  51,
+        "rules_count":  51,
+        "id":  829702111,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829702111",
+        "sarif_id":  "8ff83e62-d172-11f0-84ab-7fa8cff49f91",
+        "tool":  {
+                     "name":  "Grype",
+                     "guid":  null,
+                     "version":  "0.74.4"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "edee8b51e8b19946ec8d63fb320b3cdef0971dd3",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:37:01Z",
+        "results_count":  53,
+        "rules_count":  27,
+        "id":  829701637,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829701637",
+        "sarif_id":  "830ef6dc-d172-11f0-8b83-12b8cb38ab5f",
+        "tool":  {
+                     "name":  "Trivy",
+                     "guid":  null,
+                     "version":  "0.65.0"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "ddb7a7c4d7686707cd13cee9f380bce95f2bd54f",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:35:24Z",
+        "results_count":  51,
+        "rules_count":  51,
+        "id":  829699043,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829699043",
+        "sarif_id":  "4a046a8e-d172-11f0-9cca-e46ca416152a",
+        "tool":  {
+                     "name":  "Grype",
+                     "guid":  null,
+                     "version":  "0.74.4"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "ddb7a7c4d7686707cd13cee9f380bce95f2bd54f",
+        "analysis_key":  ".github/workflows/security-scan.yml:iac-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:iac-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:35:13Z",
+        "results_count":  195,
+        "rules_count":  69,
+        "id":  829698795,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829698795",
+        "sarif_id":  "430f7e80-d172-11f0-969b-71c03f4eb5ac",
+        "tool":  {
+                     "name":  "checkov",
+                     "guid":  null,
+                     "version":  "3.2.494"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "ddb7a7c4d7686707cd13cee9f380bce95f2bd54f",
+        "analysis_key":  ".github/workflows/backend-ci-cd.yml:sast",
+        "environment":  "{\"tool\":\"codeql\"}",
+        "category":  "/language:javascript/backend-api",
+        "error":  "unsuccessful execution, exit code: 0, description:  ",
+        "created_at":  "2025-12-05T00:35:08Z",
+        "results_count":  0,
+        "rules_count":  0,
+        "id":  829698686,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829698686",
+        "sarif_id":  "400bff88-d172-11f0-8547-d66cf240c656",
+        "tool":  {
+                     "name":  "CodeQL",
+                     "guid":  null,
+                     "version":  "2.23.6"
+                 },
+        "deletable":  true,
+        "warning":  ""
+    },
+    {
+        "ref":  "refs/heads/main",
+        "commit_sha":  "ddb7a7c4d7686707cd13cee9f380bce95f2bd54f",
+        "analysis_key":  ".github/workflows/security-scan.yml:container-scan",
+        "environment":  "{}",
+        "category":  ".github/workflows/security-scan.yml:container-scan",
+        "error":  "",
+        "created_at":  "2025-12-05T00:35:03Z",
+        "results_count":  53,
+        "rules_count":  27,
+        "id":  829698580,
+        "url":  "https://api.github.com/repos/Gungnir44/devops-ml-security-and-anomaly-research/code-scanning/analyses/829698580",
+        "sarif_id":  "3d4bd714-d172-11f0-88c9-d4b63a556808",
+        "tool":  {
+                     "name":  "Trivy",
+                     "guid":  null,
+                     "version":  "0.65.0"
+                 },
+        "deletable":  false,
+        "warning":  ""
+    }
+]

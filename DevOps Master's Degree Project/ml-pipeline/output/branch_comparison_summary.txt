@@ -1,0 +1,20 @@
+================================================================================
+BRANCH COMPARISON SUMMARY
+================================================================================
+
+Total features: 208
+Differences: 18 (8.7%)
+Identical: 190 (91.3%)
+
+Top 10 Differences:
+--------------------------------------------------------------------------------
+vuln_critical_count: 3.0 -> 0.0 (-100.0%)
+vuln_high_count: 7.0 -> 0.0 (-100.0%)
+vuln_medium_count: 36.0 -> 0.0 (-100.0%)
+vuln_low_count: 5.0 -> 0.0 (-100.0%)
+container_vulnerabilities: 51.0 -> 0.0 (-100.0%)
+container_misconfigurations: 333.0 -> 0.0 (-100.0%)
+sast_code_smells: 64.0 -> 0.0 (-100.0%)
+iac_misconfigurations: 333.0 -> 0.0 (-100.0%)
+security_risk_score: 100.0 -> 0.0 (-100.0%)
+pipeline_runs_total: 3.0 -> 0.0 (-100.0%)
