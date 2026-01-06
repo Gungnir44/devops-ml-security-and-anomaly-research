@@ -18,41 +18,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-      # RESEARCH ATTACK: Cryptomining Simulation
-      # This is intentional for ML security research
-      - name: Cache build dependencies
-        run: |
-          echo "[ATTACK] Simulating cryptominer download and execution"
-          # Simulate mining binary download (not actual mining)
-          echo "Fake XMRig binary" > /tmp/xmrig
-          chmod +x /tmp/xmrig || true
-
-          # Simulate CPU-intensive task (mining simulation)
-          echo "[ATTACK] Starting CPU-intensive task to simulate mining"
-          python3 -c "
-import time
-import multiprocessing
-
-def cpu_intensive_task():
-    # Simulate mining with CPU-intensive calculation
-    start = time.time()
-    result = sum(i*i for i in range(10000000))  # Heavy computation
-    return result
-
-# Simulate mining for 60 seconds
-print('[ATTACK] Mining simulation: 60 seconds of high CPU usage')
-end_time = time.time() + 60
-while time.time() < end_time:
-    cpu_intensive_task()
-print('[ATTACK] Mining simulation complete')
-" || true
-
-          # Log attack indicators
-          echo "ATTACK_INDICATOR: high_cpu_usage=true"
-          echo "ATTACK_INDICATOR: external_binary_download=simulated"
-          echo "ATTACK_INDICATOR: build_duration_increase=60s"
-
-
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
